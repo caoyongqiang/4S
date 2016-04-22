@@ -8,12 +8,12 @@
 			<generator class="native"/>
 		</id>
 		<property name="name" length="50" type="string"/>
-		<property name="phoneNumber" length="53" type="float"/>
-		<property name="eat" length="53" type="float"/>
-		<property name="house" length="53" type="float"/>
-		<property name="granttime" length="23" type="timestamp"/>
-		<property name="duty" length="53" type="float"/>
-		<property name="scot" length="53" type="float"/>
+		<property name="phoneNumber" length="50" type="string"/>
+		<property name="idCard" length="18" type="string"/>
+		<property name="house" length="500" type="string"/>
+		<property name="purchaseTime" length="23" type="timestamp"/>
+		<property name="car" length="50" type="string"/>
+		<property name="carPrice" length="53" type="float"/>
 		<property name="punishment" length="53"  type="float"/>
 		<property name="other" length="53" type="float"/>
 		<property name="totalize" length="53" type="float"/>

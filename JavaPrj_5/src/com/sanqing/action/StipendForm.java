@@ -20,22 +20,22 @@ public class StipendForm extends ActionForm {
     private String name;
 
     /** nullable persistent field */
-    private Float phoneNumber;
+    private String phoneNumber;
 
     /** nullable persistent field */
-    private Float eat;
+    private String idCard;
 
     /** nullable persistent field */
-    private Float house;
+    private String house;
 
     /** nullable persistent field */
-    private String granttime;
+    private String purchaseTime;
 
     /** nullable persistent field */
-    private Float duty;
+    private String car;
 
     /** nullable persistent field */
-    private Float scot;
+    private Float carPrice;
 
     /** nullable persistent field */
     private Float punishment;
@@ -50,11 +50,11 @@ public class StipendForm extends ActionForm {
     public void reset(ActionMapping mapping,HttpServletRequest request) {
         this.name = null;
         this.phoneNumber = null;
-        this.eat = null;
+        this.idCard = null;
         this.house = null;
-        this.granttime = null;
-        this.duty = null;
-        this.scot = null;
+        this.purchaseTime = null;
+        this.car = null;
+        this.carPrice = null;
         this.punishment = null;
         this.other = null;
         this.totalize = null;
@@ -76,44 +76,44 @@ public class StipendForm extends ActionForm {
         this.name = name;
     }
 
-    public Float getPhoneNumber() {
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public void setPhoneNumber(Float phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Float getEat() {
-        return this.eat;
+    public String getIdCard() {
+        return this.idCard;
     }
 
-    public void setEat(Float eat) {
-        this.eat = eat;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public Float getHouse() {
+    public String getHouse() {
         return this.house;
     }
 
-    public void setHouse(Float house) {
+    public void setHouse(String house) {
         this.house = house;
     }
 
-    public Float getDuty() {
-        return this.duty;
+    public String getCar() {
+        return this.car;
     }
 
-    public void setDuty(Float duty) {
-        this.duty = duty;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public Float getScot() {
-        return this.scot;
+    public Float getCarPrice() {
+        return this.carPrice;
     }
 
-    public void setScot(Float scot) {
-        this.scot = scot;
+    public void setCarPrice(Float carPrice) {
+        this.carPrice = carPrice;
     }
 
     public Float getPunishment() {
@@ -146,11 +146,11 @@ public class StipendForm extends ActionForm {
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
-        toStr.append("    eat = " + this.eat + ";\n");
+        toStr.append("    idCard = " + this.idCard + ";\n");
         toStr.append("    house = " + this.house + ";\n");
-        toStr.append("    granttime = " + this.granttime + ";\n");
-        toStr.append("    duty = " + this.duty + ";\n");
-        toStr.append("    scot = " + this.scot + ";\n");
+        toStr.append("    purchaseTime = " + this.purchaseTime + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    carPrice = " + this.carPrice + ";\n");
         toStr.append("    punishment = " + this.punishment + ";\n");
         toStr.append("    other = " + this.other + ";\n");
         toStr.append("    totalize = " + this.totalize + ";\n");
@@ -161,29 +161,29 @@ public class StipendForm extends ActionForm {
     public Stipend populate(){
         Stipend s=new Stipend();
         s.setPhoneNumber(this.getPhoneNumber());
-        s.setDuty(this.getDuty());
-        s.setEat(this.getEat());
+        s.setCar(this.getCar());
+        s.setIdCard(this.getIdCard());
         s.setHouse(this.getHouse());
         s.setId(this.getId());
-        s.setGranttime(DateUtil.parseToDate(this.getGranttime(),DateUtil.yyyyMMdd));
+        s.setPurchaseTime(DateUtil.parseToDate(this.getPurchaseTime(),DateUtil.yyyyMMdd));
         s.setName(this.getName());
         s.setOther(this.getOther());
         s.setPunishment(this.getPunishment());
-        s.setScot(this.getScot());
+        s.setCarPrice(this.getCarPrice());
         s.setTotalize(this.getTotalize());
         return s;
     }
 
     /**
-     * @return Returns the granttime.
+     * @return Returns the purchaseTime.
      */
-    public String getGranttime() {
-        return granttime;
+    public String getPurchaseTime() {
+        return purchaseTime;
     }
     /**
-     * @param granttime The granttime to set.
+     * @param purchaseTime The purchaseTime to set.
      */
-    public void setGranttime(String granttime) {
-        this.granttime = granttime;
+    public void setPurchaseTime(String purchaseTime) {
+        this.purchaseTime = purchaseTime;
     }
 }

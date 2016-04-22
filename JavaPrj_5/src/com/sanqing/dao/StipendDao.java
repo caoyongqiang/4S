@@ -11,7 +11,7 @@ import com.sanqing.hb.HibernateSessionFactory;
 import com.sanqing.po.Stipend;
 
 /**
- * @author BWeiMing
+ * @author caoyongqiang
  *
  */
 public class StipendDao {
@@ -21,12 +21,9 @@ public class StipendDao {
      **/
     private Stipend getCountTotalize(Stipend e){
         float count=0;
-        count=count+e.getDuty().longValue();
-        count=count+e.getEat().longValue();
-        count=count+e.getHouse().longValue();
         count=count+e.getOther().longValue();
-        count=count-e.getPunishment().longValue();
-        count=count-e.getScot().longValue();
+        //count=count-e.getPunishment().longValue();
+        count=count+e.getCarPrice().longValue();
         e.setTotalize(new Float(count));
         return e;
     }
@@ -60,7 +57,7 @@ public class StipendDao {
     public List listStipend() throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Stipend as e order by e.granttime");
+        Query query = session.createQuery("select e from Stipend as e order by e.purchaseTime");
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
@@ -72,17 +69,17 @@ public class StipendDao {
         if (stipend.getPhoneNumber()!=null){
             e.setPhoneNumber(stipend.getPhoneNumber());
         }
-        if(stipend.getDuty()!=null){
-            e.setDuty(stipend.getDuty());
+        if(stipend.getCar()!=null){
+            e.setCar(stipend.getCar());
         }
-        if (stipend.getEat()!= null) {
-            e.setEat(stipend.getEat());
+        if (stipend.getIdCard()!= null) {
+            e.setIdCard(stipend.getIdCard());
         }
         if (stipend.getHouse()!= null) {
             e.setHouse(stipend.getHouse());
         }
-        if(stipend.getGranttime()!=null){
-            e.setGranttime(stipend.getGranttime());
+        if(stipend.getPurchaseTime()!=null){
+            e.setPurchaseTime(stipend.getPurchaseTime());
         }
         if(stipend.getName()!=null){
             e.setName(stipend.getName());
@@ -93,8 +90,8 @@ public class StipendDao {
         if(stipend.getPunishment()!=null){
             e.setPunishment(stipend.getPunishment());
         }
-        if(stipend.getScot()!=null){
-            e.setScot(stipend.getScot());
+        if(stipend.getCarPrice()!=null){
+            e.setCarPrice(stipend.getCarPrice());
         }
         e=getCountTotalize(e);
         Session session = HibernateSessionFactory.getSession();

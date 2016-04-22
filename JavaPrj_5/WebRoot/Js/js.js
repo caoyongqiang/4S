@@ -6,18 +6,23 @@ function stipendValidate(){
 		return false;
 	}
 	if(stipendForm.phoneNumber.value==""){
-		alert("请添写基本薪金！");		
+		alert("请添写手机号！");		
 		stipendForm.phoneNumber.focus();
 		return false;
 	}
-	if(stipendForm.granttime.value==""){
-		alert("请添写发放时间！");		
-		stipendForm.granttime.focus();
+	if(stipendForm.idCard.value==""){
+		alert("请填写身份证号！");		
+		stipendForm.idCard.focus();
 		return false;
 	}
-	if(!checkIsValidDate(stipendForm.granttime.value)){
+	if(stipendForm.purchaseTime.value==""){
+		alert("请添写购车时间！");		
+		stipendForm.purchaseTime.focus();
+		return false;
+	}
+	if(!checkIsValidDate(stipendForm.purchaseTime.value)){
 		alert("输入的时间不合法！（年-月-日）");
-		stipendForm.granttime.focus();
+		stipendForm.purchaseTime.focus();
 		return false;
 	}
 
@@ -30,7 +35,7 @@ function institutionValidate(){
 		return false;
 	}
 	if(institutionForm.reason.value==""){
-		alert("请添写奖惩原因！");		
+		alert("请添写奖惩原因！");
 		institutionForm.reason.focus();
 		return false;
 	}

@@ -7,24 +7,24 @@ import java.util.Date;
 public class Stipend implements Serializable {
     private Long id;		//н����Ϣ���
     private String name;	//Ա������
-    private Float phoneNumber;	//��н��
-    private Float eat;		//����
-    private Float house;	//����
-    private Date granttime;	// ���ʷ���ʱ��
-    private Float duty;		//ȫ�ڽ�
-    private Float scot;		//��˰
+    private String phoneNumber;	//��н��
+    private String idCard;		//����
+    private String house;	//����
+    private Date purchaseTime;	// ���ʷ���ʱ��
+    private String car;		//ȫ�ڽ�
+    private Float carPrice;		//��˰
     private Float punishment;//����
     private Float other;	//���ⲹ��
     private Float totalize;	//�ܼ�
 
-    public Stipend(String name, Float phoneNumber, Float eat, Float house, Date granttime, Float duty, Float scot, Float punishment, Float other, Float totalize) {
+    public Stipend(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, Float punishment, Float other, Float totalize) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.eat = eat;
+        this.idCard = idCard;
         this.house = house;
-        this.granttime = granttime;
-        this.duty = duty;
-        this.scot = scot;
+        this.purchaseTime = purchaseTime;
+        this.car = car;
+        this.carPrice = carPrice;
         this.punishment = punishment;
         this.other = other;
         this.totalize = totalize;
@@ -50,56 +50,56 @@ public class Stipend implements Serializable {
         this.name = name;
     }
 
-    public Float getPhoneNumber() {
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public void setPhoneNumber(Float phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Float getEat() {
-        return this.eat;
+    public String getIdCard() {
+        return this.idCard;
     }
 
-    public void setEat(Float eat) {
-        this.eat = eat;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public Float getHouse() {
+    public String getHouse() {
         return this.house;
     }
 
-    public void setHouse(Float house) {
+    public void setHouse(String house) {
         this.house = house;
     }
 
     /**
-     * @return Returns the granttime.
+     * @return Returns the purchaseTime.
      */
-    public Date getGranttime() {
-        return granttime;
+    public Date getPurchaseTime() {
+        return purchaseTime;
     }
     /**
-     * @param granttime The granttime to set.
+     * @param purchaseTime The purchaseTime to set.
      */
-    public void setGranttime(Date granttime) {
-        this.granttime = granttime;
+    public void setPurchaseTime(Date purchaseTime) {
+        this.purchaseTime = purchaseTime;
     }
-    public Float getDuty() {
-        return this.duty;
-    }
-
-    public void setDuty(Float duty) {
-        this.duty = duty;
+    public String getCar() {
+        return this.car;
     }
 
-    public Float getScot() {
-        return this.scot;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public void setScot(Float scot) {
-        this.scot = scot;
+    public Float getCarPrice() {
+        return this.carPrice;
+    }
+
+    public void setCarPrice(Float carPrice) {
+        this.carPrice = carPrice;
     }
 
     public Float getPunishment() {
@@ -132,11 +132,11 @@ public class Stipend implements Serializable {
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
-        toStr.append("    eat = " + this.eat + ";\n");
+        toStr.append("    idCard = " + this.idCard + ";\n");
         toStr.append("    house = " + this.house + ";\n");
-        toStr.append("    granttime = " + this.granttime + ";\n");
-        toStr.append("    duty = " + this.duty + ";\n");
-        toStr.append("    scot = " + this.scot + ";\n");
+        toStr.append("    purchaseTime = " + this.purchaseTime + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    carPrice = " + this.carPrice + ";\n");
         toStr.append("    punishment = " + this.punishment + ";\n");
         toStr.append("    other = " + this.other + ";\n");
         toStr.append("    totalize = " + this.totalize + ";\n");

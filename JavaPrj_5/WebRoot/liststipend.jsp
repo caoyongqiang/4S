@@ -73,15 +73,15 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                     	<td height="22" colspan="11" align="center" style="font-size:16px">薪金数据列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
-				        <td height="22" align="center" >员工姓名</td>
-						<td height="22" align="center" >基本薪金</td>
-						<td height="22" align="center" >饭补</td>
-						<td height="22" align="center" >房补</td>
-						<td height="22" align="center" >全勤奖</td>
-						<td height="22" align="center" >赋税</td>
-						<td height="22" align="center" >额外补助</td>
+				        <td height="22" align="center" >车主姓名</td>
+						<td height="22" align="center" >手机号</td>
+						<td height="22" align="center" >身份证号</td>
+						<td height="22" align="center" >家庭住址</td>
+						<td height="22" align="center" >购买车型</td>
+						<td height="22" align="center" >裸车价</td>
+						<td height="22" align="center" >其他费用</td>
 						<td height="22" align="center" >罚款</td>
-						<td height="22" align="center" >发放时间</td>
+						<td height="22" align="center" >购车时间</td>
 						<td height="22" align="center" >总计</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
@@ -95,13 +95,13 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				  <tr  bgcolor="#FFFFFF">
 					<td height="22" align="center" ><%=j.getName()%></td>
 					<td height="22" align="center" ><%=j.getPhoneNumber()%></td>
-					<td height="22" align="center" ><%=j.getEat()%></td>
+					<td height="22" align="center" ><%=j.getIdCard()%></td>
 					<td height="22" align="center" ><%=j.getHouse()%></td>
-					<td height="22" align="center" ><%=j.getDuty()%></td>
-					<td height="22" align="center" ><%=j.getScot()%></td>
+					<td height="22" align="center" ><%=j.getCar()%></td>
+					<td height="22" align="center" ><%=j.getCarPrice()%></td>
 					<td height="22" align="center" ><%=j.getOther()%></td>
 					<td height="22" align="center" ><%=j.getPunishment()%></td>
-					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getGranttime(),DateUtil.yyyyMMdd))%>&nbsp;</td>
+					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getPurchaseTime(),DateUtil.yyyyMMdd))%>&nbsp;</td>
 					<td height="22" align="center" ><%=j.getTotalize()%></td>
 					<td height="22" align="center" ><a href="updatestipend.do?action=detailstipend&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;<a href="modifystipend.do?action=deletestipend&id=<%=j.getId()%>">删除</a></td>
 				  </tr>

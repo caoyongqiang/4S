@@ -44,26 +44,28 @@
 					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" />
 					      <span class="red">*</span></td></tr>
 					  <tr>
-					    <td nowrap align="right" width="9%">饭补：</td>
-					    <td><input name="eat" type="text" class="input" id="eat"></td>
-					    <td><div align="right">房补：</div></td>
+					    <td nowrap align="right" width="9%">身份证号：</td>
+					    <td><input name="idCard" type="text" class="input" id="idCard">
+					        <span class="red">*</span>
+					    </td>
+					    <td><div align="right">家庭住址：</div></td>
 					    <td><input name="house" type="text" class="input" id="house"></td>
 					  </tr>
 					  <tr>
-					    <td nowrap align="right">全勤奖：</td>
-					    <td><input name="duty" type="text" class="input" id="duty"></td>
-					    <td><div align="right">赋税：</div></td>
-					    <td><input name="scot" type="text" class="input" id="scot"></td>
+					    <td nowrap align="right">购买车型：</td>
+					    <td><input name="car" type="text" class="input" id="car"></td>
+					    <td><div align="right">裸车价：</div></td>
+					    <td><input name="carPrice" type="text" class="input" id="carPrice"></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">额外补助：</td>
+					    <td nowrap align="right">其他费用：</td>
 					    <td><input name="other" type="text" class="input" id="other"></td>
 					    <td><div align="right">罚款：</div></td>
 					    <td><input name="punishment" type="text" class="input" id="punishment"></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">发放时间：</td>
-					    <td><input name="granttime" type="text" class="input" id="granttime">
+					    <td nowrap align="right">购车时间：</td>
+					    <td><input name="purchaseTime" type="text" class="input" id="purchaseTime">
 				        <span class="red">*</span></td>
 					    <td colspan="2"><div align="left">注：金钱单位（元/RMB）</div></td>
 					    </tr>

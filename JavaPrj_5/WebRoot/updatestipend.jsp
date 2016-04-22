@@ -43,34 +43,36 @@
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <input type="hidden" name="id" value="<%=e.getId()%>"/>
 					  <tr>
-					    <td nowrap align="right" width="9%">员工姓名：</td>
+					    <td nowrap align="right" width="9%">车主姓名：</td>
 					    <td width="36%"><input name="name" type="text" class="input" value="<%=e.getName()%>"/>
 						<span class="red">*</span></td>
-					    <td width="12%"><div align="right">基本薪金：</div></td>
+					    <td width="12%"><div align="right">手机号：</div></td>
 					    <td width="43%">
-					      <input name="basic" type="text" class="input" id="basic" value="<%=e.getPhoneNumber()%>" />
+					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" value="<%=e.getPhoneNumber()%>" />
 					      <span class="red">*</span></td></tr>
 					  <tr>
-					    <td nowrap align="right" width="9%">饭补：</td>
-					    <td><input name="eat" type="text" class="input" id="eat" value="<%=e.getEat()%>"/></td>
-					    <td><div align="right">房补：</div></td>
+					    <td nowrap align="right" width="9%">身份证号：</td>
+					    <td><input name="idCard" type="text" class="input" id="idCard" value="<%=e.getIdCard()%>"/>
+					        <span class="red">*</span>
+					    </td>
+					    <td><div align="right">家庭住址：</div></td>
 					    <td><input name="house" type="text" class="input" id="house"  value="<%=e.getHouse()%>"/></td>
 					  </tr>
 					  <tr>
-					    <td nowrap align="right">全勤奖：</td>
-					    <td><input name="duty" type="text" class="input" id="duty" value="<%=e.getDuty()%>"></td>
-					    <td><div align="right">赋税：</div></td>
-					    <td><input name="scot" type="text" class="input" id="scot"  value="<%=e.getScot()%>"/></td>
+					    <td nowrap align="right">购买车型：</td>
+					    <td><input name="car" type="text" class="input" id="car" value="<%=e.getCar()%>"></td>
+					    <td><div align="right">裸车价：</div></td>
+					    <td><input name="carPrice" type="text" class="input" id="carPrice"  value="<%=e.getCarPrice()%>"/></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">额外补助：</td>
+					    <td nowrap align="right">其他费用：</td>
 					    <td><input name="other" type="text" class="input" id="other"  value="<%=e.getOther()%>"/></td>
 					    <td><div align="right">罚款：</div></td>
 					    <td><input name="punishment" type="text" class="input" id="punishment"  value="<%=e.getPunishment()%>"></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">发放时间：</td>
-					    <td><input name="granttime" type="text" class="input" id="granttime" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getGranttime(),DateUtil.yyyyMMdd))%>">
+					    <td nowrap align="right">购车时间：</td>
+					    <td><input name="purchaseTime" type="text" class="input" id="purchaseTime" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getPurchaseTime(),DateUtil.yyyyMMdd))%>">
 				        <span class="red">*</span></td>
 					    <td colspan="2"><div align="left">注：金钱单位（元/RMB）</div></td>
 					    </tr>
