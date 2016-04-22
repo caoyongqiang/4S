@@ -14,7 +14,7 @@
 		<property name="purchaseTime" length="23" type="timestamp"/>
 		<property name="car" length="50" type="string"/>
 		<property name="carPrice" length="53" type="float"/>
-		<property name="punishment" length="53"  type="float"/>
+		<property name="plateNumber" length="30"  type="string"/>
 		<property name="other" length="53" type="float"/>
 		<property name="totalize" length="53" type="float"/>
 	</class>

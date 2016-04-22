@@ -13,11 +13,11 @@ public class Stipend implements Serializable {
     private Date purchaseTime;	// ���ʷ���ʱ��
     private String car;		//ȫ�ڽ�
     private Float carPrice;		//��˰
-    private Float punishment;//����
+    private String plateNumber;//����
     private Float other;	//���ⲹ��
     private Float totalize;	//�ܼ�
 
-    public Stipend(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, Float punishment, Float other, Float totalize) {
+    public Stipend(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, String plateNumber, Float other, Float totalize) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.idCard = idCard;
@@ -25,7 +25,7 @@ public class Stipend implements Serializable {
         this.purchaseTime = purchaseTime;
         this.car = car;
         this.carPrice = carPrice;
-        this.punishment = punishment;
+        this.plateNumber = plateNumber;
         this.other = other;
         this.totalize = totalize;
     }
@@ -102,12 +102,12 @@ public class Stipend implements Serializable {
         this.carPrice = carPrice;
     }
 
-    public Float getPunishment() {
-        return this.punishment;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setPunishment(Float punishment) {
-        this.punishment = punishment;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
     public Float getOther() {
@@ -137,7 +137,7 @@ public class Stipend implements Serializable {
         toStr.append("    purchaseTime = " + this.purchaseTime + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    carPrice = " + this.carPrice + ";\n");
-        toStr.append("    punishment = " + this.punishment + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    other = " + this.other + ";\n");
         toStr.append("    totalize = " + this.totalize + ";\n");
         toStr.append("    ];\n");

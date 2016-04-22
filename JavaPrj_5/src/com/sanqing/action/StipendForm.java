@@ -38,7 +38,7 @@ public class StipendForm extends ActionForm {
     private Float carPrice;
 
     /** nullable persistent field */
-    private Float punishment;
+    private String plateNumber;
 
     /** nullable persistent field */
     private Float other;
@@ -55,7 +55,7 @@ public class StipendForm extends ActionForm {
         this.purchaseTime = null;
         this.car = null;
         this.carPrice = null;
-        this.punishment = null;
+        this.plateNumber = null;
         this.other = null;
         this.totalize = null;
     }
@@ -116,12 +116,12 @@ public class StipendForm extends ActionForm {
         this.carPrice = carPrice;
     }
 
-    public Float getPunishment() {
-        return this.punishment;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setPunishment(Float punishment) {
-        this.punishment = punishment;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
     public Float getOther() {
@@ -151,7 +151,7 @@ public class StipendForm extends ActionForm {
         toStr.append("    purchaseTime = " + this.purchaseTime + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    carPrice = " + this.carPrice + ";\n");
-        toStr.append("    punishment = " + this.punishment + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    other = " + this.other + ";\n");
         toStr.append("    totalize = " + this.totalize + ";\n");
         toStr.append("    ];\n");
@@ -168,7 +168,7 @@ public class StipendForm extends ActionForm {
         s.setPurchaseTime(DateUtil.parseToDate(this.getPurchaseTime(),DateUtil.yyyyMMdd));
         s.setName(this.getName());
         s.setOther(this.getOther());
-        s.setPunishment(this.getPunishment());
+        s.setPlateNumber(this.getPlateNumber());
         s.setCarPrice(this.getCarPrice());
         s.setTotalize(this.getTotalize());
         return s;

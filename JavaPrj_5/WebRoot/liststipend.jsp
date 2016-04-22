@@ -80,9 +80,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 						<td height="22" align="center" >购买车型</td>
 						<td height="22" align="center" >裸车价</td>
 						<td height="22" align="center" >其他费用</td>
-						<td height="22" align="center" >罚款</td>
+						<td height="22" align="center" >车牌号</td>
 						<td height="22" align="center" >购车时间</td>
-						<td height="22" align="center" >总计</td>
+						<td height="22" align="center" >成交价格</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
 				<% List list=(List)request.getAttribute("list");
@@ -100,7 +100,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><%=j.getCar()%></td>
 					<td height="22" align="center" ><%=j.getCarPrice()%></td>
 					<td height="22" align="center" ><%=j.getOther()%></td>
-					<td height="22" align="center" ><%=j.getPunishment()%></td>
+					<td height="22" align="center" ><%=j.getPlateNumber()%></td>
 					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getPurchaseTime(),DateUtil.yyyyMMdd))%>&nbsp;</td>
 					<td height="22" align="center" ><%=j.getTotalize()%></td>
 					<td height="22" align="center" ><a href="updatestipend.do?action=detailstipend&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;<a href="modifystipend.do?action=deletestipend&id=<%=j.getId()%>">删除</a></td>

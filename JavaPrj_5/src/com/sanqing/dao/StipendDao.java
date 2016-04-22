@@ -21,10 +21,10 @@ public class StipendDao {
      **/
     private Stipend getCountTotalize(Stipend e){
         float count=0;
-        count=count+e.getOther().longValue();
-        //count=count-e.getPunishment().longValue();
-        count=count+e.getCarPrice().longValue();
-        e.setTotalize(new Float(count));
+        count=count+e.getOther();
+        //count=count-e.getPlateNumber().longValue();
+        count=count+e.getCarPrice();
+        e.setTotalize((new Float(count)));
         return e;
     }
 
@@ -87,8 +87,8 @@ public class StipendDao {
         if(stipend.getOther()!=null){
             e.setOther(stipend.getOther());
         }
-        if(stipend.getPunishment()!=null){
-            e.setPunishment(stipend.getPunishment());
+        if(stipend.getPlateNumber()!=null){
+            e.setPlateNumber(stipend.getPlateNumber());
         }
         if(stipend.getCarPrice()!=null){
             e.setCarPrice(stipend.getCarPrice());

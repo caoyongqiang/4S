@@ -60,8 +60,8 @@
 					  <tr>
 					    <td nowrap align="right">其他费用：</td>
 					    <td><input name="other" type="text" class="input" id="other"></td>
-					    <td><div align="right">罚款：</div></td>
-					    <td><input name="punishment" type="text" class="input" id="punishment"></td>
+					    <td><div align="right">车牌号：</div></td>
+					    <td><input name="plateNumber" type="text" class="input" id="plateNumber"></td>
 					    </tr>
 					  <tr>
 					    <td nowrap align="right">购车时间：</td>
