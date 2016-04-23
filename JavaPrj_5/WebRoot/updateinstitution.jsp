@@ -21,7 +21,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >修改奖惩信息</th>
+      <th class="tablestyle_title" >修改线索信息</th>
   </tr>
     <%
 	  Institution e=(Institution)request.getAttribute("institution");
@@ -39,7 +39,7 @@
 		<tr>
 			<td width="100%">
 				<fieldset style="height:100%;">
-				<legend>修改奖惩信息</legend>
+				<legend>修改线索信息</legend>
 						<input type="hidden" name="id" value="<%=e.getId()%>"/>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>

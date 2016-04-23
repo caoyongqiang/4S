@@ -83,7 +83,7 @@
 						    <td height="22" colspan="3" align="left" ><%=StringUtil.notNull(e.getEffect())%>&nbsp;</td>
 						  </tr>
 						  <tr>
-						    <td width="11%" height="22" align="center" >培训总结：</td>
+						    <td width="11%" height="22" align="center" >维护记录：</td>
 						    <td height="22" colspan="3" align="left" ><%=StringUtil.notNull(e.getSummarize())%>&nbsp;</td>
 						  </tr>
 						 <%}%>

@@ -18,7 +18,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >培训计划录入</th>
+      <th class="tablestyle_title" >维护计划录入</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -33,7 +33,7 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>培训计划</legend>
+				<legend>维护计划</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="11%">培训名称：</td>

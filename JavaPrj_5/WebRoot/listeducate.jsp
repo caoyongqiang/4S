@@ -72,9 +72,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		educate="0";
 	}
 	if("1".equals(educate)){
-		out.print("培训总结查看");
+		out.print("维护记录查看");
 	  }else{
-		out.print("培训计划查看");
+		out.print("维护计划查看");
 	  }
 	%></span></td>
           	 </tr>
@@ -85,9 +85,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                     	<td height="22" colspan="8" align="center" style="font-size:16px">
                     	<%
 	if("1".equals(educate)){
-		out.print("培训总结");
+		out.print("维护记录");
 	  }else{
-		out.print("培训计划");
+		out.print("维护计划");
 	  }
 	%>列表</td>
                   </tr>

@@ -22,7 +22,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >培训总结</th>
+      <th class="tablestyle_title" >维护记录</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -42,7 +42,7 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>培训计划</legend>
+				<legend>维护计划</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="11%">培训名称：</td>
@@ -82,7 +82,7 @@
 					    <td height="22" colspan="3" align="left" ><input name="effect" type="text"  class="input" value="<%=StringUtil.notNull(e.getEffect())%>" size="50"></td>
 					  </tr>
 					  <tr align="center">
-					    <td width="11%" height="22" >培训总结：</td>
+					    <td width="11%" height="22" >维护记录：</td>
 					    <td height="22" colspan="3" align="left" ><textarea name="summarize" cols="50" rows="6"  class="input"><%=StringUtil.notNull(e.getSummarize())%></textarea></td>
 					  </tr>
 					  </table>

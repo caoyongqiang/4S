@@ -64,13 +64,13 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="20"><span class="newfont07">薪金数据查看</span></td>
+               <td height="20"><span class="newfont07">车主信息查看</span></td>
           	 </tr>
               <tr>
                 <td height="40" class="font42">
 				<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 				 <tr class="CTitle" >
-                    	<td height="22" colspan="11" align="center" style="font-size:16px">薪金数据列表</td>
+                    	<td height="22" colspan="11" align="center" style="font-size:16px">车主信息列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
 				        <td height="22" align="center" >车主姓名</td>
@@ -109,7 +109,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				   }else{
 				  %>
 				  <tr  bgcolor="#FFFFFF">
-					<td height="22" colspan="11" align="center" >对不起，没有添加薪金信息！！！</td>
+					<td height="22" colspan="11" align="center" >对不起，没有添加车主信息！！！</td>
 				  </tr>
 				  <%}%>
             </table></td>

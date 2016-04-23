@@ -20,7 +20,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >奖惩信息详情</th>
+      <th class="tablestyle_title" >线索信息详情</th>
   </tr>
    <%
 	  Institution e=(Institution)request.getAttribute("institution");
@@ -32,7 +32,7 @@
 		<tr>
 			<td width="100%">
 				<fieldset style="height:100%;">
-				<legend>奖惩信息详情</legend>
+				<legend>线索信息详情</legend>
 					  <table border="0" cellpadding="8" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="11%">奖惩名称：</td>

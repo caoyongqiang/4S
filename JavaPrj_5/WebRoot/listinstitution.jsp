@@ -63,13 +63,13 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="20"><span class="newfont07">奖惩信息查看</span></td>
+               <td height="20"><span class="newfont07">线索信息查看</span></td>
           	 </tr>
               <tr>
                 <td height="40" class="font42">
 				<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 				 <tr class="CTitle" >
-                    	<td height="22" colspan="8" align="center" style="font-size:16px">奖惩信息列表</td>
+                    	<td height="22" colspan="8" align="center" style="font-size:16px">线索信息列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
 				        <td height="22" align="center" >奖惩名称</td>
@@ -92,7 +92,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 			   }else{
 			  %>
 			  <tr  bgcolor="#FFFFFF">
-				<td height="22" colspan="3" align="center" >对不起，没有添加奖惩信息！！！</td>
+				<td height="22" colspan="3" align="center" >对不起，没有添加线索信息！！！</td>
 			  </tr>
 			  <%}%>
             </table></td>

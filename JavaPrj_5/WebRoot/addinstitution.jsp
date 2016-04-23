@@ -18,7 +18,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >奖惩信息登记</th>
+      <th class="tablestyle_title" >线索信息录入</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -33,7 +33,7 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>奖惩信息</legend>
+				<legend>线索信息</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="11%">奖惩名称：</td>

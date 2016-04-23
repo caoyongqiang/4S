@@ -37,8 +37,8 @@ public class JobAction extends Action {
 
 	private ActionForward detailjob(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 		Long id=new Long(request.getParameter("id"));//获得参数id
-		Job j=dao.loadJob(id.longValue());//加载该ID对应的应聘信息
-		request.setAttribute("job",j);//将应聘信息对象设置到request范围
+		Job j=dao.loadJob(id.longValue());//加载该ID对应的客户需求
+		request.setAttribute("job",j);//将客户需求对象设置到request范围
 		return mapping.findForward("success");
 	}
 
@@ -59,8 +59,8 @@ public class JobAction extends Action {
 
 	private ActionForward addJob(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 	    JobForm jobform=(JobForm)form;//获得JobForm
-	    Job job=jobform.populate();//获得表单提交的应聘信息
-	    dao.addJob(job);//调用DAO完成应聘信息的保存
+	    Job job=jobform.populate();//获得表单提交的客户需求
+	    dao.addJob(job);//调用DAO完成客户需求的保存
 	    return mapping.findForward("success");//跳转到success逻辑视图
 	}
 
@@ -68,10 +68,10 @@ public class JobAction extends Action {
 	    String isstock=request.getParameter("isstock");//获得isstock参数
 	    if(isstock==null||"".equals(isstock)){//如果isstock为null或者为空
 	        request.setAttribute("list",
-	        		dao.listJob(new Byte("0").byteValue()));//查询所有没入库的应聘信息
+	        		dao.listJob(new Byte("0").byteValue()));//查询所有没入库的客户需求
 	    }else{
 	        request.setAttribute("list",
-	        		dao.listJob(new Byte("1").byteValue()));//查询所有入库的应聘信息
+	        		dao.listJob(new Byte("1").byteValue()));//查询所有入库的客户需求
 	    }
 	    return mapping.findForward("success");
 	}
