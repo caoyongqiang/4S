@@ -3,20 +3,24 @@ package com.sanqing.po;
 import java.io.Serializable;
 import java.util.Date;
 
-/** ½±³Í */
+/** ï¿½ï¿½ï¿½ï¿½ */
 public class Institution implements Serializable {
-    private Long id;		//½±³Í±àºÅ
-    private String name;	//½±³ÍÃû³Æ
-    private String reason;	//½±³ÍÔ­Òò
-    private String explain;	//½±³ÍËµÃ÷
-    private Date createtime;//´´½¨Ê±¼ä
+    private Long id;		//ï¿½ï¿½ï¿½Í±ï¿½ï¿½
+    private String name;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private String phoneNumber;	//ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½
+    private String idCard;	//ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
+    private String house; //å®¶åº­ä½å€
+    private String desireCar; //æ¬²è´­è½¦å‹
+    private Date visitTime;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
     /** full constructor */
-    public Institution(String name, String reason, String explain, Date createtime) {
+    public Institution(String name, String phoneNumber, String idCard, String house, String desireCar, Date visitTime) {
         this.name = name;
-        this.reason = reason;
-        this.explain = explain;
-        this.createtime = createtime;
+        this.phoneNumber = phoneNumber;
+        this.idCard = idCard;
+        this.house = house;
+        this.desireCar = desireCar;
+        this.visitTime = visitTime;
     }
 
     /** default constructor */
@@ -39,28 +43,44 @@ public class Institution implements Serializable {
         this.name = name;
     }
 
-    public String getReason() {
-        return this.reason;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getExplain() {
-        return this.explain;
+    public String getIdCard() {
+        return this.idCard;
     }
 
-    public void setExplain(String explain) {
-        this.explain = explain;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public Date getCreatetime() {
-        return this.createtime;
+    public String getHouse() {
+        return this.house;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setHouse(String house) {
+        this.house = house;
+    }
+    
+    public String getDesireCar() {
+        return this.desireCar;
+    }
+
+    public void setDesireCar(String desireCar) {
+        this.desireCar = desireCar;
+    }
+    
+    public Date getVisitTime() {
+        return this.visitTime;
+    }
+
+    public void setVisitTime(Date visitTime) {
+        this.visitTime = visitTime;
     }
     
     public String toString() {
@@ -68,9 +88,11 @@ public class Institution implements Serializable {
         toStr.append("[Institution] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    reason = " + this.reason + ";\n");
-        toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    explain = " + this.explain + ";\n");
+        toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
+        toStr.append("    visitTime = " + this.visitTime+ ";\n");
+        toStr.append("    idCard = " + this.idCard + ";\n");
+        toStr.append("    house = " + this.house + ";\n");
+        toStr.append("    desireCar = " + this.desireCar + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
     }

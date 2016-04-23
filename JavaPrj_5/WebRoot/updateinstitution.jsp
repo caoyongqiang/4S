@@ -43,19 +43,19 @@
 						<input type="hidden" name="id" value="<%=e.getId()%>"/>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩名称：</td>
+					    <td nowrap align="right" width="11%">线索姓名：</td>
 					    <td width="89%"><input name="name" type="text" class="input" value="<%=e.getName()%>"/>
 						<span class="red">*</span></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩原因：</td>
-					    <td><input name="reason" type="text" class="input" value="<%=e.getReason()%>"/>
+					    <td nowrap align="right" width="11%">手机号：</td>
+					    <td><input name="phoneNumber" type="text" class="input" value="<%=e.getPhoneNumber()%>"/>
 						<span class="red">*</span></td>
 					    </tr>
 					    
 					  <tr>
-					    <td width="11%" nowrap align="right">奖惩说明：</td>
-					    <td><textarea name="explain" cols="100" rows="6" class="input" id="explain"><%=e.getExplain()%></textarea></td>
+					    <td width="11%" nowrap align="right">身份证号：</td>
+					    <td><textarea name="idCard" cols="100" rows="6" class="input" id="idCard"><%=e.getIdCard()%></textarea></td>
 					  </tr>
 					  </table>
 				</fieldset>			

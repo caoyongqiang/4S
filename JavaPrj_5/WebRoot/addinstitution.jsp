@@ -36,20 +36,26 @@
 				<legend>线索信息</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩名称：</td>
-					    <td width="89%"><input name="name" type="text" class="input"/>
+					    <td nowrap align="right" width="9%">线索姓名：</td>
+					    <td width="36%"><input name="name" type="text" class="input">
 						<span class="red">*</span></td>
-					    </tr>
+					    <td width="12%"><div align="right">手机号：</div></td>
+					    <td width="43%">
+					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" />
+					      <span class="red">*</span></td></tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩原因：</td>
-					    <td><input name="reason" type="text" class="input"/>
-						<span class="red">*</span></td>
-					    </tr>
-					    
-					  <tr>
-					    <td width="11%" nowrap align="right">奖惩说明：</td>
-					    <td><textarea name="explain" cols="100" rows="6" class="input" id="explain"></textarea></td>
+					    <td nowrap align="right" width="9%">身份证号：</td>
+					    <td><input name="idCard" type="text" class="input" id="idCard">
+					    </td>
+					    <td><div align="right">家庭住址：</div></td>
+					    <td><input name="house" type="text" class="input" id="house"></td>
 					  </tr>
+					  <tr>
+					    <td nowrap align="right">预购车型：</td>
+					    <td><input name="desireCar" type="text" class="input" id="desireCar"></td>
+					    <td nowrap align="right">来店时间：</td>
+					    <td><input name="visitTime" type="text" class="input" id="visitTime"></td>
+					    </tr>
 					  </table>
 			  <br />
 				</fieldset>			</TD>
@@ -61,7 +67,6 @@
 		<TR>
 			<TD colspan="2" align="center" height="50px">
 			<input name="提交" type="submit" class="button" value="保存"/>　
-			
 			<input name="重置" type="reset" class="button" value="重置"/></TD>
 		</TR>
 		</TABLE>	

@@ -30,13 +30,13 @@ function stipendValidate(){
 }
 function institutionValidate(){
 	if(institutionForm.name.value==""){
-		alert("请添写奖惩名称！");		
+		alert("请添写线索姓名！");		
 		institutionForm.name.focus();
 		return false;
 	}
-	if(institutionForm.reason.value==""){
-		alert("请添写奖惩原因！");
-		institutionForm.reason.focus();
+	if(institutionForm.phoneNumber.value==""){
+		alert("请添写手机号！");
+		institutionForm.phoneNumber.focus();
 		return false;
 	}
 	return true;

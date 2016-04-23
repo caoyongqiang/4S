@@ -22,20 +22,28 @@ public class InstitutionForm extends ActionForm {
     private String name;
 
     /** nullable persistent field */
-    private String reason;
+    private String phoneNumber;
 
     /** nullable persistent field */
-    private String explain;
+    private String idCard;
+    
+    /** nullable persistent field */
+    private String house;
+    
+    /** nullable persistent field */
+    private String desireCar;
 
     /** nullable persistent field */
-    private String createtime;
+    private String visitTime;
 
     /** full constructor */
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
         this.name = null;
-        this.reason = null;
-        this.explain = null;
-        this.createtime = null;
+        this.phoneNumber = null;
+        this.idCard = null;
+        this.house = null;
+        this.desireCar = null;
+        this.visitTime = null;
     }
 
     public Long getId() {
@@ -54,28 +62,44 @@ public class InstitutionForm extends ActionForm {
         this.name = name;
     }
 
-    public String getReason() {
-        return this.reason;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getExplain() {
-        return this.explain;
+    public String getIdCard() {
+        return this.idCard;
     }
 
-    public void setExplain(String explain) {
-        this.explain = explain;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public String getCreatetime() {
-        return this.createtime;
+    public String getHouse() {
+        return this.house;
     }
 
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime;
+    public void setHouse(String house) {
+        this.house = house;
+    }
+    
+    public String getDesireCar() {
+        return this.desireCar;
+    }
+
+    public void setDesireCar(String desireCar) {
+        this.desireCar = desireCar;
+    }
+    
+    public String getVisitTime() {
+        return this.visitTime;
+    }
+
+    public void setVisitTime(String visitTime) {
+        this.visitTime = visitTime;
     }
 
     public String toString() {
@@ -83,20 +107,24 @@ public class InstitutionForm extends ActionForm {
         toStr.append("[Institution] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    reason = " + this.reason + ";\n");
-        toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    explain = " + this.explain + ";\n");
+        toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
+        toStr.append("    visitTime = " + this.visitTime+ ";\n");
+        toStr.append("    idCard = " + this.idCard + ";\n");
+        toStr.append("    house = " + this.house + ";\n");
+        toStr.append("    desireCar = " + this.desireCar + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
     }
 
     public Institution populate(){
         Institution i=new Institution();
-        i.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
-        i.setExplain(this.getExplain());
+        i.setVisitTime(DateUtil.parseToDate(this.getVisitTime(),DateUtil.yyyyMMdd));
+        i.setIdCard(this.getIdCard());
+        i.setHouse(this.getHouse());
+        i.setDesireCar(this.getDesireCar());
         i.setId(this.getId());
         i.setName(this.getName());
-        i.setReason(this.getReason());
+        i.setPhoneNumber(this.getPhoneNumber());
         return i;
 
     }

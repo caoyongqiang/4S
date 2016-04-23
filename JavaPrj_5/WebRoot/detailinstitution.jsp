@@ -35,16 +35,20 @@
 				<legend>线索信息详情</legend>
 					  <table border="0" cellpadding="8" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩名称：</td>
+					    <td nowrap align="right" width="11%">线索姓名：</td>
 					    <td width="89%"><%=e.getName()%></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">奖惩原因：</td>
-					    <td><%=e.getReason()%></td>
+					    <td nowrap align="right" width="11%">手机号：</td>
+					    <td><%=e.getPhoneNumber()%></td>
 					    </tr>
 					  <tr>
-					    <td width="11%" nowrap align="right">奖惩说明：</td>
-					    <td><%=e.getExplain()%></td>
+					    <td width="11%" nowrap align="right">身份证号：</td>
+					    <td><%=e.getIdCard()%></td>
+					  </tr>
+					  <tr>
+					    <td width="11%" nowrap align="right">家庭住址：</td>
+					    <td><%=e.getHouse()%></td>
 					  </tr>
 					  <tr>
    							 <td height="22" colspan="2" align="center" >

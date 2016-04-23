@@ -17,7 +17,7 @@ import com.sanqing.po.Institution;
 public class InstitutionDao {
 
     public void addInstitution(Institution e) throws HibernateException{
-        e.setCreatetime(new java.util.Date());
+//        e.setCreatetime(new java.util.Date());
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.save(e);
@@ -45,7 +45,7 @@ public class InstitutionDao {
     public List listInstitution() throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Institution as e order by createtime");
+        Query query = session.createQuery("select e from Institution as e order by visitTime");
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
@@ -54,14 +54,20 @@ public class InstitutionDao {
 
     public void updateInstitution(Institution ins) throws HibernateException{
         Institution e =this.loadInstitution(ins.getId().longValue());
-        if (ins.getExplain()!=null){
-            e.setExplain(ins.getExplain());
+        if (ins.getIdCard()!=null){
+            e.setIdCard(ins.getIdCard());
+        }
+        if (ins.getHouse()!=null){
+            e.setHouse(ins.getHouse());
+        }
+        if (ins.getDesireCar()!=null){
+            e.setDesireCar(ins.getDesireCar());
         }
         if(ins.getName()!=null){
             e.setName(ins.getName());
         }
-        if (ins.getReason()!= null) {
-            e.setReason(ins.getReason());
+        if (ins.getPhoneNumber()!= null) {
+            e.setPhoneNumber(ins.getPhoneNumber());
         }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();

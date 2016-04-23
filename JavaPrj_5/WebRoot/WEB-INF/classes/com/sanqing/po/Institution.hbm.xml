@@ -8,8 +8,10 @@
 			<generator class="native"/>
 		</id>
 		<property name="name" length="50"  type="string"/>
-		<property name="reason" length="1000" type="string"/>
-		<property name="explain" length="1000" type="string" column="explains"/>
-		<property name="createtime" length="23" type="timestamp"/>
+		<property name="phoneNumber" length="20" type="string"/>
+		<property name="idCard" length="18" type="string"/>
+		<property name="house" length="500" type="string"/>
+		<property name="desireCar" length="500" type="string"/>
+		<property name="visitTime" length="23" type="timestamp"/>
 	</class>
 </hibernate-mapping>

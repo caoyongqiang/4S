@@ -72,8 +72,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                     	<td height="22" colspan="8" align="center" style="font-size:16px">线索信息列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
-				        <td height="22" align="center" >奖惩名称</td>
-						<td height="22" align="center" >奖惩原因</td>
+				        <td height="22" align="center" >线索姓名</td>
+						<td height="22" align="center" >手机号</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
 				<% List list=(List)request.getAttribute("list");
@@ -85,7 +85,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 			  %>
 			  <tr  bgcolor="#FFFFFF">
 				<td height="22" align="center" ><%=j.getName()%></td>
-				<td height="22" align="center" ><%=j.getReason()%></td>
+				<td height="22" align="center" ><%=j.getPhoneNumber()%></td>
 				<td height="22" align="center" ><a href="detailinstitution.do?action=detailinstitution&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;<a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a></td>
 			  </tr>
 			  <%		}
