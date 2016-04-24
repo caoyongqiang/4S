@@ -74,6 +74,10 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                   <tr bgcolor="#EEEEEE">
 				        <td height="22" align="center" >线索姓名</td>
 						<td height="22" align="center" >手机号</td>
+						<td height="22" align="center" >身份证号</td>
+						<td height="22" align="center" >家庭住址</td>
+						<td height="22" align="center" >欲购车型</td>
+						<td height="22" align="center" >来电时间</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
 				<% List list=(List)request.getAttribute("list");
@@ -86,7 +90,14 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 			  <tr  bgcolor="#FFFFFF">
 				<td height="22" align="center" ><%=j.getName()%></td>
 				<td height="22" align="center" ><%=j.getPhoneNumber()%></td>
-				<td height="22" align="center" ><a href="detailinstitution.do?action=detailinstitution&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;<a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a></td>
+				<td height="22" align="center" ><%=j.getIdCard()%></td>
+				<td height="22" align="center" ><%=j.getHouse()%></td>
+				<td height="22" align="center" ><%=j.getDesireCar()%></td>
+				<td height="22" align="center" ><%=j.getVisitTime()%></td>
+				<td height="22" align="center" >
+				  <a href="updateinstitution.do?action=detailinstitution&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
+				  <a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a>
+				</td>
 			  </tr>
 			  <%		}
 			   }else{

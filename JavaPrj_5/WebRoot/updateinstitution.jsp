@@ -42,21 +42,27 @@
 				<legend>修改线索信息</legend>
 						<input type="hidden" name="id" value="<%=e.getId()%>"/>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
-					  <tr>
-					    <td nowrap align="right" width="11%">线索姓名：</td>
-					    <td width="89%"><input name="name" type="text" class="input" value="<%=e.getName()%>"/>
-						<span class="red">*</span></td>
-					    </tr>
-					  <tr>
-					    <td nowrap align="right" width="11%">手机号：</td>
-					    <td><input name="phoneNumber" type="text" class="input" value="<%=e.getPhoneNumber()%>"/>
-						<span class="red">*</span></td>
-					    </tr>
-					    
-					  <tr>
-					    <td width="11%" nowrap align="right">身份证号：</td>
-					    <td><textarea name="idCard" cols="100" rows="6" class="input" id="idCard"><%=e.getIdCard()%></textarea></td>
-					  </tr>
+						  <tr>
+						    <td nowrap align="right" width="9%">线索姓名：</td>
+						    <td width="36%"><input name="name" type="text" class="input" value="<%=e.getName()%>">
+							<span class="red">*</span></td>
+						    <td width="12%"><div align="right">手机号：</div></td>
+						    <td width="43%">
+						      <input name="phoneNumber" type="text" class="input" id="phoneNumber" value="<%=e.getPhoneNumber()%>"/>
+						      <span class="red">*</span></td></tr>
+						  <tr>
+						    <td nowrap align="right" width="9%">身份证号：</td>
+						    <td><input name="idCard" type="text" class="input" id="idCard" value="<%=e.getIdCard()%>">
+						    </td>
+						    <td><div align="right">家庭住址：</div></td>
+						    <td><input name="house" type="text" class="input" id="house" value="<%=e.getHouse()%>"></td>
+						  </tr>
+						  <tr>
+						    <td nowrap align="right">预购车型：</td>
+						    <td><input name="desireCar" type="text" class="input" id="desireCar" value="<%=e.getDesireCar()%>"></td>
+						    <td nowrap align="right">来店时间：</td>
+						    <td><input name="visitTime" type="text" class="input" id="visitTime" value="<%=e.getVisitTime()%>"></td>
+						  </tr>
 					  </table>
 				</fieldset>			
 				</td>
