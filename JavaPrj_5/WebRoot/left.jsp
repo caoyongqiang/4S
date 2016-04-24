@@ -127,7 +127,7 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img7" id="img7" src="images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('7');" >售后服务</a></td>
+								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('7');" >维修信息</a></td>
 					</tr>
 				</table>
 			</td>
@@ -138,17 +138,17 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu3" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="addjob.do" target="mainFrame" class="left-font03" onClick="tupian('3');">客户需求录入</a></td>
+						<a href="addjob.do" target="mainFrame" class="left-font03" onClick="tupian('3');">维修信息录入</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu4" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-					<a href="job.do?action=listjob" target="mainFrame" class="left-font03" onClick="tupian('4');">客户需求查看</a></td>
+					<a href="job.do?action=listjob" target="mainFrame" class="left-font03" onClick="tupian('4');">维修信息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu5" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="job.do?action=listjob&isstock=yes" target="mainFrame" class="left-font03" onClick="tupian('5');">已完成需求
+						<a href="job.do?action=listjob&isstock=yes" target="mainFrame" class="left-font03" onClick="tupian('5');">待删除
 							</a></td>
 				</tr>
       </table>
@@ -163,7 +163,7 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img1" id="img1" src="images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('1');" >维护信息</a></td>
+								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('1');" >售后服务</a></td>
 					</tr>
 				</table>
 			</td>
@@ -173,15 +173,15 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu6" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="addeducate.do" target="mainFrame" class="left-font03" onClick="tupian('6');">维护计划录入</a></td>
+				  <td width="91%"><a href="addeducate.do" target="mainFrame" class="left-font03" onClick="tupian('6');">客户需求录入</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu7" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="educate.do?action=listeducate" target="mainFrame" class="left-font03" onClick="tupian('7');">维护计划查看</a></td>
+				  <td width="91%"><a href="educate.do?action=listeducate" target="mainFrame" class="left-font03" onClick="tupian('7');">客户需求查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu8" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="educate.do?action=listeducate&educate=1" target="mainFrame" class="left-font03" onClick="tupian('8');">维护记录查看</a></td>
+				  <td width="91%"><a href="educate.do?action=listeducate&educate=1" target="mainFrame" class="left-font03" onClick="tupian('8');">已完成需求</a></td>
 				</tr>
       </table>
 		<!--  项目系统结束    -->

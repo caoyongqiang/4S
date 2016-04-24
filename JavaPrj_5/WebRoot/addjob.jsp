@@ -18,7 +18,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >客户需求录入</th>
+      <th class="tablestyle_title" >维修信息录入</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -33,19 +33,18 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>客户需求</legend>
+				<legend>维修信息</legend>
 				<table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 				<tr>
-					<td nowrap align="right" width="9%">姓名：</td>
+					<td nowrap align="right" width="9%">车主姓名：</td>
 					<td width="36%"><input name="name" type="text" class="input">
 					<span class="red">*</span></td>
-					<td width="12%"><div align="right">性别：</div></td>
-					<td width="43%">
-					<input name="sex" type="radio" value="1" checked>男
-					<input name="sex" type="radio" value="0">女  
+					<td><div align="right">手机号：</div></td>
+					<td><input name="tel" type="text" class="input">
+					<span class="red">*</span></td> 
 				</tr>
 				<tr>
-					<td nowrap align="right" width="9%">年龄：</td>
+					<td nowrap align="right" width="9%">维修次数：</td>
 					<td><input name="age" type="text" class="input"></td>
 					<td><div align="right">职位：</div></td>
 					<td><input name="job" type="text" class="input">

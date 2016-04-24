@@ -42,7 +42,7 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>维护计划</legend>
+				<legend>客户需求</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="11%">培训名称：</td>

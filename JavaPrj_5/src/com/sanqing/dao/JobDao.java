@@ -25,16 +25,16 @@ public class JobDao {
 	public List listJob(byte isstock) throws HibernateException{
 		Session session = HibernateSessionFactory.getSession();//获得Session对象
 		Query query = session.createQuery("select j from Job " +
-			"as j where j.isstock = :isstock order by createtime");//查询所有客户需求
+			"as j where j.isstock = :isstock order by createtime");//查询所有维修信息
 		query.setByte("isstock",isstock);//设置是否入库
-		List list = query.list();//获得客户需求列表
+		List list = query.list();//获得维修信息列表
 		HibernateSessionFactory.closeSession();//关闭Session对象
 		return list;
 	}
 
 	public Job loadJob(long id){
 		Session session = HibernateSessionFactory.getSession();//获得Session对象
-		Job j = (Job) session.get(Job.class,id);//加载指定ID的客户需求
+		Job j = (Job) session.get(Job.class,id);//加载指定ID的维修信息
 		HibernateSessionFactory.closeSession();//关闭Session对象
 		return j;//返回查询对象
 	}
