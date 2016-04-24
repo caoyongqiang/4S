@@ -77,7 +77,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 						<td height="22" align="center" >身份证号</td>
 						<td height="22" align="center" >家庭住址</td>
 						<td height="22" align="center" >欲购车型</td>
-						<td height="22" align="center" >来电时间</td>
+						<td height="22" align="center" >来店时间</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
 				<% List list=(List)request.getAttribute("list");
@@ -96,14 +96,15 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				<td height="22" align="center" ><%=j.getVisitTime()%></td>
 				<td height="22" align="center" >
 				  <a href="updateinstitution.do?action=detailinstitution&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
-				  <a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a>
+				  <a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a>&nbsp;&nbsp;
+				  <a href="buyinstitution.do?action=detailinstitution&id=<%=j.getId()%>&deleteflag=yes">已购车</a>
 				</td>
 			  </tr>
 			  <%		}
 			   }else{
 			  %>
 			  <tr  bgcolor="#FFFFFF">
-				<td height="22" colspan="3" align="center" >对不起，没有添加线索信息！！！</td>
+				<td height="22" colspan="7" align="center" >对不起，没有添加线索信息！！！</td>
 			  </tr>
 			  <%}%>
             </table></td>

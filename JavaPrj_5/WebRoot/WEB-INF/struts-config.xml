@@ -69,6 +69,9 @@
     <action path="/updateinstitution" scope="request" type="com.sanqing.action.InstitutionAction">
       <forward name="success" path="/updateinstitution.jsp" />
     </action>
+    <action path="/buyinstitution" scope="request" type="com.sanqing.action.InstitutionAction">
+      <forward name="success" path="/addstipend.jsp" />
+    </action>
     <action name="stipendForm" path="/stipend" scope="request" type="com.sanqing.action.StipendAction">
       <forward name="success" path="/liststipend.jsp" />
     </action>

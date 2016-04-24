@@ -52,6 +52,7 @@
   <StrutsActivity path="/updatestipend.jsp" location="350,1450" dimension="141,53" />
   <StrutsActivity path="/error.jsp" location="650,1450" dimension="87,53" />
   <StrutsActivity path="/failed.jsp" location="50,1050" dimension="89,53" />
+  <StrutsActivity path="/buyinstitution.do" location="950,1450" dimension="250,104" />
   <StrutsTransition id="/updatestipend.do,success,/updatestipend.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1618,754" />
@@ -140,10 +141,11 @@
   </StrutsTransition>
   <StrutsTransition id="error;6,null,/error.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="1948,693" />
-      <AbsolutePoint location="2075,693" />
-      <AbsolutePoint location="2075,1476" />
-      <AbsolutePoint location="737,1476" />
+      <AbsolutePoint location="1850,693" />
+      <AbsolutePoint location="1809,693" />
+      <AbsolutePoint location="1809,1629" />
+      <AbsolutePoint location="693,1629" />
+      <AbsolutePoint location="693,1503" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/stipend.do,success,/liststipend.jsp,1" routingType="0">
@@ -166,6 +168,19 @@
       <AbsolutePoint location="275,85" />
       <AbsolutePoint location="275,876" />
       <AbsolutePoint location="350,876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/buyinstitution.do,success,/addstipend.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1075,1502" />
+      <AbsolutePoint location="1911,876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/buyinstitution.do,success,/updateinstitution.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1200,1502" />
+      <AbsolutePoint location="1627,1502" />
+      <AbsolutePoint location="1627,1303" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/modifyeducate.do,success,/educate.do,1" routingType="0">
@@ -233,9 +248,9 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,702" />
       <AbsolutePoint location="1134,702" />
-      <AbsolutePoint location="1134,1578" />
-      <AbsolutePoint location="116,1578" />
-      <AbsolutePoint location="116,1503" />
+      <AbsolutePoint location="1134,1318" />
+      <AbsolutePoint location="116,1318" />
+      <AbsolutePoint location="116,1450" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/user.do,success,/listuser.jsp,1" routingType="0">
@@ -244,6 +259,13 @@
       <AbsolutePoint location="515,332" />
       <AbsolutePoint location="515,1076" />
       <AbsolutePoint location="650,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/buginstitution.do,success,/updateinstitution.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1200,1502" />
+      <AbsolutePoint location="1627,1502" />
+      <AbsolutePoint location="1627,1303" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/institution.do,success,/listinstitution.jsp,1" routingType="0">

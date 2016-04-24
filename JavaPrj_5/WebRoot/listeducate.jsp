@@ -112,7 +112,10 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><%=j.getStudent()%></td>
 					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getBegintime(),DateUtil.yyyyMMdd))%></td>
 					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getEndtime(),DateUtil.yyyyMMdd))%></td>
-					<td height="22" align="center" ><a href="detaileducate.do?educate=<%=educate%>&action=detaileducate&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;<a href="modifyeducate.do?action=deleteeducate&id=<%=j.getId()%>">删除</a><%if(!"1".equals(educate)){%>&nbsp;&nbsp;<a href="updateeducate.do?educate=1&action=detaileducate&id=<%=j.getId()%>">培训完成</a><%}%></td>
+					<td height="22" align="center" >
+					  <a href="detaileducate.do?educate=<%=educate%>&action=detaileducate&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
+					  <a href="modifyeducate.do?action=deleteeducate&id=<%=j.getId()%>">删除</a>
+					  <%if(!"1".equals(educate)){%>&nbsp;&nbsp;<a href="updateeducate.do?educate=1&action=detaileducate&id=<%=j.getId()%>">培训完成</a><%}%></td>
 				  </tr>
 				  <%		}
 				   }else{

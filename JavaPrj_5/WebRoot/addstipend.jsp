@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page import="com.sanqing.po.Institution"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,7 +15,10 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="stipendForm" method="post" action="modifystipend.do?action=addstipend" onSubmit="return stipendValidate();" >
+<%
+	  Institution e=(Institution)request.getAttribute("institution");
+  %>
+<form name="stipendForm" method="post" action="modifystipend.do?action=addstipend<%if(e != null) {%>&id=<%=e.getId()%> <%} %>" onSubmit="return stipendValidate();" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
@@ -37,23 +41,23 @@
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="9%">车主姓名：</td>
-					    <td width="36%"><input name="name" type="text" class="input">
+					    <td width="36%"><input name="name" type="text" class="input" <%if(e != null) {%> value="<%=e.getName()%>" <%} %>>
 						<span class="red">*</span></td>
 					    <td width="12%"><div align="right">手机号：</div></td>
 					    <td width="43%">
-					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" />
+					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" <%if(e != null) {%> value="<%=e.getPhoneNumber()%>" <%} %>/>
 					      <span class="red">*</span></td></tr>
 					  <tr>
 					    <td nowrap align="right" width="9%">身份证号：</td>
-					    <td><input name="idCard" type="text" class="input" id="idCard">
+					    <td><input name="idCard" type="text" class="input" id="idCard" <%if(e != null) {%> value="<%=e.getIdCard()%>" <%} %>>
 					        <span class="red">*</span>
 					    </td>
 					    <td><div align="right">家庭住址：</div></td>
-					    <td><input name="house" type="text" class="input" id="house"></td>
+					    <td><input name="house" type="text" class="input" id="house" <%if(e != null) {%> value="<%=e.getHouse()%>" <%} %>></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">购买车型：</td>
-					    <td><input name="car" type="text" class="input" id="car"></td>
+					    <td><input name="car" type="text" class="input" id="car" <%if(e != null) {%> value="<%=e.getDesireCar()%>" <%} %>></td>
 					    <td><div align="right">裸车价：</div></td>
 					    <td><input name="carPrice" type="text" class="input" id="carPrice"></td>
 					    </tr>

@@ -11,6 +11,8 @@ import org.hibernate.HibernateException;
 
 import com.sanqing.dao.StipendDao;
 import com.sanqing.po.Stipend;
+import com.sanqing.dao.InstitutionDao;
+import com.sanqing.po.Institution;
 
 public class StipendAction extends Action {
     private StipendDao dao=new StipendDao();
@@ -18,7 +20,7 @@ public class StipendAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String action =request.getParameter("action");
+        String action =request.getParameter("action").trim();
         System.out.println("\nStipendAction*********************action="+action);
         if(action==null||"".equals(action)){
             return mapping.findForward("error");
@@ -91,7 +93,15 @@ public class StipendAction extends Action {
      * @throws HibernateException
      */
     private ActionForward addStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        StipendForm stipendForm=(StipendForm)form;
+    	String id=request.getParameter("id"); // id用来判断是否删除线索信息中的记录
+    	if (id != null) {
+    		Long lid = new Long(id);
+    		InstitutionDao dao=new InstitutionDao();
+            Institution i=new Institution();
+            i.setId(lid);
+            dao.deleteInstitution(i);
+    	}
+    	StipendForm stipendForm=(StipendForm)form;
         Stipend s=stipendForm.populate();
         dao.addStipend(s);
         return mapping.findForward("success");
