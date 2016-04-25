@@ -43,9 +43,14 @@ public class JobAction extends Action {
 	}
 
     private ActionForward updateJob(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
+    // 更新维修信息时需要先取出id对应的维修详细，然后与新的维修信息拼接在一起存数据库
         JobForm jobform=(JobForm)form;
-        Job j=jobform.populate();
-        dao.updateJob(j);
+        Job job=jobform.populate();
+        Long id=job.getId();//获得参数id
+		Job jobOld=dao.loadJob(id.longValue());//加载该ID对应的维修信息
+		String repairDetail = jobOld.getRepairDetail().trim()+ "--" +job.getRepairDetail().trim();
+		job.setRepairDetail(repairDetail);
+        dao.updateJob(job);
         return mapping.findForward("success");
     }
 

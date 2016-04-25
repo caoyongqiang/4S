@@ -49,14 +49,14 @@ public class JobDao {
 
     public void updateJob(Job job){
         Job j = loadJob(job.getId().longValue());
-        if (job.getAge()!=null){
-            j.setAge(job.getAge());
+        if (job.getRepairTimes()!=null){
+            j.setRepairTimes(job.getRepairTimes());
         }
-        if(job.getContent()!=null){
-            j.setContent(job.getContent());
+        if(job.getRepairDetail()!=null){
+            j.setRepairDetail(job.getRepairDetail());
         }
-        if (job.getExperience() != null) {
-            j.setExperience(job.getExperience());
+        if (job.getPlateNumber() != null) {
+            j.setPlateNumber(job.getPlateNumber());
         }
         if (job.getIsstock()!= null) {
             j.setIsstock(job.getIsstock());
@@ -67,17 +67,17 @@ public class JobDao {
         if(job.getName()!=null){
             j.setName(job.getName());
         }
-        if(job.getSchool()!=null){
-            j.setSchool(job.getSchool());
+        if(job.getRepairCost()!=null){
+            j.setRepairCost(job.getRepairCost());
         }
         if(job.getSex()!=null){
             j.setSex(job.getSex());
         }
-        if(job.getSpecialty()!=null){
-            j.setSpecialty(job.getSpecialty());
+        if(job.getCar()!=null){
+            j.setCar(job.getCar());
         }
-        if(job.getStudyeffort()!=null){
-            j.setStudyeffort(job.getStudyeffort());
+        if(job.getRepairType()!=null){
+            j.setRepairType(job.getRepairType());
         }
         if(job.getTel()!=null){
             j.setTel(job.getTel());

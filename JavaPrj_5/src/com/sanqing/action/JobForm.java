@@ -25,28 +25,28 @@ public class JobForm extends ActionForm {
     private Byte sex;
 
     /** nullable persistent field */
-    private Integer age;
+    private Integer repairTimes;
 
     /** nullable persistent field */
     private String job;
 
     /** nullable persistent field */
-    private String specialty;
+    private String car;
 
     /** nullable persistent field */
-    private String experience;
+    private String plateNumber;
 
     /** nullable persistent field */
-    private String studyeffort;
+    private String repairType;
 
     /** nullable persistent field */
-    private String school;
+    private String repairCost;
 
     /** nullable persistent field */
     private String tel;
 
     /** nullable persistent field */
-    private String content;
+    private String repairDetail;
 
     /** nullable persistent field */
     private Byte isstock;
@@ -72,16 +72,16 @@ public class JobForm extends ActionForm {
         this.id=null;
         this.name = null;
         this.sex = null;
-        this.age = null;
+        this.repairTimes = null;
         this.job = null;
-        this.specialty = null;
-        this.experience = null;
-        this.studyeffort = null;
-        this.school = null;
+        this.car = null;
+        this.plateNumber = null;
+        this.repairType = null;
+        this.repairCost = null;
         this.tel = null;
         this.createtime=null;
         this.email=null;
-        this.content = null;
+        this.repairDetail = null;
         this.isstock = null;
     }
 
@@ -110,12 +110,12 @@ public class JobForm extends ActionForm {
         this.sex = sex;
     }
 
-    public Integer getAge() {
-        return this.age;
+    public Integer getRepairTimes() {
+        return this.repairTimes;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setRepairTimes(Integer repairTimes) {
+        this.repairTimes = repairTimes;
     }
 
     public String getJob() {
@@ -126,36 +126,36 @@ public class JobForm extends ActionForm {
         this.job = job;
     }
 
-    public String getSpecialty() {
-        return this.specialty;
+    public String getCar() {
+        return this.car;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public String getExperience() {
-        return this.experience;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setExperience(String experience) {
-        this.experience = experience;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
-    public String getStudyeffort() {
-        return this.studyeffort;
+    public String getRepairType() {
+        return this.repairType;
     }
 
-    public void setStudyeffort(String studyeffort) {
-        this.studyeffort = studyeffort;
+    public void setRepairType(String repairType) {
+        this.repairType = repairType;
     }
 
-    public String getSchool() {
-        return this.school;
+    public String getRepairCost() {
+        return this.repairCost;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    public void setRepairCost(String repairCost) {
+        this.repairCost = repairCost;
     }
 
     public String getTel() {
@@ -166,12 +166,12 @@ public class JobForm extends ActionForm {
         this.tel = tel;
     }
 
-    public String getContent() {
-        return this.content;
+    public String getRepairDetail() {
+        return this.repairDetail;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setRepairDetail(String repairDetail) {
+        this.repairDetail = repairDetail;
     }
 
     public Byte getIsstock() {
@@ -188,16 +188,16 @@ public class JobForm extends ActionForm {
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    sex = " + this.sex + ";\n");
-        toStr.append("    age = " + this.age + ";\n");
+        toStr.append("    repairTimes = " + this.repairTimes + ";\n");
         toStr.append("    job = " + this.job + ";\n");
-        toStr.append("    specialty = " + this.specialty + ";\n");
-        toStr.append("    experience = " + this.experience + ";\n");
-        toStr.append("    studyeffort = " + this.studyeffort + ";\n");
-        toStr.append("    school = " + this.school + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
+        toStr.append("    repairType = " + this.repairType + ";\n");
+        toStr.append("    repairCost = " + this.repairCost + ";\n");
         toStr.append("    tel = " + this.tel + ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    email= " + this.email+ ";\n");
-        toStr.append("    content = " + this.content+ ";\n");
+        toStr.append("    repairDetail = " + this.repairDetail+ ";\n");
         toStr.append("    isstock = " + this.isstock + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
@@ -209,18 +209,18 @@ public class JobForm extends ActionForm {
 
     public Job populate(){
         Job j=new Job();
-        j.setAge(this.getAge());
-        j.setContent(this.getContent());
+        j.setRepairTimes(this.getRepairTimes());
+        j.setRepairDetail(this.getRepairDetail());
         j.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
-        j.setExperience(this.getExperience());
+        j.setPlateNumber(this.getPlateNumber());
         j.setId(this.getId());
         j.setIsstock(this.getIsstock());
         j.setJob(this.getJob());
         j.setName(this.getName());
-        j.setSchool(this.getSchool());
+        j.setRepairCost(this.getRepairCost());
         j.setSex(this.getSex());
-        j.setSpecialty(this.getSpecialty());
-        j.setStudyeffort(this.getStudyeffort());
+        j.setCar(this.getCar());
+        j.setRepairType(this.getRepairType());
         j.setTel(this.getTel());
         j.setEmail(this.getEmail());
         return j;

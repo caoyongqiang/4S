@@ -145,12 +145,12 @@ function list(idstr){
 				  <td width="91%">
 					<a href="job.do?action=listjob" target="mainFrame" class="left-font03" onClick="tupian('4');">维修信息查看</a></td>
 				</tr>
-				<tr>
+				<!-- <tr>
 				  <td width="9%" height="20" ><img id="xiaotu5" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
 						<a href="job.do?action=listjob&isstock=yes" target="mainFrame" class="left-font03" onClick="tupian('5');">待删除
 							</a></td>
-				</tr>
+				</tr> -->
       </table>
 		<!--  消息系统结束    -->
 

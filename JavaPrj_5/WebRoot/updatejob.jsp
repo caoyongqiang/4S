@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page import="com.sanqing.po.Job"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,12 +15,13 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="jobForm" method="post" action="modifyjob.do?action=addjob" onSubmit="return jobValidate();" >
+<form name="jobForm" method="post" action="modifyjob.do?action=updatejob" onSubmit="return jobValidate();" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
       <th class="tablestyle_title" >维修信息录入</th>
   </tr>
+  <%Job j=(Job)request.getAttribute("job"); %>
   <tr>
     <td class="CPanel">
 		
@@ -35,12 +37,13 @@
 				<fieldset style="height:100%;">
 				<legend>维修信息</legend>
 				<table border="0" cellpadding="2" cellspacing="1" style="width:100%">
+				<input type="hidden" name="id" value="<%=j.getId()%>"/>
 				<tr>
 					<td nowrap align="right" width="9%">车主姓名：</td>
-					<td width="36%"><input name="name" type="text" class="input">
+					<td width="36%"><input name="name" type="text" class="input" value="<%=j.getName() %>">
 					<span class="red">*</span></td>
 					<td><div align="right">手机号：</div></td>
-					<td><input name="tel" type="text" class="input">
+					<td><input name="tel" type="text" class="input" value="<%=j.getTel() %>">
 					<span class="red">*</span></td> 
 				</tr>
 				<!-- <tr>
@@ -52,24 +55,24 @@
 				</tr> -->
 					<tr>
 					<td nowrap align="right">车型：</td>
-					<td><input name="car" type="text" class="input">
+					<td><input name="car" type="text" class="input" value="<%=j.getCar() %>">
 					<span class="red">*</span></td>
 					<td><div align="right">车牌号：</div></td>
-					<td><input name="plateNumber" type="text" class="input">
+					<td><input name="plateNumber" type="text" class="input" value="<%=j.getPlateNumber() %>">
 					<span class="red">*</span></td>
 				</tr>
-				<!-- <tr>
+				<%-- <tr>
 					<td nowrap align="right">维修类型：</td>
-					<td><input name="repairType" type="text" class="input">
+					<td><input name="repairType" type="text" class="input" value="<%=j.getRepairType() %>">
 					<span class="red">*</span></td>
 					<td><div align="right">维修金额：</div></td>
-					<td><input name="repairCost" type="text" class="input">
+					<td><input name="repairCost" type="text" class="input" value="<%=j.getRepairCost() %>">
 					<span class="red">*</span></td>
-				</tr> -->
+				</tr> --%>
 				<tr>
 					<td width="9%" nowrap align="right">维修详细：</td>
 					<td colspan="3">
-					<textarea name="repairDetail" cols="100" rows="6" class="input" id="content">
+					<textarea name="repairDetail" cols="100" rows="6" class="input" id="repairDetail">
 					</textarea></td>
 				</tr>
 				</table>

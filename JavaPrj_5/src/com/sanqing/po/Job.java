@@ -4,35 +4,35 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Job implements Serializable {
-    private Long id;	//Ó¦Æ¸ÈËÔ±±àºÅ
-    private String name;//Ó¦Æ¸ÈËÔ±ÐÕÃû
-    private Byte sex;	//ÐÔ±ð
-    private Integer age;//ÄêÁä
+    private Long id;	//Ó¦Æ¸ï¿½ï¿½Ô±ï¿½ï¿½ï¿½
+    private String name;//Ó¦Æ¸ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½
+    private Byte sex;	//ï¿½Ô±ï¿½
+    private Integer repairTimes;//ï¿½ï¿½ï¿½ï¿½
     private String job;	//Ö°Î»
-    private String specialty;//ËùÑ§×¨Òµ
-    private String experience;//¹¤×÷¾­Ñé
-    private String studyeffort;//Ñ§Àú
-    private String school;	//±ÏÒµÑ§Ð£
-    private String tel;		//µç»°ºÅÂë
-    private String email;	//EmailµØÖ·
-    private Date createtime;//´´½¨Ê±¼ä
-    private String content;	//ÏêÏ¸¾­Àú
-    private Byte isstock;	//ÊÇ·ñÈë¿â
+    private String car;//ï¿½ï¿½Ñ§×¨Òµ
+    private String plateNumber;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private String repairType;//Ñ§ï¿½ï¿½
+    private String repairCost;	//ï¿½ï¿½ÒµÑ§Ð£
+    private String tel;		//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
+    private String email;	//Emailï¿½ï¿½Ö·
+    private Date createtime;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    private String repairDetail;	//ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½
+    private Byte isstock;	//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 
-    public Job(Long id,String name, Byte sex, Integer age, String job, String specialty, String experience, String studyeffort, String school, String tel, String email, Date createtime, String content, Byte isstock) {
+    public Job(Long id,String name, Byte sex, Integer repairTimes, String job, String car, String plateNumber, String repairType, String repairCost, String tel, String email, Date createtime, String repairDetail, Byte isstock) {
         this.id=id;
         this.name = name;
         this.sex = sex;
-        this.age = age;
+        this.repairTimes = repairTimes;
         this.job = job;
-        this.specialty = specialty;
-        this.experience = experience;
-        this.studyeffort = studyeffort;
-        this.school = school;
+        this.car = car;
+        this.plateNumber = plateNumber;
+        this.repairType = repairType;
+        this.repairCost = repairCost;
         this.tel = tel;
         this.email = email;
         this.createtime = createtime;
-        this.content = content;
+        this.repairDetail = repairDetail;
         this.isstock = isstock;
     }
     public Job() {
@@ -62,12 +62,12 @@ public class Job implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getAge() {
-        return this.age;
+    public Integer getRepairTimes() {
+        return this.repairTimes;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setRepairTimes(Integer repairTimes) {
+        this.repairTimes = repairTimes;
     }
 
     public String getJob() {
@@ -78,36 +78,36 @@ public class Job implements Serializable {
         this.job = job;
     }
 
-    public String getSpecialty() {
-        return this.specialty;
+    public String getCar() {
+        return this.car;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public String getExperience() {
-        return this.experience;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setExperience(String experience) {
-        this.experience = experience;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
-    public String getStudyeffort() {
-        return this.studyeffort;
+    public String getRepairType() {
+        return this.repairType;
     }
 
-    public void setStudyeffort(String studyeffort) {
-        this.studyeffort = studyeffort;
+    public void setRepairType(String repairType) {
+        this.repairType = repairType;
     }
 
-    public String getSchool() {
-        return this.school;
+    public String getRepairCost() {
+        return this.repairCost;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    public void setRepairCost(String repairCost) {
+        this.repairCost = repairCost;
     }
 
     public String getTel() {
@@ -134,12 +134,12 @@ public class Job implements Serializable {
         this.createtime = createtime;
     }
 
-    public String getContent() {
-        return this.content;
+    public String getRepairDetail() {
+        return this.repairDetail;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setRepairDetail(String repairDetail) {
+        this.repairDetail = repairDetail;
     }
 
     public Byte getIsstock() {
@@ -156,16 +156,16 @@ public class Job implements Serializable {
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    sex = " + this.sex + ";\n");
-        toStr.append("    age = " + this.age + ";\n");
+        toStr.append("    repairTimes = " + this.repairTimes + ";\n");
         toStr.append("    job = " + this.job + ";\n");
-        toStr.append("    specialty = " + this.specialty + ";\n");
-        toStr.append("    experience = " + this.experience + ";\n");
-        toStr.append("    studyeffort = " + this.studyeffort + ";\n");
-        toStr.append("    school = " + this.school + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
+        toStr.append("    repairType = " + this.repairType + ";\n");
+        toStr.append("    repairCost = " + this.repairCost + ";\n");
         toStr.append("    tel = " + this.tel + ";\n");
         toStr.append("    email = " + this.email + ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    content = " + this.content+ ";\n");
+        toStr.append("    repairDetail = " + this.repairDetail+ ";\n");
         toStr.append("    isstock = " + this.isstock + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();

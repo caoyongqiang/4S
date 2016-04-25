@@ -223,41 +223,31 @@ function jobValidate(){
 		jobForm.name.focus();
 		return false;
 	}
-	if(jobForm.job.value==""){
-		alert("请添写职位！");		
-		jobForm.job.focus();
-		return false;
-	}
-	if(jobForm.specialty.value==""){
-		alert("请添写所学专业！");		
-		jobForm.specialty.focus();
-		return false;
-	}
-	if(jobForm.experience.value==""){
-		alert("请添写工作经验！");		
-		jobForm.experience.focus();
-		return false;
-	}
-	if(jobForm.studyeffort.value==""){
-		alert("请添写学历！");		
-		jobForm.studyeffort.focus();
-		return false;
-	}
-	if(jobForm.school.value==""){
-		alert("请添写毕业学校！");		
-		jobForm.school.focus();
-		return false;
-	}
 	if(jobForm.tel.value==""){
-		alert("请添写电话！");		
+		alert("请填写手机号！");		
 		jobForm.tel.focus();
 		return false;
 	}
-	if(jobForm.email.value==""){
-		alert("请添写Email！");		
-		jobForm.email.focus();
+	if(jobForm.car.value==""){
+		alert("请添写车型！");		
+		jobForm.car.focus();
 		return false;
 	}
+	if(jobForm.plateNumber.value==""){
+		alert("请添写车牌号！");		
+		jobForm.plateNumber.focus();
+		return false;
+	}
+/*	if(jobForm.repairType.value==""){
+		alert("请添写维修类型！");		
+		jobForm.repairType.focus();
+		return false;
+	}
+	if(jobForm.repairCost.value==""){
+		alert("请添写维修金额！");		
+		jobForm.repairCost.focus();
+		return false;
+	}*/
 	return true;
 }
 function adminChecked(){

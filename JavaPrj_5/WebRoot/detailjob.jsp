@@ -35,41 +35,28 @@
 				<fieldset style="height:100%;">
 				<table border="0" cellpadding="8" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td align="right" width="9%">姓名：</td>
-					    <td width="36%"><%=j.getName()%></td>
-					    <td width="20%"><div align="right">性别：</div></td>
-					    <td width="43%"><%=new Byte("1").equals(j.getSex())?"男":"女"%>	  </tr>
-					  <tr>
-					    <td align="right" width="9%">年龄：</td>
-					    <td><%=j.getAge()%></td>
-					    <td><div align="right">职位：</div></td>
-					    <td><%=j.getJob()%>
-				        </td>
+					    <td align="right" width="11%">车主姓名：</td>
+					    <td width="34%"><%=j.getName()%></td>
+					    <td width="20%"><div align="right">手机号：</div></td>
+					    <td width="43%"><%=j.getTel()%>
 					  </tr>
 					  <tr>
-					    <td align="right">所学专业：</td>
-					    <td><%=j.getSpecialty()%>
+					    <td align="right">车型：</td>
+					    <td><%=j.getCar()%>
 				        </td>
-					    <td><div align="right">工作经验：</div></td>
-					    <td><%=j.getExperience()%></td>
+					    <td><div align="right">车牌号：</div></td>
+					    <td><%=j.getPlateNumber()%></td>
 					    </tr>
-					  <tr>
-					    <td align="right">学历：</td>
-					    <td><%=j.getStudyeffort()%>
+					  <%-- <tr>
+					    <td align="right">维修类型：</td>
+					    <td><%=j.getRepairType()%>
 				        </td>
-					    <td><div align="right">毕业学校：</div></td>
-					    <td><%=j.getSchool()%></td>
+					    <td><div align="right">维修金额：</div></td>
+					    <td><%=j.getRepairCost()%></td>
 					    </tr>
-					  <tr>
-					    <td align="right">电话：</td>
-					    <td><%=j.getTel()%>
-				        </td>
-					    <td><div align="right">Email：</div></td>
-					    <td><%=j.getEmail()%></td>
-					    </tr>
-					  <tr>
-					    <td align="right">详细经历：</td>
-					    <td colspan="4"><%=j.getContent()%></td>
+					  <tr> --%>
+					    <td align="right">维修详细：</td>
+					    <td colspan="4"><%=j.getRepairDetail()%></td>
 					  </tr>
 					   <tr>
 					    <td colspan="4" align="center">

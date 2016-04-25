@@ -63,21 +63,21 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="20"><span class="newfont07">人才信息查看</span></td>
+               <td height="20"><span class="newfont07">维修信息查看</span></td>
           	 </tr>
               <tr>
                 <td height="40" class="font42">
 <table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 <tr class="CTitle" >
-	<td height="22" colspan="8" align="center" style="font-size:16px">人才信息列表</td>
+	<td height="22" colspan="8" align="center" style="font-size:16px">维修信息列表</td>
 </tr>
 <tr bgcolor="#EEEEEE">
-	<td width="4%" align="center" height="30">姓名</td>
-	<td width="10%" align="center" >性别</td>
-	<td width="10%" align="center" >年龄</td>
-	<td width="10%" align="center" >职位</td>
-	<td width="10%" align="center" >所学专业</td>
-	<td width="15%" align="center" >工作经验</td>
+	<td width="4%" align="center" height="30">车主姓名</td>
+	<td width="10%" align="center" >手机号</td>
+	<!-- <td width="10%" align="center" >维修类型</td>
+	<td width="10%" align="center" >维修金额</td> -->
+	<td width="10%" align="center" >车型</td>
+	<td width="15%" align="center" >车牌号</td>
 	<td width="12%" align="center" >执行操作</td>
 </tr>
 <% List list=(List)request.getAttribute("list");
@@ -89,14 +89,15 @@ Iterator it = list.iterator();
 %>
 	<tr  bgcolor="#FFFFFF">
 	<td height="22" align="center" ><%=j.getName()%></td>
-	<td height="22" align="center" ><%=new Byte("1").equals(j.getSex())?"男":"女"%></td>
-	<td height="22" align="center" ><%=j.getAge()%></td>
-	<td height="22" align="center" ><%=j.getJob()%></td>
-	<td height="22" align="center" ><%=j.getSpecialty()%></td>
-	<td height="22" align="center" ><%=j.getExperience()%></td>
-	<td height="22" align="center" ><a href="detailjob.do?action=detailjob&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;<a href="modifyjob.do?action=deletejob&id=<%=j.getId()%>">删除</a>
+	<td height="22" align="center" ><%=j.getTel()%></td>
+	<%-- <td height="22" align="center" ><%=j.getRepairType()%></td>
+	<td height="22" align="center" ><%=j.getRepairCost()%></td> --%>
+	<td height="22" align="center" ><%=j.getCar()%></td>
+	<td height="22" align="center" ><%=j.getPlateNumber()%></td>
+	<td height="22" align="center" ><a href="detailjob.do?action=detailjob&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
+	<a href="modifyjob.do?action=deletejob&id=<%=j.getId()%>">删除</a>&nbsp;&nbsp;
 	<%if(j.getIsstock()!=null&&j.getIsstock().intValue()==0){%>
-		<a href="modifyjob.do?action=updatejob&id=<%=j.getId()%>&isstock=1">入库</a></td>
+		<a href="updatejob.do?action=detailjob&id=<%=j.getId()%>">修改</a></td>
 	<%}%>
 	</tr>
 <%}

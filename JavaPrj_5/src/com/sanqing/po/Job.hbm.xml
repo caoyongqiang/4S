@@ -9,16 +9,16 @@
 		</id>
 		<property name="name" length="50" type="string"/>
 		<property name="sex" length="1" type="byte"/>
-		<property name="age" length="10" type="integer"/>
+		<property name="RepairTimes" length="10" type="integer"/>
 		<property name="job" length="50" type="string"/>
-		<property name="specialty" length="50" type="string"/>
-		<property name="experience" length="50" type="string"/>
-		<property name="studyeffort" length="50" type="string"/>
-		<property name="school" length="50" type="string"/>
+		<property name="car" length="100" type="string"/>
+		<property name="plateNumber" length="50" type="string"/>
+		<property name="repairType" length="50" type="string"/>
+		<property name="repairCost" length="50" type="string"/>
 		<property name="tel" length="50" type="string"/>
 		<property name="email" length="50" type="string"/>
 		<property name="createtime" length="23" type="timestamp"/>
-		<property name="content" length="1073741823" type="string"/>
+		<property name="repairDetail" length="1073741823" type="string"/>
 		<property name="isstock" length="1" type="byte"/>
 	</class>
 </hibernate-mapping>
