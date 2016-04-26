@@ -31,9 +31,9 @@
 			educate="0";
 		}
 		if("1".equals(educate)){
-			out.print("培训详细总结");
+			out.print("完成需求详细");
 		  }else{
-			out.print("培训详细计划");
+			out.print("待完成需求详细");
 		  }
 		%>
       </th>
@@ -47,43 +47,39 @@
 				<fieldset style="height:100%;">
 					  <table border="0" cellpadding="8" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td nowrap align="right" width="11%">培训名称：</td>
+					    <td nowrap align="right" width="11%">客户名称：</td>
 					    <td colspan="3"><%=e.getName()%>
 					    </td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">培训目的：</td>
-					    <td colspan="3"><%=e.getPurpose()%>
+					    <td nowrap align="right" width="11%">手机号：</td>
+					    <td colspan="3"><%=e.getPhoneNumber()%>
 					    </td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">培训开始时间：</td>
-					    <td width="29%"><%=StringUtil.notNull(DateUtil.parseToString(e.getBegintime(),DateUtil.yyyyMMdd))%>
-					    	</td>
-					    <td width="18%">培训结束时间：</td>
-					    <td width="42%"><%=StringUtil.notNull(DateUtil.parseToString(e.getEndtime(),DateUtil.yyyyMMdd))%>
-					    </td>
+					    <td nowrap align="right" width="11%">创建时间：</td>
+					    <td colspan="3"><%=StringUtil.notNull(DateUtil.parseToString(e.getCreatetime(),DateUtil.yyyyMMdd))%></td>
 					  </tr>
 					  <tr>
-					    <td nowrap align="right">讲师：</td>
-					    <td><%=e.getTeacher()%>
+					    <td nowrap align="right" width="11%">车型：</td>
+					    <td colspan="3"><%=e.getCar()%>
 					    </td>
-					    <td>培训人员：</td>
-					    <td><%=e.getStudent()%>
-						</td>
 					  </tr>
-					    
+					 <tr>
+					    <td nowrap align="right" width="11%">车牌号：</td>
+					    <td colspan="3"><%=e.getPlateNumber()%></td>
+					  </tr>
 					  <tr>
-					    <td width="11%" nowrap align="right">培训材料：</td>
-					    <td colspan="3"><%=e.getDatum()%></td>
+					    <td width="11%" nowrap align="right">需求详细：</td>
+					    <td colspan="3"><%=e.getRequireDetail()%></td>
 					  </tr>
 					   <%if("1".equals(educate)){%>
-						  <tr>
+						  <%-- <tr>
 						    <td width="11%" height="22" align="center" >培训效果：</td>
 						    <td height="22" colspan="3" align="left" ><%=StringUtil.notNull(e.getEffect())%>&nbsp;</td>
-						  </tr>
+						  </tr> --%>
 						  <tr>
-						    <td width="11%" height="22" align="center" >维护记录：</td>
+						    <td width="11%" height="22" align="right" >完成情况：</td>
 						    <td height="22" colspan="3" align="left" ><%=StringUtil.notNull(e.getSummarize())%>&nbsp;</td>
 						  </tr>
 						 <%}%>

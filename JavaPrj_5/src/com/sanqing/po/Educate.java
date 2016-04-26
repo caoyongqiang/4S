@@ -3,29 +3,29 @@ package com.sanqing.po;
 import java.io.Serializable;
 import java.util.Date;
 
-/** ÅàÑµ */
+/** ï¿½ï¿½Ñµ */
 public class Educate implements Serializable {
-    private Long id;		//ÅàÑµ±àºÅ
-    private String name;	//ÅàÑµÃû³Æ
-    private String purpose;	//ÅàÑµÄ¿µÄ
-    private Date begintime;	//ÅàÑµ¿ªÊ¼Ê±¼ä
-    private Date endtime;	//ÅàÑµ½áÊøÊ±¼ä
-    private String datum;	//ÅàÑµ²ÄÁÏ
-    private String teacher;	//ÅàÑµ½²Ê¦
-    private String student;	//ÅàÑµÈËÔ±
-    private Date createtime;//´´½¨Ê±¼ä
-    private Byte educate;	//ÅàÑµÊÇ·ñÍê³É
-    private String effect;	//ÅàÑµÐ§¹û
-    private String summarize;//×Ü½á 
+    private Long id;		//ï¿½ï¿½Ñµï¿½ï¿½ï¿½
+    private String name;	//ï¿½ï¿½Ñµï¿½ï¿½ï¿½
+    private String phoneNumber;	//ï¿½ï¿½ÑµÄ¿ï¿½ï¿½
+    private Date begintime;	//ï¿½ï¿½Ñµï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+    private Date endtime;	//ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    private String requireDetail;	//ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½
+    private String car;	//ï¿½ï¿½Ñµï¿½ï¿½Ê¦
+    private String plateNumber;	//ï¿½ï¿½Ñµï¿½ï¿½Ô±
+    private Date createtime;//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    private Byte educate;	//ï¿½ï¿½Ñµï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+    private String effect;	//ï¿½ï¿½ÑµÐ§ï¿½ï¿½
+    private String summarize;//ï¿½Ü½ï¿½ 
 
-    public Educate(String name, String purpose, Date begintime, Date endtime, String datum, String teacher, String student, Date createtime, Byte educate,String effect, String summarize) {
+    public Educate(String name, String phoneNumber, Date begintime, Date endtime, String requireDetail, String car, String plateNumber, Date createtime, Byte educate,String effect, String summarize) {
         this.name = name;
-        this.purpose = purpose;
+        this.phoneNumber = phoneNumber;
         this.begintime = begintime;
         this.endtime = endtime;
-        this.datum = datum;
-        this.teacher = teacher;
-        this.student = student;
+        this.requireDetail = requireDetail;
+        this.car = car;
+        this.plateNumber = plateNumber;
         this.createtime = createtime;
         this.educate=educate;
         this.effect = effect;
@@ -52,12 +52,12 @@ public class Educate implements Serializable {
         this.name = name;
     }
 
-    public String getPurpose() {
-        return this.purpose;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Date getBegintime() {
@@ -76,28 +76,28 @@ public class Educate implements Serializable {
         this.endtime = endtime;
     }
 
-    public String getDatum() {
-        return this.datum;
+    public String getRequireDetail() {
+        return this.requireDetail;
     }
 
-    public void setDatum(String datum) {
-        this.datum = datum;
+    public void setRequireDetail(String requireDetail) {
+        this.requireDetail = requireDetail;
     }
 
-    public String getTeacher() {
-        return this.teacher;
+    public String getCar() {
+        return this.car;
     }
 
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public String getStudent() {
-        return this.student;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setStudent(String student) {
-        this.student = student;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
     public Date getCreatetime() {
@@ -132,10 +132,10 @@ public class Educate implements Serializable {
         toStr.append("    begintime = " + this.begintime+ ";\n");
         toStr.append("    endtime = " + this.endtime+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    purpose = " + this.purpose + ";\n");
-        toStr.append("    datum = " + this.datum + ";\n");
-        toStr.append("    teacher = " + this.teacher + ";\n");
-        toStr.append("    student = " + this.student + ";\n");
+        toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
+        toStr.append("    requireDetail = " + this.requireDetail + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    educate = " + this.educate+ ";\n");
         toStr.append("    effect = " + this.effect + ";\n");
         toStr.append("    summarize = " + this.summarize + ";\n");

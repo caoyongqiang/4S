@@ -67,16 +67,16 @@ function userValidate(){
 
 function educateValidate(){
 	if(educateForm.name.value==""){
-		alert("请添写培训名称！");		
+		alert("请添写客户名称！");		
 		educateForm.name.focus();
 		return false;
 	}
-	if(educateForm.purpose.value==""){
-		alert("请添写培训目的！");		
-		educateForm.purpose.focus();
+	if(educateForm.phoneNumber.value==""){
+		alert("请添写手机号！");		
+		educateForm.phoneNumber.focus();
 		return false;
 	}
-	if(educateForm.begintime.value==""){
+	/*if(educateForm.begintime.value==""){
 		alert("请添写培训开始时间！");		
 		educateForm.begintime.focus();
 		return false;
@@ -101,16 +101,16 @@ function educateValidate(){
 		alert("起始日期不能晚于结束日期！");
 		educateForm.begintime.focus();
 		return false;
-	}
+	}*/
 
-	if(educateForm.teacher.value==""){
-		alert("请添写培训讲师！");		
-		educateForm.teacher.focus();
+	if(educateForm.car.value==""){
+		alert("请添写车型！");		
+		educateForm.car.focus();
 		return false;
 	}
-	if(educateForm.student.value==""){
-		alert("请添写培训人员！");		
-		educateForm.student.focus();
+	if(educateForm.plateNumber.value==""){
+		alert("请添写车牌号！");		
+		educateForm.plateNumber.focus();
 		return false;
 	}
 	return true;

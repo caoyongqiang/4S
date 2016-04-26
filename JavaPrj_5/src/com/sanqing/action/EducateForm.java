@@ -21,7 +21,7 @@ public class EducateForm extends ActionForm {
     private String name;
 
     /** nullable persistent field */
-    private String purpose;
+    private String phoneNumber;
 
     /** nullable persistent field */
     private String begintime;
@@ -30,13 +30,13 @@ public class EducateForm extends ActionForm {
     private String endtime;
 
     /** nullable persistent field */
-    private String datum;
+    private String requireDetail;
 
     /** nullable persistent field */
-    private String teacher;
+    private String car;
 
     /** nullable persistent field */
-    private String student;
+    private String plateNumber;
 
     /** nullable persistent field */
     private String createtime;
@@ -52,12 +52,12 @@ public class EducateForm extends ActionForm {
     /** full constructor */
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
         this.name = null;
-        this.purpose = null;
+        this.phoneNumber = null;
         this.begintime = null;
         this.endtime = null;
-        this.datum = null;
-        this.teacher = null;
-        this.student = null;
+        this.requireDetail = null;
+        this.car = null;
+        this.plateNumber = null;
         this.createtime = null;
         this.educate=null;
         this.effect = null;
@@ -84,12 +84,12 @@ public class EducateForm extends ActionForm {
         this.name = name;
     }
 
-    public String getPurpose() {
-        return this.purpose;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getBegintime() {
@@ -108,28 +108,28 @@ public class EducateForm extends ActionForm {
         this.endtime = endtime;
     }
 
-    public String getDatum() {
-        return this.datum;
+    public String getRequireDetail() {
+        return this.requireDetail;
     }
 
-    public void setDatum(String datum) {
-        this.datum = datum;
+    public void setRequireDetail(String requireDetail) {
+        this.requireDetail = requireDetail;
     }
 
-    public String getTeacher() {
-        return this.teacher;
+    public String getCar() {
+        return this.car;
     }
 
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
+    public void setCar(String car) {
+        this.car = car;
     }
 
-    public String getStudent() {
-        return this.student;
+    public String getPlateNumber() {
+        return this.plateNumber;
     }
 
-    public void setStudent(String student) {
-        this.student = student;
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
     public String getCreatetime() {
@@ -164,10 +164,10 @@ public class EducateForm extends ActionForm {
         toStr.append("    begintime = " + this.begintime+ ";\n");
         toStr.append("    endtime = " + this.endtime+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    purpose = " + this.purpose + ";\n");
-        toStr.append("    datum = " + this.datum + ";\n");
-        toStr.append("    teacher = " + this.teacher + ";\n");
-        toStr.append("    student = " + this.student + ";\n");
+        toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
+        toStr.append("    requireDetail = " + this.requireDetail + ";\n");
+        toStr.append("    car = " + this.car + ";\n");
+        toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    educate = " + this.educate+ ";\n");
         toStr.append("    effect = " + this.effect + ";\n");
         toStr.append("    summarize = " + this.summarize + ";\n");
@@ -179,16 +179,16 @@ public class EducateForm extends ActionForm {
         Educate e=new Educate();
         e.setBegintime(DateUtil.parseToDate(this.getBegintime(),DateUtil.yyyyMMdd));
         e.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
-        e.setDatum(this.getDatum());
+        e.setRequireDetail(this.getRequireDetail());
         e.setEffect(this.getEffect());
         e.setEndtime(DateUtil.parseToDate(this.getEndtime(),DateUtil.yyyyMMdd));
         e.setId(this.getId());
         e.setName(this.getName());
-        e.setPurpose(this.getPurpose());
-        e.setStudent(this.getStudent());
+        e.setPhoneNumber(this.getPhoneNumber());
+        e.setPlateNumber(this.getPlateNumber());
         e.setSummarize(this.getSummarize());
         e.setEducate(this.getEducate());
-        e.setTeacher(this.getTeacher());
+        e.setCar(this.getCar());
         return e;
     }
 

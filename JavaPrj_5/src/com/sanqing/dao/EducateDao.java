@@ -59,8 +59,8 @@ public class EducateDao {
         if (educate.getBegintime()!=null){
             e.setBegintime(educate.getBegintime());
         }
-        if(educate.getDatum()!=null){
-            e.setDatum(educate.getDatum());
+        if(educate.getRequireDetail()!=null){
+            e.setRequireDetail(educate.getRequireDetail());
         }
         if (educate.getEffect()!= null) {
             e.setEffect(educate.getEffect());
@@ -71,11 +71,11 @@ public class EducateDao {
         if(educate.getName()!=null){
             e.setName(educate.getName());
         }
-        if(educate.getPurpose()!=null){
-            e.setPurpose(educate.getPurpose());
+        if(educate.getPhoneNumber()!=null){
+            e.setPhoneNumber(educate.getPhoneNumber());
         }
-        if(educate.getStudent()!=null){
-            e.setStudent(educate.getStudent());
+        if(educate.getPlateNumber()!=null){
+            e.setPlateNumber(educate.getPlateNumber());
         }
         if(educate.getSummarize()!=null){
             e.setSummarize(educate.getSummarize());
@@ -83,8 +83,8 @@ public class EducateDao {
         if(educate.getEducate()!=null){
             e.setEducate(educate.getEducate());
         }
-        if(educate.getTeacher()!=null){
-            e.setTeacher(educate.getTeacher());
+        if(educate.getCar()!=null){
+            e.setCar(educate.getCar());
         }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();

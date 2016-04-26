@@ -92,11 +92,10 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	%>列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
-				        <td height="22" align="center" >培训名称</td>
-						<td height="22" align="center" >讲师</td>
-						<td height="22" align="center" >培训人员</td>
-						<td height="22" align="center" >开始时间</td>
-						<td height="22" align="center" >结束时间</td>
+				        <td height="22" align="center" >客户名称</td>
+						<td height="22" align="center" >车型</td>
+						<td height="22" align="center" >车牌号</td>
+						<td height="22" align="center" >创建时间</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
 				<% List list=(List)request.getAttribute("list");
@@ -108,14 +107,13 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				  %>
 				  <tr  bgcolor="#FFFFFF">
 					<td height="22" align="center" ><%=j.getName()%></td>
-					<td height="22" align="center" ><%=j.getTeacher()%></td>
-					<td height="22" align="center" ><%=j.getStudent()%></td>
-					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getBegintime(),DateUtil.yyyyMMdd))%></td>
-					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getEndtime(),DateUtil.yyyyMMdd))%></td>
+					<td height="22" align="center" ><%=j.getCar()%></td>
+					<td height="22" align="center" ><%=j.getPlateNumber()%></td>
+					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getCreatetime(),DateUtil.yyyyMMdd))%></td>
 					<td height="22" align="center" >
 					  <a href="detaileducate.do?educate=<%=educate%>&action=detaileducate&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
 					  <a href="modifyeducate.do?action=deleteeducate&id=<%=j.getId()%>">删除</a>
-					  <%if(!"1".equals(educate)){%>&nbsp;&nbsp;<a href="updateeducate.do?educate=1&action=detaileducate&id=<%=j.getId()%>">培训完成</a><%}%></td>
+					  <%if(!"1".equals(educate)){%>&nbsp;&nbsp;<a href="updateeducate.do?educate=1&action=detaileducate&id=<%=j.getId()%>">需求完成</a><%}%></td>
 				  </tr>
 				  <%		}
 				   }else{

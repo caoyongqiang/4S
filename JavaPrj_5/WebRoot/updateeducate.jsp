@@ -22,7 +22,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >维护记录</th>
+      <th class="tablestyle_title" >需求记录</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -45,45 +45,42 @@
 				<legend>客户需求</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
-					    <td nowrap align="right" width="11%">培训名称：</td>
+					    <td nowrap align="right" width="11%">客户名称：</td>
 					    <td colspan="3"><input name="name" type="text" class="input" value="<%=e.getName()%>" disabled/>
 					    <span class="red">*</span></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">培训目的：</td>
-					    <td colspan="3"><input type="text" name="purpose" class="input" value="<%=e.getPurpose()%>" disabled/>
+					    <td nowrap align="right" width="11%">手机号：</td>
+					    <td colspan="3"><input type="text" name="phoneNumber" class="input" value="<%=e.getPhoneNumber()%>" disabled/>
 					    <span class="red">*</span></td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right">培训开始时间：</td>
-					    <td width="29%"><input type="text" name="begintime" class="input" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getBegintime(),DateUtil.yyyyMMdd))%>" disabled/>
+					    <td nowrap align="right" width="11%">创建时间：</td>
+					    <td colspan="3"><input type="text" name="begintime" class="input" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getCreatetime(),DateUtil.yyyyMMdd))%>" disabled/>
 					    	<span class="red">*</span></td>
-					    <td width="18%">培训结束时间：</td>
-					    <td width="42%"><input type="text" name="endtime" class="input" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getEndtime(),DateUtil.yyyyMMdd))%>" disabled/>
-					    <span class="red">*</span></td>
 					  </tr>
 					  <tr>
-					    <td nowrap align="right">讲师：</td>
-					    <td><input type="text" name="teacher" class="input" value="<%=e.getTeacher()%>" disabled/>
+					    <td nowrap align="right">车型：</td>
+					    <td><input type="text" name="car" class="input" value="<%=e.getCar()%>" disabled/>
 					    <span class="red">*</span></td>
-					    <td>培训人员：</td>
-					    <td><input type="text" name="student" class="input" value="<%=e.getStudent()%>" disabled/>
+					    <td>车牌号：</td>
+					    <td><input type="text" name="plateNumber" class="input" value="<%=e.getPlateNumber()%>" disabled/>
 					    <span class="red">*</span>
 						</td>
 					  </tr>
 					    
 					  <tr>
-					    <td width="11%" nowrap align="right">培训材料：</td>
-					    <td colspan="3"><textarea name="datum" cols="100" rows="6" class="input" disabled><%=e.getDatum()%></textarea></td>
+					    <td width="11%" nowrap align="right">需求详细：</td>
+					    <td colspan="3"><textarea name="requireDetail" cols="100" rows="6" class="input" disabled><%=e.getRequireDetail()%></textarea></td>
 					  </tr>
 					  
-					  <tr align="center">
+<%-- 					  <tr align="center">
 					    <td width="11%" height="22" >培训效果：</td>
 					    <td height="22" colspan="3" align="left" ><input name="effect" type="text"  class="input" value="<%=StringUtil.notNull(e.getEffect())%>" size="50"></td>
-					  </tr>
+					  </tr> --%>
 					  <tr align="center">
-					    <td width="11%" height="22" >维护记录：</td>
-					    <td height="22" colspan="3" align="left" ><textarea name="summarize" cols="50" rows="6"  class="input"><%=StringUtil.notNull(e.getSummarize())%></textarea></td>
+					    <td width="11%" height="22" >完成情况：</td>
+					    <td height="22" colspan="3" align="left" ><textarea name="summarize" cols="100" rows="6"  class="input"><%=StringUtil.notNull(e.getSummarize())%></textarea></td>
 					  </tr>
 					  </table>
 			  <br />

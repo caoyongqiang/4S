@@ -76,7 +76,7 @@ a:active,a:hover{color:#FF4e00;text-decoration:underline}
 #menuItem li#menuSale a:hover span{background:transparent url(http://pics.paipai.com/common/menu/sale_side.gif) right top no-repeat;color:#FFFFFF}
 #menuItem li#menuSport a:hover{background:url(http://pics.paipai.com/common/menu/sport_left.gif) #60B900 left top no-repeat}
 #menuItem li#menuSport a:hover span{background:transparent url(http://pics.paipai.com/common/menu/sport_side.gif) right top no-repeat;color:#FFFFFF}
-#menuItem li#menuStudent a:hover{background:url(http://pics.paipai.com/common/menu/student_left.gif) #FF6100 left top no-repeat}
-#menuItem li#menuStudent a:hover span{background:transparent url(http://pics.paipai.com/common/menu/student_side.gif) right top no-repeat;color:#FFFFFF}
+#menuItem li#menuPlateNumber a:hover{background:url(http://pics.paipai.com/common/menu/plateNumber_left.gif) #FF6100 left top no-repeat}
+#menuItem li#menuPlateNumber a:hover span{background:transparent url(http://pics.paipai.com/common/menu/plateNumber_side.gif) right top no-repeat;color:#FFFFFF}
 #headFind{background:url(http://pics.paipai.com/common/menu/home_find_left.gif) #FFA730 left top no-repeat}
 #headForm{background:transparent url(http://pics.paipai.com/common/menu/home_find_side.gif) right top no-repeat}
