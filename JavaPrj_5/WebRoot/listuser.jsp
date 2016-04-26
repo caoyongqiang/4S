@@ -76,10 +76,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	</tr>
 	<tr bgcolor="#EEEEEE">
 		<td width="4%" align="center" height="30">用户名</td>
-		<td width="10%" align="center" >登陆密码</td>
-		<td width="10%" align="center" >性别</td>
-		<td width="10%" align="center" >出生日期</td>
-		<td width="10%" align="center" >是否管理员</td>
+		<td width="10%" align="center" >手机号</td>
+		<td width="10%" align="center" >身份证号</td>
+		<td width="10%" align="center" >员工角色</td>
 		<td width="15%" align="center" >简介</td>
 		<td width="12%" align="center" >执行操作</td>
 	 </tr>
@@ -91,9 +90,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	%>
 	<tr bgcolor="#FFFFFF">
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getUsername())%>&nbsp;</td>
-		<td height="22" align="center" ><%=StringUtil.notNull(u.getPassword())%>&nbsp;</td>
-		<td height="22" align="center" ><%=new Byte("1").equals(u.getSex())?"男":"女"%></td>
-		<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(u.getBirthday(),DateUtil.yyyyMMdd))%>&nbsp;</td>
+		<td height="22" align="center" ><%=StringUtil.notNull(u.getPhoneNumber())%>&nbsp;</td>
+		<%-- <td height="22" align="center" ><%=new Byte("1").equals(u.getSex())?"男":"女"%></td> --%>
+		<td height="22" align="center" ><%=StringUtil.notNull(u.getIdCard())%>&nbsp;</td>
 		<td height="22" align="center" ><%=new Byte("1").equals(u.getIsadmin())?"是":"否"%></td>
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getContent())%>&nbsp;</td>
 		<td height="22" align="center" ><a href="selectuser.do?action=selectuser&id=<%=u.getId()%>">修改</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=<%=u.getId()%>">删除</a></td>

@@ -29,8 +29,8 @@ public class UsersDao {
 	}
 	public void updateUsers(Users users){//更新人员信息
 		Users u = loadUsers(users.getId());//加载该ID对应的人员信息
-		if (users.getBirthday() != null){
-			u.setBirthday(users.getBirthday());//设置出生日期
+		if (users.getIdCard() != null){
+			u.setIdCard(users.getIdCard());//设置出生日期
 		}
 	    if(users.getSex()!=null){
 	    	u.setSex(users.getSex());//设置性别

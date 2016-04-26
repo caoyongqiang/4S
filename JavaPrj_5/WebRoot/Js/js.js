@@ -48,20 +48,25 @@ function userValidate(){
 		return false;
 	}
 	if(userForm.phoneNumber.value==""){
-		alert("请添写登陆密码！");		
+		alert("请添写手机号！");		
 		userForm.phoneNumber.focus();
 		return false;
 	}
-	if(userForm.birthday.value==""){
-		alert("请添写出生日期！");		
-		userForm.birthday.focus();
+	if(userForm.idCard.value==""){
+		alert("请添写身份证号！");		
+		userForm.idCard.focus();
 		return false;
 	}
-	if(CheckDate(userForm.birthday.value)){
+	if(userForm.password.value==""){
+		alert("请添写登陆密码！");		
+		userForm.password.focus();
+		return false;
+	}
+	/*if(CheckDate(userForm.idCard.value)){
 		alert("输入的日期不合法！（年-月-日）");
-		userForm.birthday.focus();
+		userForm.idCard.focus();
 		return false;
-	}
+	}*/
 	return true;
 }
 

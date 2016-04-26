@@ -50,11 +50,11 @@
 					    <td width="43%"><input name="password" type="text" class="input" id="password" value="<%=u.getPassword()%>"/>
 				        <span class="red">*</span></tr>
 					  <tr>
-					    <td nowrap align="right" width="9%">性别：</td>
+					    <%-- <td nowrap align="right" width="9%">性别：</td>
 					    <td><input name="sex" type="radio" value="1" <%=new Byte("1").equals(u.getSex())?"checked":""%>> 男
-							<input name="sex" type="radio" value="0" <%=new Byte("1").equals(u.getSex())?"":"checked"%>>女</td>
+							<input name="sex" type="radio" value="0" <%=new Byte("1").equals(u.getSex())?"":"checked"%>>女</td> --%>
 					    <td><div align="right">出生日期：</div></td>
-					    <td><input name="birthday" type="text" class="input" id="birthday" value="<%=StringUtil.notNull(DateUtil.parseToString(u.getBirthday(),DateUtil.yyyyMMdd))%>">
+					    <td><input name="idCard" type="text" class="input" id="idCard" value="<%=StringUtil.notNull(DateUtil.parseToString(u.getIdCard(),DateUtil.yyyyMMdd))%>">
 				        <span class="red">*</span></td>
 					  </tr>
 					  <tr>

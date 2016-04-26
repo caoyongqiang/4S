@@ -5,19 +5,21 @@ import java.util.Date;
 
 public class Users implements Serializable {
     private Long id;	//员工编号
-    private String username;//员工用户名
-    private String password;//登录密码
-    private Byte sex;		//性别
-    private Date birthday;	//生日
+    private String username; //员工用户名
+    private String phoneNumber; //手机号
+    private String password; //登录密码
+    private Integer sex;		//性别
+    private String idCard;	//身份证号
     private Date createtime;//创建时间
     private Byte isadmin;	//是否为管理员
     private String content;	//人员简介
-    public Users(Long id,String username, String password, Byte sex, Date birthday, Date createtime, Byte isadmin, String content) {
+    public Users(Long id,String username, String password, String phoneNumber, Integer sex, String idCard, Date createtime, Byte isadmin, String content) {
         this.id=id;
         this.username = username;
+        this.phoneNumber = phoneNumber;
         this.password = password;
         this.sex = sex;
-        this.birthday = birthday;
+        this.idCard = idCard;
         this.createtime = createtime;
         this.isadmin = isadmin;
         this.content = content;
@@ -40,6 +42,14 @@ public class Users implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+    
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getPassword() {
         return this.password;
@@ -49,20 +59,20 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public Byte getSex() {
+    public Integer getSex() {
         return this.sex;
     }
 
-    public void setSex(Byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return this.birthday;
+    public String getIdCard() {
+        return this.idCard;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
     public Date getCreatetime() {
@@ -94,9 +104,10 @@ public class Users implements Serializable {
         toStr.append("[Users] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    username = " + this.username + ";\n");
+        toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
         toStr.append("    password = " + this.password + ";\n");
         toStr.append("    sex = " + this.sex + ";\n");
-        toStr.append("    birthday = " + this.birthday+ ";\n");
+        toStr.append("    idCard = " + this.idCard+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    isadmin = " + this.isadmin + ";\n");
         toStr.append("    content = " + this.content + ";\n");

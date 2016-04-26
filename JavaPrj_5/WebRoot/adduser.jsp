@@ -18,7 +18,7 @@
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >线索信息录入</th>
+      <th class="tablestyle_title" >员工信息录入</th>
   </tr>
   <tr>
     <td class="CPanel">
@@ -32,10 +32,10 @@
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>线索信息</legend>
+				<legend>员工信息</legend>
 				<table width="100%" border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					<tr>
-						<td nowrap align="right" width="9%">用户名：</td>
+						<td nowrap align="right" width="9%">员工姓名：</td>
 						<td width="36%">
 						<input name="username" type="text" class="input" id="username"/>
 						<span class="red">*</span></td>
@@ -44,22 +44,32 @@
 				   		<input name="phoneNumber" type="text" class="input" id="phoneNumber" />
 				      	<span class="red">*</span></tr>
 					<tr>
-						<td nowrap align="right" width="9%">性别：</td>
+						<!-- <td nowrap align="right" width="9%">性别：</td>
 						<td>
 						<input name="sex" type="radio" value="1" checked> 男
-						<input name="sex" type="radio" value="0">女</td>
-						<td><div align="right">出生日期：</div></td>
+						<input name="sex" type="radio" value="0">女</td> -->
+						<td><div align="right">身份证号：</div></td>
 						<td>
-						<input name="birthday" type="text" class="input" id="birthday">
+						<input name="idCard" type="text" class="input" id="idCard">
+						<span class="red">*</span></td>
+						<td><div align="right">登陆密码：</div></td>
+						<td>
+						<input name="password" type="text" class="input" id="password">
 						<span class="red">*</span></td>
 					</tr>
 					<tr>
-						<td nowrap align="right">是否管理员：</td>
+						<!-- <td nowrap align="right">是否管理员：</td>
 						<td>
 						<input name="isadminhelp" type="checkbox" onClick="javascript:adminChecked();" >
 						<input type="hidden"  name="isadmin" ></td>
 						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td>&nbsp;</td> -->
+						<td nowrap align="right" width="9%">员工角色：</td>
+						<td>
+						  <input name="sex" type="radio" value="0" checked>普通员工
+						  <input name="sex" type="radio" value="1">中层管理员
+						  <input name="sex" type="radio" value="2">高层管理员
+						</td>
 					</tr>
 					<tr>
 						<td nowrap align="right">人员简介：</td>
