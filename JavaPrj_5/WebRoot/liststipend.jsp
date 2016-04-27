@@ -3,6 +3,7 @@
 <%@ page import="java.util.Iterator"%>
 <%@ page import="com.sanqing.po.Stipend"%>
 <%@ page import="com.sanqing.tool.*"%>
+<%@ page import="com.sanqing.po.Users"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -85,7 +86,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 						<td height="22" align="center" >成交价格</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
-				<% List list=(List)request.getAttribute("list");
+				<% Users u = (Users)session.getAttribute("users");
+				   List list=(List)request.getAttribute("list");
 					 if(list!=null&&list.size()>0){
 						Iterator it = list.iterator();
 						   while (it.hasNext()) {
@@ -103,7 +105,11 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" ><%=j.getPlateNumber()%></td>
 					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getPurchaseTime(),DateUtil.yyyyMMdd))%>&nbsp;</td>
 					<td height="22" align="center" ><%=j.getTotalize()%></td>
-					<td height="22" align="center" ><a href="updatestipend.do?action=detailstipend&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;<a href="modifystipend.do?action=deletestipend&id=<%=j.getId()%>">删除</a></td>
+					<td height="22" align="center" >
+					  <%if(u.getRoleType() == 2 || u.getRoleType() == 3 ){%>
+					  <a href="updatestipend.do?action=detailstipend&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
+					  <a href="modifystipend.do?action=deletestipend&id=<%=j.getId()%>">删除</a></td>
+					  <%}%>
 				  </tr>
 				  <%		}
 				   }else{

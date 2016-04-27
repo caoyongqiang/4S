@@ -2,6 +2,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="com.sanqing.po.Job"%>
+<%@ page import="com.sanqing.po.Users"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -80,7 +81,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	<td width="15%" align="center" >车牌号</td>
 	<td width="12%" align="center" >执行操作</td>
 </tr>
-<% List list=(List)request.getAttribute("list");
+<%Users u = (Users)session.getAttribute("users");
+List list=(List)request.getAttribute("list");
 if(list!=null&&list.size()>0){
 Iterator it = list.iterator();
    while (it.hasNext()) {
@@ -94,10 +96,10 @@ Iterator it = list.iterator();
 	<td height="22" align="center" ><%=j.getRepairCost()%></td> --%>
 	<td height="22" align="center" ><%=j.getCar()%></td>
 	<td height="22" align="center" ><%=j.getPlateNumber()%></td>
-	<td height="22" align="center" ><a href="detailjob.do?action=detailjob&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
+	<td height="22" align="center" ><a href="detailjob.do?action=detailjob&id=<%=j.getId()%>">详细</a>
+	<%if(u.getRoleType() != 0){%> &nbsp;&nbsp;
 	<a href="modifyjob.do?action=deletejob&id=<%=j.getId()%>">删除</a>&nbsp;&nbsp;
-	<%if(j.getIsstock()!=null&&j.getIsstock().intValue()==0){%>
-		<a href="updatejob.do?action=detailjob&id=<%=j.getId()%>">修改</a></td>
+	<a href="updatejob.do?action=detailjob&id=<%=j.getId()%>">修改</a></td>
 	<%}%>
 	</tr>
 <%}
