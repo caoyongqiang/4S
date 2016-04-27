@@ -65,7 +65,7 @@ public class UsersAction extends Action {
         users.setPassword(usersform.getPassword());
         boolean flag=dao.logonUsers(users);
         if(flag){
-            request.getSession().setAttribute("users",users);
+            request.getSession().setAttribute("users",dao.getUser(users));
             return mapping.findForward("success");
         }else{
         	request.setAttribute("error", "登录失败");
@@ -76,8 +76,14 @@ public class UsersAction extends Action {
 	private ActionForward addUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 	    UsersForm usersform=(UsersForm)form;	//获得UsersForm
 	    Users users=usersform.populate();		//获得提交的人员信息
-	    dao.addUsers(users);					//完成人员信息保存
-	    return mapping.findForward("success");	//跳转到成功页面
+	    boolean flag=dao.exitUsers(users);     //相同用户名不能添加
+	    if(flag){
+	    	request.setAttribute("error", "用户名已经存在");
+            return mapping.findForward("failed");
+        }else{
+        	dao.addUsers(users);					//完成人员信息保存
+    	    return mapping.findForward("success");	//跳转到成功页面
+       }
 	}
 
 	private ActionForward listUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){

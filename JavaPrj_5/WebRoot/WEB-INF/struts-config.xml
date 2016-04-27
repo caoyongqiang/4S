@@ -29,6 +29,7 @@
 	</action>
     <action name="userForm" path="/modifyuser" scope="session" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/user.do?action=listuser" />
+      <forward name="failed" path="/adduser.jsp" />
     </action>
     <action path="/selectuser" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/updateuser.jsp" />

@@ -24,6 +24,9 @@
     <td class="CPanel">
 		
 		<table width="90%" border="0" cellpadding="0" cellspacing="0" style="width:80%" align="center">
+		<tr>
+		  <td colspan="2" align="center"><font color="red">${requestScope.error}</font></td>
+        </tr>
 		<tr><td align="left">
 		  <input type="submit"value="保存" class="button"/>
 		  <input type="reset" value="重置" class="button"/>

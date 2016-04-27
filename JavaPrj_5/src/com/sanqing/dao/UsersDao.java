@@ -55,6 +55,16 @@ public class UsersDao {
 		Users u = (Users)session.get(Users.class, id);//加载指定ID的Users对象
 		return u;
 	}
+	public Users getUser(Users user){//根据用户名和密码查询用户信息
+	    Session session = HibernateSessionFactory.getSession();//获得Session对象
+	    Query query = session.createQuery
+	    	("select u from Users as u where username = :name and password =:password");//执行查询
+	    query.setString("name", user.getUsername());
+        query.setString("password", user.getPassword());
+	    Users u = (Users)query.list().get(0);//获得查询列表
+	    HibernateSessionFactory.closeSession();//关闭Session对象
+	    return u;		//返回人员列表
+	}
     public boolean logonUsers(Users users){//人员登录
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
@@ -62,6 +72,26 @@ public class UsersDao {
                 .createQuery("select count(*) from Users as u where username = :name and password =:password");
         query.setString("name", users.getUsername());
         query.setString("password", users.getPassword());
+        List list = null;
+        list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        if (list != null) {
+            Iterator it = list.iterator();
+            if (it.hasNext()) {
+                if ((Long) it.next() == 1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean exitUsers(Users users){//检查员工表中是否已经存在该用户名的员工
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session
+                .createQuery("select count(*) from Users as u where username = :name");
+        query.setString("name", users.getUsername());
         List list = null;
         list = query.list();
         tx.commit();

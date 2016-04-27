@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page import="com.sanqing.po.Users"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,6 +69,7 @@ function list(idstr){
 </SCRIPT>
 
 <body>
+<%Users u = (Users)session.getAttribute("users"); %>
 <table width="198" border="0" cellpadding="0" cellspacing="0" class="left-table01">
   <tr>
     <TD>
@@ -91,7 +93,8 @@ function list(idstr){
 
 
 		<!--  任务系统开始    -->
-		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+		<TABLE <%if(u.getRoleType() != 2 && u.getRoleType() != 3) {%> style="DISPLAY: none" <%} %>
+		       width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
             <td height="29">
 				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -104,8 +107,8 @@ function list(idstr){
 			</td>
           </tr>		  
         </TABLE>
-		<table id="subtree8" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" 
-				cellspacing="0" class="left-table02">
+		<table id="subtree8" style="display: none;" width="80%" border="0" align="center" cellpadding="0" 
+			   cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu1" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">员工信息录入</a></td>
@@ -118,7 +121,6 @@ function list(idstr){
 		<!--  任务系统结束    -->
 
 		
-
 		<!--  消息系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
