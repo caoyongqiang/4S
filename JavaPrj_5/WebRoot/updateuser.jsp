@@ -50,20 +50,22 @@
 					    <td width="43%"><input name="password" type="text" class="input" id="password" value="<%=u.getPassword()%>"/>
 				        <span class="red">*</span></tr>
 					  <tr>
-					    <%-- <td nowrap align="right" width="9%">性别：</td>
-					    <td><input name="sex" type="radio" value="1" <%=new Byte("1").equals(u.getSex())?"checked":""%>> 男
-							<input name="sex" type="radio" value="0" <%=new Byte("1").equals(u.getSex())?"":"checked"%>>女</td> --%>
-					    <td><div align="right">出生日期：</div></td>
-					    <td><input name="idCard" type="text" class="input" id="idCard" value="<%=StringUtil.notNull(DateUtil.parseToString(u.getIdCard(),DateUtil.yyyyMMdd))%>">
+					    <td nowrap align="right" width="9%"><div align="right">手机号：</div></td>
+				   		<td width="36%">
+				   		<input name="phoneNumber" type="text" class="input" id="phoneNumber" value="<%=StringUtil.notNull(u.getPhoneNumber())%>"/>
+				      	<span class="red">*</span></td>
+					    <td width="12%"><div align="right">身份证号：</div></td>
+					    <td width="43%"><input name="idCard" type="text" class="input" id="idCard" value="<%=StringUtil.notNull(u.getIdCard())%>">
 				        <span class="red">*</span></td>
 					  </tr>
 					  <tr>
-					    <td nowrap align="right">是否管理员：</td>
-					    <td><input name="isadminhelp" type="checkbox" <%=new Byte("1").equals(u.getIsadmin())?"checked":""%>  onClick="javascript:adminChecked();" >
-						<input type="hidden"  name="isadmin" value="<%=u.getIsadmin()%>"></td>
-					    <td>&nbsp;</td>
-					    <td>&nbsp;</td>
-					  </tr>
+						<td nowrap align="right" width="9%">员工角色：</td>
+						<td>
+						  <input name="roleType" type="radio" value="0" <%=0 == u.getRoleType()?"checked":""%> >普通员工
+						  <input name="roleType" type="radio" value="1" <%=1 == u.getRoleType()?"checked":""%> >中层管理员
+						  <input name="roleType" type="radio" value="2" <%=2 == u.getRoleType()?"checked":""%> >高层管理员
+						</td>
+					</tr>
 					  <tr>
 					    <td nowrap align="right">人员简介：</td>
 					    <td colspan="3"><textarea name="content" cols="100" rows="6" class="input" id="content"><%=u.getContent()%></textarea></td>

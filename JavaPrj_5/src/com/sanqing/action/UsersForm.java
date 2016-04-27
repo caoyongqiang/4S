@@ -39,7 +39,7 @@ public class UsersForm extends ActionForm {
     private String password;
 
     /** nullable persistent field */
-    private Integer sex;
+    private Integer roleType;
 
     /** nullable persistent field */
     private String idCard;
@@ -135,7 +135,7 @@ public class UsersForm extends ActionForm {
         this.isadmin=null;
         this.createtime=null;
         this.content=null;
-        this.sex=null;
+        this.roleType=null;
         this.idCard=null;
 
     }
@@ -151,7 +151,7 @@ public class UsersForm extends ActionForm {
         toStr.append("    username = " + this.username + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
         toStr.append("    password = " + this.password + ";\n");
-        toStr.append("    sex = " + this.sex + ";\n");
+        toStr.append("    roleType = " + this.roleType + ";\n");
         toStr.append("    idCard = " + this.idCard+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    isadmin = " + this.isadmin + ";\n");
@@ -173,16 +173,16 @@ public class UsersForm extends ActionForm {
         this.idCard = idCard;
     }
     /**
-     * @return Returns the sex.
+     * @return Returns the roleType.
      */
-    public Integer getSex() {
-        return sex;
+    public Integer getRoleType() {
+        return roleType;
     }
     /**
-     * @param sex The sex to set.
+     * @param roleType The roleType to set.
      */
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setRoleType(Integer roleType) {
+        this.roleType = roleType;
     }
     public Users populate(){
         Users u=new Users();
@@ -192,7 +192,7 @@ public class UsersForm extends ActionForm {
         u.setUsername(getUsername());
         u.setPhoneNumber(getPhoneNumber());
         u.setPassword(getPassword());
-        u.setSex(getSex());
+        u.setRoleType(getRoleType());
         u.setIdCard(getIdCard());
         u.setCreatetime(DateUtil.parseToDate(getCreatetime(),DateUtil.yyyyMMddHHmmss));
         return u;

@@ -8,17 +8,17 @@ public class Users implements Serializable {
     private String username; //员工用户名
     private String phoneNumber; //手机号
     private String password; //登录密码
-    private Integer sex;		//性别
+    private Integer roleType;		//性别
     private String idCard;	//身份证号
     private Date createtime;//创建时间
     private Byte isadmin;	//是否为管理员
     private String content;	//人员简介
-    public Users(Long id,String username, String password, String phoneNumber, Integer sex, String idCard, Date createtime, Byte isadmin, String content) {
+    public Users(Long id,String username, String password, String phoneNumber, Integer roleType, String idCard, Date createtime, Byte isadmin, String content) {
         this.id=id;
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.password = password;
-        this.sex = sex;
+        this.roleType = roleType;
         this.idCard = idCard;
         this.createtime = createtime;
         this.isadmin = isadmin;
@@ -59,12 +59,12 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public Integer getSex() {
-        return this.sex;
+    public Integer getRoleType() {
+        return this.roleType;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setRoleType(Integer roleType) {
+        this.roleType = roleType;
     }
 
     public String getIdCard() {
@@ -106,7 +106,7 @@ public class Users implements Serializable {
         toStr.append("    username = " + this.username + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
         toStr.append("    password = " + this.password + ";\n");
-        toStr.append("    sex = " + this.sex + ";\n");
+        toStr.append("    roleType = " + this.roleType + ";\n");
         toStr.append("    idCard = " + this.idCard+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    isadmin = " + this.isadmin + ";\n");

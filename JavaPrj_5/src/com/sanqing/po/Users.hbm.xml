@@ -10,7 +10,7 @@
 		<property name="username" length="50" type="string"/>
 		<property name="phoneNumber" length="20" type="string"/>
 		<property name="password" length="50" type="string"/>
-		<property name="sex" length="1" type="int"/>
+		<property name="roleType" length="11" type="int"/>
 		<property name="idCard" length="20" type="string"/>
 		<property name="createtime" length="23"  type="timestamp"/>
 		<property name="isadmin" length="1" type="byte"/>

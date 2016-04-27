@@ -32,8 +32,8 @@ public class UsersDao {
 		if (users.getIdCard() != null){
 			u.setIdCard(users.getIdCard());//设置出生日期
 		}
-	    if(users.getSex()!=null){
-	    	u.setSex(users.getSex());//设置性别
+	    if(users.getRoleType()!=null){
+	    	u.setRoleType(users.getRoleType());//设置性别
 	    }
 		if (users.getContent() != null) {
 			u.setContent(users.getContent());//设置人员简介

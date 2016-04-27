@@ -91,9 +91,16 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	<tr bgcolor="#FFFFFF">
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getUsername())%>&nbsp;</td>
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getPhoneNumber())%>&nbsp;</td>
-		<%-- <td height="22" align="center" ><%=new Byte("1").equals(u.getSex())?"男":"女"%></td> --%>
+		<%-- <td height="22" align="center" ><%=new Byte("1").equals(u.getRoleType())?"男":"女"%></td> --%>
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getIdCard())%>&nbsp;</td>
-		<td height="22" align="center" ><%=new Byte("1").equals(u.getIsadmin())?"是":"否"%></td>
+		<td height="22" align="center" ><%
+		if (0 == u.getRoleType()){
+		  out.print("普通员工");
+		}else if (1 == u.getRoleType()){
+		  out.print("中层管理员");
+		}else {
+		  out.print("高层管理员");
+		}%></td>
 		<td height="22" align="center" ><%=StringUtil.notNull(u.getContent())%>&nbsp;</td>
 		<td height="22" align="center" ><a href="selectuser.do?action=selectuser&id=<%=u.getId()%>">修改</a>&nbsp;&nbsp;<a href="modifyuser.do?action=deleteuser&id=<%=u.getId()%>">删除</a></td>
 	</tr>

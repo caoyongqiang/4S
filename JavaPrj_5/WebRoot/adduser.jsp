@@ -42,12 +42,13 @@
 				   		<td width="12%"><div align="right">手机号：</div></td>
 				   		<td width="43%">
 				   		<input name="phoneNumber" type="text" class="input" id="phoneNumber" />
-				      	<span class="red">*</span></tr>
+				      	<span class="red">*</span></td>
+				    </tr>
 					<tr>
 						<!-- <td nowrap align="right" width="9%">性别：</td>
 						<td>
-						<input name="sex" type="radio" value="1" checked> 男
-						<input name="sex" type="radio" value="0">女</td> -->
+						<input name="roleType" type="radio" value="1" checked> 男
+						<input name="roleType" type="radio" value="0">女</td> -->
 						<td><div align="right">身份证号：</div></td>
 						<td>
 						<input name="idCard" type="text" class="input" id="idCard">
@@ -66,9 +67,9 @@
 						<td>&nbsp;</td> -->
 						<td nowrap align="right" width="9%">员工角色：</td>
 						<td>
-						  <input name="sex" type="radio" value="0" checked>普通员工
-						  <input name="sex" type="radio" value="1">中层管理员
-						  <input name="sex" type="radio" value="2">高层管理员
+						  <input name="roleType" type="radio" value="0" checked>普通员工
+						  <input name="roleType" type="radio" value="1">中层管理员
+						  <input name="roleType" type="radio" value="2">高层管理员
 						</td>
 					</tr>
 					<tr>
