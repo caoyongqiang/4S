@@ -5,7 +5,7 @@
   <StrutsActivity path="/adduser.do" location="650,50" dimension="96,70" />
   <StrutsActivity path="/addjob.do" location="950,50" dimension="90,70" />
   <StrutsActivity path="/addeducate.do" location="1250,50" dimension="117,70" />
-  <StrutsActivity path="/addinstitution.do" location="1550,50" dimension="127,70" />
+  <StrutsActivity path="/addclue.do" location="1550,50" dimension="127,70" />
   <StrutsActivity path="/addstipend.do" location="1850,50" dimension="114,70" />
   <StrutsActivity path="/logon.do" location="50,250" dimension="126,104" />
   <StrutsActivity path="/user.do" location="350,250" dimension="126,104" />
@@ -19,11 +19,11 @@
   <StrutsActivity path="/modifyeducate.do" location="650,450" dimension="139,104" />
   <StrutsActivity path="/detaileducate.do" location="950,450" dimension="139,104" />
   <StrutsActivity path="/updateeducate.do" location="1250,450" dimension="139,104" />
-  <StrutsActivity path="/institution.do" location="1550,450" dimension="150,104" />
-  <StrutsActivity path="/modifyinstitution.do" location="1850,450" dimension="150,104" />
-  <StrutsActivity path="/detailinstitution.do" location="50,650" dimension="150,104" />
-  <StrutsActivity path="/updateinstitution.do" location="350,650" dimension="150,104" />
-  <StrutsActivity path="/buyinstitution.do" location="950,1450" dimension="250,104" />
+  <StrutsActivity path="/clue.do" location="1550,450" dimension="150,104" />
+  <StrutsActivity path="/modifyclue.do" location="1850,450" dimension="150,104" />
+  <StrutsActivity path="/detailclue.do" location="50,650" dimension="150,104" />
+  <StrutsActivity path="/updateclue.do" location="350,650" dimension="150,104" />
+  <StrutsActivity path="/buyclue.do" location="950,1450" dimension="250,104" />
   <StrutsActivity path="/stipend.do" location="650,650" dimension="137,104" />
   <StrutsActivity path="/modifystipend.do" location="950,650" dimension="137,104" />
   <StrutsActivity path="/detailstipend.do" location="1250,650" dimension="137,104" />
@@ -34,7 +34,7 @@
   <StrutsActivity path="/adduser.jsp" location="650,850" dimension="105,53" />
   <StrutsActivity path="/addjob.jsp" location="950,850" dimension="99,53" />
   <StrutsActivity path="/addeducate.jsp" location="1250,850" dimension="126,53" />
-  <StrutsActivity path="/addinstitution.jsp" location="1550,850" dimension="136,53" />
+  <StrutsActivity path="/addclue.jsp" location="1550,850" dimension="136,53" />
   <StrutsActivity path="/addstipend.jsp" location="1850,850" dimension="123,53" />
   <StrutsActivity path="/manage.jsp" location="350,1050" dimension="104,53" />
   <StrutsActivity path="/listuser.jsp" location="650,1050" dimension="98,53" />
@@ -45,9 +45,9 @@
   <StrutsActivity path="/listeducate.jsp" location="50,1250" dimension="119,53" />
   <StrutsActivity path="/detaileducate.jsp" location="350,1250" dimension="135,53" />
   <StrutsActivity path="/updateeducate.jsp" location="650,1250" dimension="144,53" />
-  <StrutsActivity path="/listinstitution.jsp" location="950,1250" dimension="129,53" />
-  <StrutsActivity path="/detailinstitution.jsp" location="1250,1250" dimension="145,53" />
-  <StrutsActivity path="/updateinstitution.jsp" location="1550,1250" dimension="154,53" />
+  <StrutsActivity path="/listclue.jsp" location="950,1250" dimension="129,53" />
+  <StrutsActivity path="/detailclue.jsp" location="1250,1250" dimension="145,53" />
+  <StrutsActivity path="/updateclue.jsp" location="1550,1250" dimension="154,53" />
   <StrutsActivity path="/liststipend.jsp" location="1850,1250" dimension="116,53" />
   <StrutsActivity path="/detailstipend.jsp" location="50,1450" dimension="132,53" />
   <StrutsActivity path="/updatestipend.jsp" location="350,1450" dimension="141,53" />
@@ -62,7 +62,7 @@
       <AbsolutePoint location="491,1476" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addinstitution.do,null,/addinstitution.jsp,1" routingType="0">
+  <StrutsTransition id="/addclue.do,null,/addclue.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1550,85" />
       <AbsolutePoint location="1470,85" />
@@ -84,7 +84,7 @@
       <AbsolutePoint location="1250,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/updateinstitution.do,success,/updateinstitution.jsp,1" routingType="0">
+  <StrutsTransition id="/updateclue.do,success,/updateclue.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="469,754" />
       <AbsolutePoint location="469,1208" />
@@ -101,7 +101,7 @@
       <AbsolutePoint location="722,1250" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/modifyinstitution.do,success,/institution.do,1" routingType="0">
+  <StrutsTransition id="/modifyclue.do,success,/clue.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1850,502" />
       <AbsolutePoint location="1700,502" />
@@ -179,7 +179,7 @@
       <AbsolutePoint location="350,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/buyinstitution.do,success,/addstipend.jsp,1" routingType="0">
+  <StrutsTransition id="/buyclue.do,success,/addstipend.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1075,1502" />
       <AbsolutePoint location="1911,876" />
@@ -255,7 +255,7 @@
       <AbsolutePoint location="1250,1076" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/detailinstitution.do,success,/detailinstitution.jsp,1" routingType="0">
+  <StrutsTransition id="/detailclue.do,success,/detailclue.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="197,754" />
       <AbsolutePoint location="197,1378" />
@@ -295,7 +295,7 @@
       <AbsolutePoint location="755,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/institution.do,success,/listinstitution.jsp,1" routingType="0">
+  <StrutsTransition id="/clue.do,success,/listclue.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1625,554" />
       <AbsolutePoint location="1625,599" />

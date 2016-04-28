@@ -6,14 +6,14 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import com.sanqing.po.Institution;
+import com.sanqing.po.Clue;
 import com.sanqing.tool.DateUtil;
 
 /**
  * @author BWeiMing
  *
  */
-public class InstitutionForm extends ActionForm {
+public class ClueForm extends ActionForm {
 
     /** identifier field */
     private Long id;
@@ -104,7 +104,7 @@ public class InstitutionForm extends ActionForm {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Institution] = [\n");
+        toStr.append("[Clue] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
@@ -116,8 +116,8 @@ public class InstitutionForm extends ActionForm {
         return toStr.toString();
     }
 
-    public Institution populate(){
-        Institution i=new Institution();
+    public Clue populate(){
+        Clue i=new Clue();
         i.setVisitTime(DateUtil.parseToDate(this.getVisitTime(),DateUtil.yyyyMMdd));
         i.setIdCard(this.getIdCard());
         i.setHouse(this.getHouse());

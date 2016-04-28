@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Institution"%>
+<%@ page import="com.sanqing.po.Clue"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,14 +17,14 @@
 </style>
 </head>
 <body class="ContentBody">
- <form name="institutionForm" method="post" action="modifyinstitution.do?action=updateinstitution" onSubmit="return institutionValidate()">
+ <form name="clueForm" method="post" action="modifyclue.do?action=updateclue" onSubmit="return clueValidate()">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
       <th class="tablestyle_title" >修改线索信息</th>
   </tr>
     <%
-	  Institution e=(Institution)request.getAttribute("institution");
+	  Clue e=(Clue)request.getAttribute("clue");
 	  if(e!=null){
   %>
   <tr>

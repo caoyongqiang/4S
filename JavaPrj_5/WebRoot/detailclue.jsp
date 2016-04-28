@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Institution"%>
+<%@ page import="com.sanqing.po.Clue"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,7 +23,7 @@
       <th class="tablestyle_title" >线索信息详情</th>
   </tr>
    <%
-	  Institution e=(Institution)request.getAttribute("institution");
+	  Clue e=(Clue)request.getAttribute("clue");
 	  if(e!=null){
   %>
   <tr>
@@ -52,7 +52,7 @@
 					  </tr>
 					  <tr>
    							 <td height="22" colspan="2" align="center" >
-   							 <a href="updateinstitution.do?action=detailinstitution&id=<%=e.getId()%>">修改</a>&nbsp;&nbsp;
+   							 <a href="updateclue.do?action=detailclue&id=<%=e.getId()%>">修改</a>&nbsp;&nbsp;
    							 <a href="#" onClick="javascript:history.back();">返回</a>
    							 </td>
  					  </tr>

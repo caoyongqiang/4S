@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Institution"%>
+<%@ page import="com.sanqing.po.Clue"%>
+<%@ page import="com.sanqing.tool.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -84,7 +85,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				 if(list!=null&&list.size()>0){
 					Iterator it = list.iterator();
 					   while (it.hasNext()) {
-								Institution j = (Institution) it.next();
+								Clue j = (Clue) it.next();
 			
 			  %>
 			  <tr  bgcolor="#FFFFFF">
@@ -93,11 +94,11 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				<td height="22" align="center" ><%=j.getIdCard()%></td>
 				<td height="22" align="center" ><%=j.getHouse()%></td>
 				<td height="22" align="center" ><%=j.getDesireCar()%></td>
-				<td height="22" align="center" ><%=j.getVisitTime()%></td>
+				<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getVisitTime(),DateUtil.yyyyMMdd))%></td>
 				<td height="22" align="center" >
-				  <a href="updateinstitution.do?action=detailinstitution&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
-				  <a href="modifyinstitution.do?action=deleteinstitution&id=<%=j.getId()%>">删除</a>&nbsp;&nbsp;
-				  <a href="buyinstitution.do?action=detailinstitution&id=<%=j.getId()%>&deleteflag=yes">已购车</a>
+				  <a href="updateclue.do?action=detailclue&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
+				  <a href="modifyclue.do?action=deleteclue&id=<%=j.getId()%>">删除</a>&nbsp;&nbsp;
+				  <a href="buyclue.do?action=detailclue&id=<%=j.getId()%>&deleteflag=yes">已购车</a>
 				</td>
 			  </tr>
 			  <%		}

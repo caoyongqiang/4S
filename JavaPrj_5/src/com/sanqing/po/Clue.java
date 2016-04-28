@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** ���� */
-public class Institution implements Serializable {
+public class Clue implements Serializable {
     private Long id;		//���ͱ��
     private String name;	//�������
     private String phoneNumber;	//����ԭ��
@@ -14,7 +14,7 @@ public class Institution implements Serializable {
     private Date visitTime;//����ʱ��
 
     /** full constructor */
-    public Institution(String name, String phoneNumber, String idCard, String house, String desireCar, Date visitTime) {
+    public Clue(String name, String phoneNumber, String idCard, String house, String desireCar, Date visitTime) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.idCard = idCard;
@@ -24,7 +24,7 @@ public class Institution implements Serializable {
     }
 
     /** default constructor */
-    public Institution() {
+    public Clue() {
     }
 
     public Long getId() {
@@ -85,7 +85,7 @@ public class Institution implements Serializable {
     
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Institution] = [\n");
+        toStr.append("[Clue] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");

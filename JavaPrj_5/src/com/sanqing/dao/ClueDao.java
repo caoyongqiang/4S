@@ -8,15 +8,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.sanqing.hb.HibernateSessionFactory;
-import com.sanqing.po.Institution;
+import com.sanqing.po.Clue;
 
 /**
  * @author BWeiMing
  *
  */
-public class InstitutionDao {
+public class ClueDao {
 
-    public void addInstitution(Institution e) throws HibernateException{
+    public void addClue(Clue e) throws HibernateException{
 //        e.setCreatetime(new java.util.Date());
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
@@ -25,7 +25,7 @@ public class InstitutionDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public void deleteInstitution(Institution e) throws HibernateException{
+    public void deleteClue(Clue e) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.delete(e);
@@ -33,27 +33,27 @@ public class InstitutionDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public Institution loadInstitution(long id) throws HibernateException{
+    public Clue loadClue(long id) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Institution e=(Institution)session.get(Institution.class,new Long(id));
+        Clue e=(Clue)session.get(Clue.class,new Long(id));
         tx.commit();
         HibernateSessionFactory.closeSession();
         return e;
     }
 
-    public List listInstitution() throws HibernateException{
+    public List listClue() throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Institution as e order by visitTime");
+        Query query = session.createQuery("select e from Clue as e order by visitTime");
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
         return list;
     }
 
-    public void updateInstitution(Institution ins) throws HibernateException{
-        Institution e =this.loadInstitution(ins.getId().longValue());
+    public void updateClue(Clue ins) throws HibernateException{
+        Clue e =this.loadClue(ins.getId().longValue());
         if (ins.getIdCard()!=null){
             e.setIdCard(ins.getIdCard());
         }

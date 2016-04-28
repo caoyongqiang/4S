@@ -6,7 +6,7 @@
     <form-bean name="userForm" type="com.sanqing.action.UsersForm" />
     <form-bean name="jobForm" type="com.sanqing.action.JobForm" />
     <form-bean name="educateForm" type="com.sanqing.action.EducateForm" />
-    <form-bean name="institutionForm" type="com.sanqing.action.InstitutionForm" />
+    <form-bean name="clueForm" type="com.sanqing.action.ClueForm" />
     <form-bean name="stipendForm" type="com.sanqing.action.StipendForm" />
   </form-beans>
   <global-forwards>
@@ -18,7 +18,7 @@
     <action forward="/adduser.jsp" path="/adduser" />
     <action forward="/addjob.jsp" path="/addjob" />
     <action forward="/addeducate.jsp" path="/addeducate" />
-    <action forward="/addinstitution.jsp" path="/addinstitution" />
+    <action forward="/addclue.jsp" path="/addclue" />
     <action forward="/addstipend.jsp" path="/addstipend" />
     <action name="userForm" path="/logon" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/manage.jsp" />
@@ -58,19 +58,19 @@
     <action path="/updateeducate" scope="request" type="com.sanqing.action.EducateAction">
       <forward name="success" path="/updateeducate.jsp" />
     </action>
-    <action name="institutionForm" path="/institution" scope="request" type="com.sanqing.action.InstitutionAction">
-      <forward name="success" path="/listinstitution.jsp" />
+    <action name="clueForm" path="/clue" scope="request" type="com.sanqing.action.ClueAction">
+      <forward name="success" path="/listclue.jsp" />
     </action>
-    <action name="institutionForm" path="/modifyinstitution" scope="session" type="com.sanqing.action.InstitutionAction">
-      <forward name="success" path="/institution.do?action=listinstitution" />
+    <action name="clueForm" path="/modifyclue" scope="session" type="com.sanqing.action.ClueAction">
+      <forward name="success" path="/clue.do?action=listclue" />
     </action>
-    <action path="/detailinstitution" scope="request" type="com.sanqing.action.InstitutionAction">
-      <forward name="success" path="/detailinstitution.jsp" />
+    <action path="/detailclue" scope="request" type="com.sanqing.action.ClueAction">
+      <forward name="success" path="/detailclue.jsp" />
     </action>
-    <action path="/updateinstitution" scope="request" type="com.sanqing.action.InstitutionAction">
-      <forward name="success" path="/updateinstitution.jsp" />
+    <action path="/updateclue" scope="request" type="com.sanqing.action.ClueAction">
+      <forward name="success" path="/updateclue.jsp" />
     </action>
-    <action path="/buyinstitution" scope="request" type="com.sanqing.action.InstitutionAction">
+    <action path="/buyclue" scope="request" type="com.sanqing.action.ClueAction">
       <forward name="success" path="/addstipend.jsp" />
     </action>
     <action name="stipendForm" path="/stipend" scope="request" type="com.sanqing.action.StipendAction">

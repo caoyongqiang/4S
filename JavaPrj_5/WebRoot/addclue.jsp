@@ -14,7 +14,7 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="institutionForm" method="post" action="modifyinstitution.do?action=addinstitution" onSubmit="return institutionValidate()">
+<form name="clueForm" method="post" action="modifyclue.do?action=addclue" onSubmit="return clueValidate()">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>

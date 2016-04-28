@@ -11,8 +11,8 @@ import org.hibernate.HibernateException;
 
 import com.sanqing.dao.StipendDao;
 import com.sanqing.po.Stipend;
-import com.sanqing.dao.InstitutionDao;
-import com.sanqing.po.Institution;
+import com.sanqing.dao.ClueDao;
+import com.sanqing.po.Clue;
 
 public class StipendAction extends Action {
     private StipendDao dao=new StipendDao();
@@ -96,10 +96,10 @@ public class StipendAction extends Action {
     	String id=request.getParameter("id"); // id用来判断是否删除线索信息中的记录
     	if (id != null) {
     		Long lid = new Long(id);
-    		InstitutionDao dao=new InstitutionDao();
-            Institution i=new Institution();
+    		ClueDao dao=new ClueDao();
+            Clue i=new Clue();
             i.setId(lid);
-            dao.deleteInstitution(i);
+            dao.deleteClue(i);
     	}
     	StipendForm stipendForm=(StipendForm)form;
         Stipend s=stipendForm.populate();

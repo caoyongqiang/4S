@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<%@ page import="com.sanqing.po.Institution"%>
+<%@ page import="com.sanqing.po.Clue"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,7 +16,7 @@
 </head>
 <body class="ContentBody">
 <%
-	  Institution e=(Institution)request.getAttribute("institution");
+	  Clue e=(Clue)request.getAttribute("clue");
   %>
 <form name="stipendForm" method="post" action="modifystipend.do?action=addstipend<%if(e != null) {%>&id=<%=e.getId()%> <%} %>" onSubmit="return stipendValidate();" >
 <div class="MainDiv">

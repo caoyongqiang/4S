@@ -204,11 +204,11 @@ function list(idstr){
         
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu9" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="addinstitution.do" target="mainFrame" class="left-font03" onClick="tupian('9');">线索信息录入</a></td>
+          <td width="91%"><a href="addclue.do" target="mainFrame" class="left-font03" onClick="tupian('9');">线索信息录入</a></td>
         </tr>
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu10" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="institution.do?action=listinstitution" target="mainFrame" class="left-font03" onClick="tupian('10');">线索信息查看</a></td>
+          <td width="91%"><a href="clue.do?action=listclue" target="mainFrame" class="left-font03" onClick="tupian('10');">线索信息查看</a></td>
         </tr>
       </table>
 

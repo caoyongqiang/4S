@@ -28,15 +28,15 @@ function stipendValidate(){
 
 	return true;
 }
-function institutionValidate(){
-	if(institutionForm.name.value==""){
+function clueValidate(){
+	if(clueForm.name.value==""){
 		alert("请添写线索姓名！");		
-		institutionForm.name.focus();
+		clueForm.name.focus();
 		return false;
 	}
-	if(institutionForm.phoneNumber.value==""){
+	if(clueForm.phoneNumber.value==""){
 		alert("请添写手机号！");
-		institutionForm.phoneNumber.focus();
+		clueForm.phoneNumber.focus();
 		return false;
 	}
 	return true;
