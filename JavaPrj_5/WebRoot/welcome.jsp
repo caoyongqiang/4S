@@ -15,6 +15,7 @@ body {
 -->
 </style>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <style type="text/css">
 <!--
 .STYLE1 {
