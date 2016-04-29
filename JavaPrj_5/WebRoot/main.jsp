@@ -5,6 +5,7 @@
 <title>4S店客户管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/css.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
