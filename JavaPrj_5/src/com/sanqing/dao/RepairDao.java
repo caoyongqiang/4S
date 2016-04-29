@@ -49,9 +49,6 @@ public class RepairDao {
 
     public void updateRepair(Repair repair){
         Repair j = loadRepair(repair.getId().longValue());
-        if (repair.getRepairTimes()!=null){
-            j.setRepairTimes(repair.getRepairTimes());
-        }
         if(repair.getRepairDetail()!=null){
             j.setRepairDetail(repair.getRepairDetail());
         }
@@ -61,26 +58,14 @@ public class RepairDao {
         if (repair.getIsstock()!= null) {
             j.setIsstock(repair.getIsstock());
         }
-        if(repair.getRepair()!=null){
-            j.setRepair(repair.getRepair());
-        }
         if(repair.getName()!=null){
             j.setName(repair.getName());
-        }
-        if(repair.getRepairCost()!=null){
-            j.setRepairCost(repair.getRepairCost());
         }
         if(repair.getCar()!=null){
             j.setCar(repair.getCar());
         }
-        if(repair.getRepairType()!=null){
-            j.setRepairType(repair.getRepairType());
-        }
         if(repair.getTel()!=null){
             j.setTel(repair.getTel());
-        }
-        if(repair.getEmail()!=null){
-            j.setEmail(repair.getEmail());
         }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();

@@ -22,22 +22,10 @@ public class RepairForm extends ActionForm {
     private String name;
 
     /** nullable persistent field */
-    private Integer repairTimes;
-
-    /** nullable persistent field */
-    private String repair;
-
-    /** nullable persistent field */
     private String car;
 
     /** nullable persistent field */
     private String plateNumber;
-
-    /** nullable persistent field */
-    private String repairType;
-
-    /** nullable persistent field */
-    private String repairCost;
 
     /** nullable persistent field */
     private String tel;
@@ -50,33 +38,14 @@ public class RepairForm extends ActionForm {
 
     private String createtime;
 
-    private String email;
-
-    /**
-     * @return Returns the email.
-     */
-    public String getEmail() {
-        return email;
-    }
-    /**
-     * @param email The email to set.
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
     /** full constructor */
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
         this.id=null;
         this.name = null;
-        this.repairTimes = null;
-        this.repair = null;
         this.car = null;
         this.plateNumber = null;
-        this.repairType = null;
-        this.repairCost = null;
         this.tel = null;
         this.createtime=null;
-        this.email=null;
         this.repairDetail = null;
         this.isstock = null;
     }
@@ -98,22 +67,6 @@ public class RepairForm extends ActionForm {
         this.name = name;
     }
 
-    public Integer getRepairTimes() {
-        return this.repairTimes;
-    }
-
-    public void setRepairTimes(Integer repairTimes) {
-        this.repairTimes = repairTimes;
-    }
-
-    public String getRepair() {
-        return this.repair;
-    }
-
-    public void setRepair(String repair) {
-        this.repair = repair;
-    }
-
     public String getCar() {
         return this.car;
     }
@@ -128,22 +81,6 @@ public class RepairForm extends ActionForm {
 
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
-    }
-
-    public String getRepairType() {
-        return this.repairType;
-    }
-
-    public void setRepairType(String repairType) {
-        this.repairType = repairType;
-    }
-
-    public String getRepairCost() {
-        return this.repairCost;
-    }
-
-    public void setRepairCost(String repairCost) {
-        this.repairCost = repairCost;
     }
 
     public String getTel() {
@@ -175,15 +112,10 @@ public class RepairForm extends ActionForm {
         toStr.append("[RepairForm] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    repairTimes = " + this.repairTimes + ";\n");
-        toStr.append("    repair = " + this.repair + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
-        toStr.append("    repairType = " + this.repairType + ";\n");
-        toStr.append("    repairCost = " + this.repairCost + ";\n");
         toStr.append("    tel = " + this.tel + ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    email= " + this.email+ ";\n");
         toStr.append("    repairDetail = " + this.repairDetail+ ";\n");
         toStr.append("    isstock = " + this.isstock + ";\n");
         toStr.append("    ];\n");
@@ -196,19 +128,14 @@ public class RepairForm extends ActionForm {
 
     public Repair populate(){
         Repair j=new Repair();
-        j.setRepairTimes(this.getRepairTimes());
         j.setRepairDetail(this.getRepairDetail());
         j.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
         j.setPlateNumber(this.getPlateNumber());
         j.setId(this.getId());
         j.setIsstock(this.getIsstock());
-        j.setRepair(this.getRepair());
         j.setName(this.getName());
-        j.setRepairCost(this.getRepairCost());
         j.setCar(this.getCar());
-        j.setRepairType(this.getRepairType());
         j.setTel(this.getTel());
-        j.setEmail(this.getEmail());
         return j;
     }
     /**
