@@ -6,7 +6,7 @@
   <StrutsActivity path="/addjob.do" location="950,50" dimension="90,70" />
   <StrutsActivity path="/addeducate.do" location="1250,50" dimension="117,70" />
   <StrutsActivity path="/addclue.do" location="1550,50" dimension="127,70" />
-  <StrutsActivity path="/addstipend.do" location="1850,50" dimension="114,70" />
+  <StrutsActivity path="/addcarOwners.do" location="1850,50" dimension="114,70" />
   <StrutsActivity path="/logon.do" location="50,250" dimension="126,104" />
   <StrutsActivity path="/user.do" location="350,250" dimension="126,104" />
   <StrutsActivity path="/modifyuser.do" location="650,250" dimension="126,104" />
@@ -24,10 +24,10 @@
   <StrutsActivity path="/detailclue.do" location="50,650" dimension="150,104" />
   <StrutsActivity path="/updateclue.do" location="350,650" dimension="150,104" />
   <StrutsActivity path="/buyclue.do" location="950,1450" dimension="250,104" />
-  <StrutsActivity path="/stipend.do" location="650,650" dimension="137,104" />
-  <StrutsActivity path="/modifystipend.do" location="950,650" dimension="137,104" />
-  <StrutsActivity path="/detailstipend.do" location="1250,650" dimension="137,104" />
-  <StrutsActivity path="/updatestipend.do" location="1550,650" dimension="137,104" />
+  <StrutsActivity path="/carOwners.do" location="650,650" dimension="137,104" />
+  <StrutsActivity path="/modifycarOwners.do" location="950,650" dimension="137,104" />
+  <StrutsActivity path="/detailcarOwners.do" location="1250,650" dimension="137,104" />
+  <StrutsActivity path="/updatecarOwners.do" location="1550,650" dimension="137,104" />
   <StrutsActivity path="error;6" location="1850,650" dimension="98,87" />
   <StrutsActivity path="/welcome.jsp" location="50,850" dimension="108,53" />
   <StrutsActivity path="/main.jsp" location="350,850" dimension="85,53" />
@@ -35,7 +35,7 @@
   <StrutsActivity path="/addjob.jsp" location="950,850" dimension="99,53" />
   <StrutsActivity path="/addeducate.jsp" location="1250,850" dimension="126,53" />
   <StrutsActivity path="/addclue.jsp" location="1550,850" dimension="136,53" />
-  <StrutsActivity path="/addstipend.jsp" location="1850,850" dimension="123,53" />
+  <StrutsActivity path="/addcarOwners.jsp" location="1850,850" dimension="123,53" />
   <StrutsActivity path="/manage.jsp" location="350,1050" dimension="104,53" />
   <StrutsActivity path="/listuser.jsp" location="650,1050" dimension="98,53" />
   <StrutsActivity path="/updateuser.jsp" location="950,1050" dimension="123,53" />
@@ -48,12 +48,12 @@
   <StrutsActivity path="/listclue.jsp" location="950,1250" dimension="129,53" />
   <StrutsActivity path="/detailclue.jsp" location="1250,1250" dimension="145,53" />
   <StrutsActivity path="/updateclue.jsp" location="1550,1250" dimension="154,53" />
-  <StrutsActivity path="/liststipend.jsp" location="1850,1250" dimension="116,53" />
-  <StrutsActivity path="/detailstipend.jsp" location="50,1450" dimension="132,53" />
-  <StrutsActivity path="/updatestipend.jsp" location="350,1450" dimension="141,53" />
+  <StrutsActivity path="/listcarOwners.jsp" location="1850,1250" dimension="116,53" />
+  <StrutsActivity path="/detailcarOwners.jsp" location="50,1450" dimension="132,53" />
+  <StrutsActivity path="/updatecarOwners.jsp" location="350,1450" dimension="141,53" />
   <StrutsActivity path="/error.jsp" location="650,1450" dimension="87,53" />
   <StrutsActivity path="/failed.jsp" location="50,1050" dimension="89,53" />
-  <StrutsTransition id="/updatestipend.do,success,/updatestipend.jsp,1" routingType="0">
+  <StrutsTransition id="/updatecarOwners.do,success,/updatecarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1618,754" />
       <AbsolutePoint location="1618,799" />
@@ -70,7 +70,7 @@
       <AbsolutePoint location="1550,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/modifystipend.do,success,/stipend.do,1" routingType="0">
+  <StrutsTransition id="/modifycarOwners.do,success,/carOwners.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,702" />
       <AbsolutePoint location="787,702" />
@@ -148,7 +148,7 @@
       <AbsolutePoint location="693,1503" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/stipend.do,success,/liststipend.jsp,1" routingType="0">
+  <StrutsTransition id="/carOwners.do,success,/listcarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="770,754" />
       <AbsolutePoint location="770,1148" />
@@ -179,7 +179,7 @@
       <AbsolutePoint location="350,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/buyclue.do,success,/addstipend.jsp,1" routingType="0">
+  <StrutsTransition id="/buyclue.do,success,/addcarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1075,1502" />
       <AbsolutePoint location="1911,876" />
@@ -231,7 +231,7 @@
       <AbsolutePoint location="476,272" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addstipend.do,null,/addstipend.jsp,1" routingType="0">
+  <StrutsTransition id="/addcarOwners.do,null,/addcarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1850,85" />
       <AbsolutePoint location="1779,85" />
@@ -269,7 +269,7 @@
       <AbsolutePoint location="702,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/detailstipend.do,success,/detailstipend.jsp,1" routingType="0">
+  <StrutsTransition id="/detailcarOwners.do,success,/detailcarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,702" />
       <AbsolutePoint location="1134,702" />

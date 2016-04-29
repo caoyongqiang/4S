@@ -9,31 +9,31 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
-import com.sanqing.dao.StipendDao;
-import com.sanqing.po.Stipend;
+import com.sanqing.dao.CarOwnersDao;
+import com.sanqing.po.CarOwners;
 import com.sanqing.dao.ClueDao;
 import com.sanqing.po.Clue;
 
-public class StipendAction extends Action {
-    private StipendDao dao=new StipendDao();
+public class CarOwnersAction extends Action {
+    private CarOwnersDao dao=new CarOwnersDao();
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         String action =request.getParameter("action").trim();
-        System.out.println("\nStipendAction*********************action="+action);
+        System.out.println("\nCarOwnersAction*********************action="+action);
         if(action==null||"".equals(action)){
             return mapping.findForward("error");
-        }else if("liststipend".equals(action)){
-            return listStipend(mapping,form,request,response);
-        }else if("addstipend".equals(action)){
-            return addStipend(mapping,form,request,response);
-        }else if("deletestipend".equals(action)){
-            return deleteStipend(mapping,form,request,response);
-        }else if("updatestipend".equals(action)){
-            return updateStipend(mapping,form,request,response);
-        }else if("detailstipend".equals(action)){
-            return detailStipend(mapping,form,request,response);
+        }else if("listcarOwners".equals(action)){
+            return listCarOwners(mapping,form,request,response);
+        }else if("addcarOwners".equals(action)){
+            return addCarOwners(mapping,form,request,response);
+        }else if("deletecarOwners".equals(action)){
+            return deleteCarOwners(mapping,form,request,response);
+        }else if("updatecarOwners".equals(action)){
+            return updateCarOwners(mapping,form,request,response);
+        }else if("detailcarOwners".equals(action)){
+            return detailCarOwners(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -46,10 +46,10 @@ public class StipendAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward detailStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward detailCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id"));
-        Stipend s=dao.loadStipend(id.longValue());
-        request.setAttribute("stipend",s);
+        CarOwners s=dao.loadCarOwners(id.longValue());
+        request.setAttribute("carOwners",s);
         return mapping.findForward("success");
     }
 
@@ -61,10 +61,10 @@ public class StipendAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward updateStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        StipendForm stipendForm=(StipendForm)form;
-        Stipend s=stipendForm.populate();
-        dao.updateStipend(s);
+    private ActionForward updateCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+        CarOwnersForm carOwnersForm=(CarOwnersForm)form;
+        CarOwners s=carOwnersForm.populate();
+        dao.updateCarOwners(s);
         return mapping.findForward("success");
     }
 
@@ -76,11 +76,11 @@ public class StipendAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward deleteStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward deleteCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id").toString());
-        Stipend s=new Stipend();
+        CarOwners s=new CarOwners();
         s.setId(id);
-        dao.deleteStipend(s);
+        dao.deleteCarOwners(s);
         return mapping.findForward("success");
     }
 
@@ -92,7 +92,7 @@ public class StipendAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward addStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward addCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
     	String id=request.getParameter("id"); // id用来判断是否删除线索信息中的记录
     	if (id != null) {
     		Long lid = new Long(id);
@@ -101,9 +101,9 @@ public class StipendAction extends Action {
             i.setId(lid);
             dao.deleteClue(i);
     	}
-    	StipendForm stipendForm=(StipendForm)form;
-        Stipend s=stipendForm.populate();
-        dao.addStipend(s);
+    	CarOwnersForm carOwnersForm=(CarOwnersForm)form;
+        CarOwners s=carOwnersForm.populate();
+        dao.addCarOwners(s);
         return mapping.findForward("success");
     }
 
@@ -115,8 +115,8 @@ public class StipendAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward listStipend(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        request.setAttribute("list",dao.listStipend());
+    private ActionForward listCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+        request.setAttribute("list",dao.listCarOwners());
         return mapping.findForward("success");
     }
 

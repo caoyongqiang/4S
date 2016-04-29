@@ -23,6 +23,6 @@
 		 <mapping resource="com/sanqing/po/Job.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/Educate.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/Clue.hbm.xml"/>
-		 <mapping resource="com/sanqing/po/Stipend.hbm.xml"/>
+		 <mapping resource="com/sanqing/po/CarOwners.hbm.xml"/>
      </session-factory>
 </hibernate-configuration>

@@ -8,18 +8,18 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.sanqing.hb.HibernateSessionFactory;
-import com.sanqing.po.Stipend;
+import com.sanqing.po.CarOwners;
 
 /**
  * @author caoyongqiang
  *
  */
-public class StipendDao {
+public class CarOwnersDao {
 
     /**
      *	���㹤������
      **/
-    private Stipend getCountTotalize(Stipend e){
+    private CarOwners getCountTotalize(CarOwners e){
         float count=0;
         count=count+e.getOther();
         //count=count-e.getPlateNumber().longValue();
@@ -28,7 +28,7 @@ public class StipendDao {
         return e;
     }
 
-    public void addStipend(Stipend e) throws HibernateException{
+    public void addCarOwners(CarOwners e) throws HibernateException{
         e=getCountTotalize(e);
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
@@ -37,7 +37,7 @@ public class StipendDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public void deleteStipend(Stipend e) throws HibernateException{
+    public void deleteCarOwners(CarOwners e) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.delete(e);
@@ -45,53 +45,53 @@ public class StipendDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public Stipend loadStipend(long id) throws HibernateException{
+    public CarOwners loadCarOwners(long id) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Stipend e=(Stipend)session.get(Stipend.class,new Long(id));
+        CarOwners e=(CarOwners)session.get(CarOwners.class,new Long(id));
         tx.commit();
         HibernateSessionFactory.closeSession();
         return e;
     }
 
-    public List listStipend() throws HibernateException{
+    public List listCarOwners() throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Stipend as e order by e.purchaseTime");
+        Query query = session.createQuery("select e from CarOwners as e order by e.purchaseTime");
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
         return list;
     }
 
-    public void updateStipend(Stipend stipend) throws HibernateException{
-        Stipend e =this.loadStipend(stipend.getId().longValue());
-        if (stipend.getPhoneNumber()!=null){
-            e.setPhoneNumber(stipend.getPhoneNumber());
+    public void updateCarOwners(CarOwners carOwners) throws HibernateException{
+        CarOwners e =this.loadCarOwners(carOwners.getId().longValue());
+        if (carOwners.getPhoneNumber()!=null){
+            e.setPhoneNumber(carOwners.getPhoneNumber());
         }
-        if(stipend.getCar()!=null){
-            e.setCar(stipend.getCar());
+        if(carOwners.getCar()!=null){
+            e.setCar(carOwners.getCar());
         }
-        if (stipend.getIdCard()!= null) {
-            e.setIdCard(stipend.getIdCard());
+        if (carOwners.getIdCard()!= null) {
+            e.setIdCard(carOwners.getIdCard());
         }
-        if (stipend.getHouse()!= null) {
-            e.setHouse(stipend.getHouse());
+        if (carOwners.getHouse()!= null) {
+            e.setHouse(carOwners.getHouse());
         }
-        if(stipend.getPurchaseTime()!=null){
-            e.setPurchaseTime(stipend.getPurchaseTime());
+        if(carOwners.getPurchaseTime()!=null){
+            e.setPurchaseTime(carOwners.getPurchaseTime());
         }
-        if(stipend.getName()!=null){
-            e.setName(stipend.getName());
+        if(carOwners.getName()!=null){
+            e.setName(carOwners.getName());
         }
-        if(stipend.getOther()!=null){
-            e.setOther(stipend.getOther());
+        if(carOwners.getOther()!=null){
+            e.setOther(carOwners.getOther());
         }
-        if(stipend.getPlateNumber()!=null){
-            e.setPlateNumber(stipend.getPlateNumber());
+        if(carOwners.getPlateNumber()!=null){
+            e.setPlateNumber(carOwners.getPlateNumber());
         }
-        if(stipend.getCarPrice()!=null){
-            e.setCarPrice(stipend.getCarPrice());
+        if(carOwners.getCarPrice()!=null){
+            e.setCarPrice(carOwners.getCarPrice());
         }
         e=getCountTotalize(e);
         Session session = HibernateSessionFactory.getSession();

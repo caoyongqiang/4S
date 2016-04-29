@@ -7,7 +7,7 @@
     <form-bean name="jobForm" type="com.sanqing.action.JobForm" />
     <form-bean name="educateForm" type="com.sanqing.action.EducateForm" />
     <form-bean name="clueForm" type="com.sanqing.action.ClueForm" />
-    <form-bean name="stipendForm" type="com.sanqing.action.StipendForm" />
+    <form-bean name="carOwnersForm" type="com.sanqing.action.CarOwnersForm" />
   </form-beans>
   <global-forwards>
     <forward name="error" path="/error.jsp" />
@@ -19,7 +19,7 @@
     <action forward="/addjob.jsp" path="/addjob" />
     <action forward="/addeducate.jsp" path="/addeducate" />
     <action forward="/addclue.jsp" path="/addclue" />
-    <action forward="/addstipend.jsp" path="/addstipend" />
+    <action forward="/addcarOwners.jsp" path="/addcarOwners" />
     <action name="userForm" path="/logon" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/manage.jsp" />
       <forward name="failed" path="/welcome.jsp" />
@@ -71,19 +71,19 @@
       <forward name="success" path="/updateclue.jsp" />
     </action>
     <action path="/buyclue" scope="request" type="com.sanqing.action.ClueAction">
-      <forward name="success" path="/addstipend.jsp" />
+      <forward name="success" path="/addcarOwners.jsp" />
     </action>
-    <action name="stipendForm" path="/stipend" scope="request" type="com.sanqing.action.StipendAction">
-      <forward name="success" path="/liststipend.jsp" />
+    <action name="carOwnersForm" path="/carOwners" scope="request" type="com.sanqing.action.CarOwnersAction">
+      <forward name="success" path="/listcarOwners.jsp" />
     </action>
-    <action name="stipendForm" path="/modifystipend" scope="session" type="com.sanqing.action.StipendAction">
-      <forward name="success" path="/stipend.do?action=liststipend" />
+    <action name="carOwnersForm" path="/modifycarOwners" scope="session" type="com.sanqing.action.CarOwnersAction">
+      <forward name="success" path="/carOwners.do?action=listcarOwners" />
     </action>
-    <action path="/detailstipend" scope="request" type="com.sanqing.action.StipendAction">
-      <forward name="success" path="/detailstipend.jsp" />
+    <action path="/detailcarOwners" scope="request" type="com.sanqing.action.CarOwnersAction">
+      <forward name="success" path="/detailcarOwners.jsp" />
     </action>
-    <action path="/updatestipend" scope="request" type="com.sanqing.action.StipendAction">
-      <forward name="success" path="/updatestipend.jsp" />
+    <action path="/updatecarOwners" scope="request" type="com.sanqing.action.CarOwnersAction">
+      <forward name="success" path="/updatecarOwners.jsp" />
     </action>
   </action-mappings>
 </struts-config>

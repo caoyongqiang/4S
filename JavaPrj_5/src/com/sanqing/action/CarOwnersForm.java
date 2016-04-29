@@ -6,9 +6,9 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import com.sanqing.po.Stipend;
+import com.sanqing.po.CarOwners;
 import com.sanqing.tool.DateUtil;
-public class StipendForm extends ActionForm {
+public class CarOwnersForm extends ActionForm {
 
     public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
         return null;
@@ -142,7 +142,7 @@ public class StipendForm extends ActionForm {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Stipend] = [\n");
+        toStr.append("[CarOwners] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
@@ -158,8 +158,8 @@ public class StipendForm extends ActionForm {
         return toStr.toString();
     }
 
-    public Stipend populate(){
-        Stipend s=new Stipend();
+    public CarOwners populate(){
+        CarOwners s=new CarOwners();
         s.setPhoneNumber(this.getPhoneNumber());
         s.setCar(this.getCar());
         s.setIdCard(this.getIdCard());

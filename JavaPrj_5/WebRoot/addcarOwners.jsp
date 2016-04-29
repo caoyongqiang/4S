@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Stipend"%>
-<%@ page import="com.sanqing.tool.*"%>
+<%@ page import="com.sanqing.po.Clue"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,81 +15,80 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="stipendForm" method="post" action="modifystipend.do?action=updatestipend" onSubmit="return stipendValidate();" >
+<%
+	  Clue e=(Clue)request.getAttribute("clue");
+  %>
+<form name="carOwnersForm" method="post" action="modifycarOwners.do?action=addcarOwners<%if(e != null) {%>&id=<%=e.getId()%> <%} %>" onSubmit="return carOwnersValidate();" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
-      <th class="tablestyle_title" >薪金数据更新</th>
+      <th class="tablestyle_title" >车主信息录入</th>
   </tr>
-    <%
-  Stipend e=(Stipend)request.getAttribute("stipend");
-  if(e!=null){
-  %>
   <tr>
     <td class="CPanel">
+		
 		<table border="0" cellpadding="0" cellspacing="0" style="width:80%" align="center">
 		<tr><td align="left">
-			<input type="submit"value="更新" class="button"/>　
+		<input type="submit"value="保存" class="button"/>　
+			
 			<input type="reset" value="返回" class="button"/>
-			</td>
-		</tr>
-		<tr>
-			<td width="100%">
+		</td></tr>
+		
+		<TR>
+			<TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>薪金数据</legend>
+				<legend>车主信息</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
-					  <input type="hidden" name="id" value="<%=e.getId()%>"/>
 					  <tr>
 					    <td nowrap align="right" width="9%">车主姓名：</td>
-					    <td width="36%"><input name="name" type="text" class="input" value="<%=e.getName()%>"/>
+					    <td width="36%"><input name="name" type="text" class="input" <%if(e != null) {%> value="<%=e.getName()%>" <%} %>>
 						<span class="red">*</span></td>
 					    <td width="12%"><div align="right">手机号：</div></td>
 					    <td width="43%">
-					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" value="<%=e.getPhoneNumber()%>" />
+					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" <%if(e != null) {%> value="<%=e.getPhoneNumber()%>" <%} %>/>
 					      <span class="red">*</span></td></tr>
 					  <tr>
 					    <td nowrap align="right" width="9%">身份证号：</td>
-					    <td><input name="idCard" type="text" class="input" id="idCard" value="<%=e.getIdCard()%>"/>
+					    <td><input name="idCard" type="text" class="input" id="idCard" <%if(e != null) {%> value="<%=e.getIdCard()%>" <%} %>>
 					        <span class="red">*</span>
 					    </td>
 					    <td><div align="right">家庭住址：</div></td>
-					    <td><input name="house" type="text" class="input" id="house"  value="<%=e.getHouse()%>"/></td>
+					    <td><input name="house" type="text" class="input" id="house" <%if(e != null) {%> value="<%=e.getHouse()%>" <%} %>></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">购买车型：</td>
-					    <td><input name="car" type="text" class="input" id="car" value="<%=e.getCar()%>"></td>
+					    <td><input name="car" type="text" class="input" id="car" <%if(e != null) {%> value="<%=e.getDesireCar()%>" <%} %>></td>
 					    <td><div align="right">裸车价：</div></td>
-					    <td><input name="carPrice" type="text" class="input" id="carPrice"  value="<%=e.getCarPrice()%>"/></td>
+					    <td><input name="carPrice" type="text" class="input" id="carPrice"></td>
 					    </tr>
 					  <tr>
 					    <td nowrap align="right">其他费用：</td>
-					    <td><input name="other" type="text" class="input" id="other"  value="<%=e.getOther()%>"/></td>
+					    <td><input name="other" type="text" class="input" id="other"></td>
 					    <td><div align="right">车牌号：</div></td>
-					    <td><input name="plateNumber" type="text" class="input" id="plateNumber"  value="<%=e.getPlateNumber()%>"></td>
+					    <td><input name="plateNumber" type="text" class="input" id="plateNumber"></td>
 					    </tr>
 					  <tr>
 					    <td nowrap align="right">购车时间：</td>
-					    <td><input name="purchaseTime" type="text" class="input" id="purchaseTime" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getPurchaseTime(),DateUtil.yyyyMMdd))%>">
+					    <td><input name="purchaseTime" type="text" class="input" id="purchaseTime">
 				        <span class="red">*</span></td>
 					    <td colspan="2"><div align="left">注：金钱单位（元/RMB）</div></td>
 					    </tr>
 					  </table>
-				</fieldset>		
-			</td>
-		</tr>
-	<tr>
-		<td colspan="2" align="center" height="50px">
-		<input name="更新" type="submit" class="button" value="更新"/>　
-		<input name="重置" type="reset" class="button" value="重置"/>
-		</td>
-	</tr>
-	  <%}else{ %>
-	  <tr>
-	    <td height="22" colspan="4" align="center" >该信息不存在！！！</td>
-	  </tr>
-	  <%}%>
-	</tabel>
-</table>
+			  <br />
+				</fieldset>			</TD>
+			
+		</TR>
+		</TABLE>
+	 </td>
+  </tr>
+		<TR>
+			<TD colspan="2" align="center" height="50px">
+			<input name="提交" type="submit" class="button" value="保存"/>　
+			<input name="重置" type="reset" class="button" value="重置"/></TD>
+		</TR>
+		</TABLE>	
+</div>
+</form>
 </body>
 </html>
 

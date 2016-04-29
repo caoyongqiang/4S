@@ -229,11 +229,11 @@ function list(idstr){
 	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20" ><img id="xiaotu11" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="addstipend.do" target="mainFrame" class="left-font03" onClick="tupian('11');">车主信息录入</a></td>
+          <td width="91%"><a href="addcarOwners.do" target="mainFrame" class="left-font03" onClick="tupian('11');">车主信息录入</a></td>
         </tr>
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu12" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="stipend.do?action=liststipend" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
+          <td width="91%"><a href="carOwners.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
         </tr>
       </table>
 	

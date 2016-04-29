@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** н�� */
-public class Stipend implements Serializable {
+public class CarOwners implements Serializable {
     private Long id;		//н����Ϣ���
     private String name;	//Ա������
     private String phoneNumber;	//��н��
@@ -17,7 +17,7 @@ public class Stipend implements Serializable {
     private Float other;	//���ⲹ��
     private Float totalize;	//�ܼ�
 
-    public Stipend(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, String plateNumber, Float other, Float totalize) {
+    public CarOwners(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, String plateNumber, Float other, Float totalize) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.idCard = idCard;
@@ -31,7 +31,7 @@ public class Stipend implements Serializable {
     }
 
     /** default constructor */
-    public Stipend() {
+    public CarOwners() {
     }
 
     public Long getId() {
@@ -128,7 +128,7 @@ public class Stipend implements Serializable {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Stipend] = [\n");
+        toStr.append("[CarOwners] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");

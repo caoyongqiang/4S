@@ -1,28 +1,28 @@
 
-function stipendValidate(){
-	if(stipendForm.name.value==""){
+function carOwnersValidate(){
+	if(carOwnersForm.name.value==""){
 		alert("请添写员工姓名！");		
-		stipendForm.name.focus();
+		carOwnersForm.name.focus();
 		return false;
 	}
-	if(stipendForm.phoneNumber.value==""){
+	if(carOwnersForm.phoneNumber.value==""){
 		alert("请添写手机号！");		
-		stipendForm.phoneNumber.focus();
+		carOwnersForm.phoneNumber.focus();
 		return false;
 	}
-	if(stipendForm.idCard.value==""){
+	if(carOwnersForm.idCard.value==""){
 		alert("请填写身份证号！");		
-		stipendForm.idCard.focus();
+		carOwnersForm.idCard.focus();
 		return false;
 	}
-	if(stipendForm.purchaseTime.value==""){
+	if(carOwnersForm.purchaseTime.value==""){
 		alert("请添写购车时间！");		
-		stipendForm.purchaseTime.focus();
+		carOwnersForm.purchaseTime.focus();
 		return false;
 	}
-	if(!checkIsValidDate(stipendForm.purchaseTime.value)){
+	if(!checkIsValidDate(carOwnersForm.purchaseTime.value)){
 		alert("输入的时间不合法！（年-月-日）");
-		stipendForm.purchaseTime.focus();
+		carOwnersForm.purchaseTime.focus();
 		return false;
 	}
 
