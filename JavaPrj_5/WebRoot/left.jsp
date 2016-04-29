@@ -90,36 +90,55 @@ function list(idstr){
 		  </tr>
 		</table>
 		
-
-
-		<!--  任务系统开始    -->
-		<TABLE <%if(u.getRoleType() != 2 && u.getRoleType() != 3) {%> style="DISPLAY: none" <%} %>
-		       width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+       
+	    <!--  线索信息开始    -->
+	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
-            <td height="29">
-				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-					<tr>
-						<td width="8%"><img name="img8" id="img8" src="images/ico04.gif" width="8" height="11" /></td>
-						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >员工管理</a></td>
-					</tr>
-				</table>
-			</td>
-          </tr>		  
-        </TABLE>
-		<table id="subtree8" style="display: none;" width="80%" border="0" align="center" cellpadding="0" 
-			   cellspacing="0" class="left-table02">
-				<tr>
-				  <td width="9%" height="20" ><img id="xiaotu1" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">员工信息录入</a></td>
-				</tr>
-				<tr>
-				  <td width="9%" height="21" ><img id="xiaotu2" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('2');">员工信息查看</a></td>
-				</tr>
+            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="8%" height="12"><img name="img2" id="img2" src="images/ico04.gif" width="8" height="11" /></td>
+                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('2');" >线索信息</a></td>
+                </tr>
+            </table></td>
+          </tr>
       </table>
-		<!--  任务系统结束    -->
-
+	  
+	  <table id="subtree2" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
+        
+		<tr>
+          <td width="9%" height="20" ><img id="xiaotu9" src="images/ico06.gif" width="8" height="12" /></td>
+          <td width="91%"><a href="addclue.do" target="mainFrame" class="left-font03" onClick="tupian('9');">线索信息录入</a></td>
+        </tr>
+		<tr>
+          <td width="9%" height="20" ><img id="xiaotu10" src="images/ico06.gif" width="8" height="12" /></td>
+          <td width="91%"><a href="clue.do?action=listclue" target="mainFrame" class="left-font03" onClick="tupian('10');">线索信息查看</a></td>
+        </tr>
+      </table>
+	  <!--  线索信息结束    -->
+	  
+	  <!--  车主信息开始    -->
+	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+          <tr>
+            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="8%" height="12"><img name="img3" id="img3" src="images/ico04.gif" width="8" height="11" /></td>
+                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('3');" >车主信息</a></td>
+                </tr>
+            </table></td>
+          </tr>
+      </table>
+	  
+	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
+        <tr>
+          <td width="9%" height="20" ><img id="xiaotu11" src="images/ico06.gif" width="8" height="12" /></td>
+          <td width="91%"><a href="addcarOwners.do" target="mainFrame" class="left-font03" onClick="tupian('11');">车主信息录入</a></td>
+        </tr>
+		<tr>
+          <td width="9%" height="20" ><img id="xiaotu12" src="images/ico06.gif" width="8" height="12" /></td>
+          <td width="91%"><a href="carOwners.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
+        </tr>
+      </table>
+	  <!--  车主信息结束    -->
 		
 		<!--  消息系统开始    -->
 		<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -187,57 +206,35 @@ function list(idstr){
 				</tr>
       </table>
 		<!--  项目系统结束    -->
-
-	  <!--  客户系统开始    -->
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+		
+		<!--  员工管理开始    -->
+		<TABLE <%if(u.getRoleType() != 2 && u.getRoleType() != 3) {%> style="DISPLAY: none" <%} %>
+		       width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img2" id="img2" src="images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('2');" >线索信息</a></td>
-                </tr>
-            </table></td>
-          </tr>
+            <td height="29">
+				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="8%"><img name="img8" id="img8" src="images/ico04.gif" width="8" height="11" /></td>
+						<td width="92%">
+								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >员工管理</a></td>
+					</tr>
+				</table>
+			</td>
+          </tr>		  
+        </TABLE>
+		<table id="subtree8" style="display: none;" width="80%" border="0" align="center" cellpadding="0" 
+			   cellspacing="0" class="left-table02">
+				<tr>
+				  <td width="9%" height="20" ><img id="xiaotu1" src="images/ico06.gif" width="8" height="12" /></td>
+				  <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">员工信息录入</a></td>
+				</tr>
+				<tr>
+				  <td width="9%" height="21" ><img id="xiaotu2" src="images/ico06.gif" width="8" height="12" /></td>
+				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('2');">员工信息查看</a></td>
+				</tr>
       </table>
-	  
-	  <table id="subtree2" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu9" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="addclue.do" target="mainFrame" class="left-font03" onClick="tupian('9');">线索信息录入</a></td>
-        </tr>
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu10" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="clue.do?action=listclue" target="mainFrame" class="left-font03" onClick="tupian('10');">线索信息查看</a></td>
-        </tr>
-      </table>
+		<!--  员工管理结束    -->
 
-	  <!--  客户系统结束    -->
-
-	  <!--  人员系统开始    -->
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img3" id="img3" src="images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('3');" >车主信息</a></td>
-                </tr>
-            </table></td>
-          </tr>
-      </table>
-	  
-	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        <tr>
-          <td width="9%" height="20" ><img id="xiaotu11" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="addcarOwners.do" target="mainFrame" class="left-font03" onClick="tupian('11');">车主信息录入</a></td>
-        </tr>
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu12" src="images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="carOwners.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
-        </tr>
-      </table>
-	
-	  <!--  人员系统结束    -->
 	  </TD>
   </tr>
   
