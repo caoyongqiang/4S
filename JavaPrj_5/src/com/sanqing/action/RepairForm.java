@@ -6,14 +6,14 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import com.sanqing.po.Job;
+import com.sanqing.po.Repair;
 import com.sanqing.tool.DateUtil;
 
 /**
  * @author BWeiMing
  *
  */
-public class JobForm extends ActionForm {
+public class RepairForm extends ActionForm {
 
     /** identifier field */
     private Long id;
@@ -28,7 +28,7 @@ public class JobForm extends ActionForm {
     private Integer repairTimes;
 
     /** nullable persistent field */
-    private String job;
+    private String repair;
 
     /** nullable persistent field */
     private String car;
@@ -73,7 +73,7 @@ public class JobForm extends ActionForm {
         this.name = null;
         this.sex = null;
         this.repairTimes = null;
-        this.job = null;
+        this.repair = null;
         this.car = null;
         this.plateNumber = null;
         this.repairType = null;
@@ -118,12 +118,12 @@ public class JobForm extends ActionForm {
         this.repairTimes = repairTimes;
     }
 
-    public String getJob() {
-        return this.job;
+    public String getRepair() {
+        return this.repair;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setRepair(String repair) {
+        this.repair = repair;
     }
 
     public String getCar() {
@@ -184,12 +184,12 @@ public class JobForm extends ActionForm {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[JobForm] = [\n");
+        toStr.append("[RepairForm] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    sex = " + this.sex + ";\n");
         toStr.append("    repairTimes = " + this.repairTimes + ";\n");
-        toStr.append("    job = " + this.job + ";\n");
+        toStr.append("    repair = " + this.repair + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    repairType = " + this.repairType + ";\n");
@@ -207,15 +207,15 @@ public class JobForm extends ActionForm {
         return null;
     }
 
-    public Job populate(){
-        Job j=new Job();
+    public Repair populate(){
+        Repair j=new Repair();
         j.setRepairTimes(this.getRepairTimes());
         j.setRepairDetail(this.getRepairDetail());
         j.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
         j.setPlateNumber(this.getPlateNumber());
         j.setId(this.getId());
         j.setIsstock(this.getIsstock());
-        j.setJob(this.getJob());
+        j.setRepair(this.getRepair());
         j.setName(this.getName());
         j.setRepairCost(this.getRepairCost());
         j.setSex(this.getSex());

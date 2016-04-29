@@ -221,36 +221,36 @@ function CheckDate(INDate)
 	if(parseInt(MM)>12){return true;}
    return false;
   }
-function jobValidate(){
+function repairValidate(){
 
-	if(jobForm.name.value==""){
+	if(repairForm.name.value==""){
 		alert("请添写姓名！");		
-		jobForm.name.focus();
+		repairForm.name.focus();
 		return false;
 	}
-	if(jobForm.tel.value==""){
+	if(repairForm.tel.value==""){
 		alert("请填写手机号！");		
-		jobForm.tel.focus();
+		repairForm.tel.focus();
 		return false;
 	}
-	if(jobForm.car.value==""){
+	if(repairForm.car.value==""){
 		alert("请添写车型！");		
-		jobForm.car.focus();
+		repairForm.car.focus();
 		return false;
 	}
-	if(jobForm.plateNumber.value==""){
+	if(repairForm.plateNumber.value==""){
 		alert("请添写车牌号！");		
-		jobForm.plateNumber.focus();
+		repairForm.plateNumber.focus();
 		return false;
 	}
-/*	if(jobForm.repairType.value==""){
+/*	if(repairForm.repairType.value==""){
 		alert("请添写维修类型！");		
-		jobForm.repairType.focus();
+		repairForm.repairType.focus();
 		return false;
 	}
-	if(jobForm.repairCost.value==""){
+	if(repairForm.repairCost.value==""){
 		alert("请添写维修金额！");		
-		jobForm.repairCost.focus();
+		repairForm.repairCost.focus();
 		return false;
 	}*/
 	return true;

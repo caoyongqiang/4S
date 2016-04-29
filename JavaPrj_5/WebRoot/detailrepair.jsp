@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Job"%>
+<%@ page import="com.sanqing.po.Repair"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,7 +27,7 @@
     <td class="CPanel">
 		<table border="0" cellpadding="0" cellspacing="0" style="width:80%" align="center">
 		<%
-		 	Job j=(Job)request.getAttribute("job");
+		 	Repair j=(Repair)request.getAttribute("repair");
 		 	if(j!=null){
 		%>
 		<tr>

@@ -20,7 +20,7 @@
 		</property>
 		<property name="show_sql">true</property><!--显示SQL语句-->
 		 <mapping resource="com/sanqing/po/Users.hbm.xml"/>
-		 <mapping resource="com/sanqing/po/Job.hbm.xml"/>
+		 <mapping resource="com/sanqing/po/Repair.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/Educate.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/Clue.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/CarOwners.hbm.xml"/>

@@ -3,14 +3,14 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.sanqing.po.Job" table="repair">
+	<class name="com.sanqing.po.Repair" table="repair">
 		<id column="id" name="id" type="long">
 			<generator class="native"/>		<!-- 主键生成策略 -->
 		</id>
 		<property name="name" length="50" type="string"/>
 		<property name="sex" length="1" type="byte"/>
 		<property name="RepairTimes" length="10" type="integer"/>
-		<property name="job" length="50" type="string"/>
+		<property name="repair" length="50" type="string"/>
 		<property name="car" length="100" type="string"/>
 		<property name="plateNumber" length="50" type="string"/>
 		<property name="repairType" length="50" type="string"/>

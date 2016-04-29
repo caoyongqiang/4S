@@ -140,17 +140,17 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu3" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="addjob.do" target="mainFrame" class="left-font03" onClick="tupian('3');">维修信息录入</a></td>
+						<a href="addrepair.do" target="mainFrame" class="left-font03" onClick="tupian('3');">维修信息录入</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu4" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-					<a href="job.do?action=listjob" target="mainFrame" class="left-font03" onClick="tupian('4');">维修信息查看</a></td>
+					<a href="repair.do?action=listrepair" target="mainFrame" class="left-font03" onClick="tupian('4');">维修信息查看</a></td>
 				</tr>
 				<!-- <tr>
 				  <td width="9%" height="20" ><img id="xiaotu5" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="job.do?action=listjob&isstock=yes" target="mainFrame" class="left-font03" onClick="tupian('5');">待删除
+						<a href="repair.do?action=listrepair&isstock=yes" target="mainFrame" class="left-font03" onClick="tupian('5');">待删除
 							</a></td>
 				</tr> -->
       </table>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<%@ page import="com.sanqing.po.Job"%>
+<%@ page import="com.sanqing.po.Repair"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,13 +15,13 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="jobForm" method="post" action="modifyjob.do?action=updatejob" onSubmit="return jobValidate();" >
+<form name="repairForm" method="post" action="modifyrepair.do?action=updaterepair" onSubmit="return repairValidate();" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
       <th class="tablestyle_title" >维修信息录入</th>
   </tr>
-  <%Job j=(Job)request.getAttribute("job"); %>
+  <%Repair j=(Repair)request.getAttribute("repair"); %>
   <tr>
     <td class="CPanel">
 		
@@ -50,7 +50,7 @@
 					<td nowrap align="right" width="9%">维修次数：</td>
 					<td><input name="repairTimes" type="text" class="input"></td>
 					<td><div align="right">职位：</div></td>
-					<td><input name="job" type="text" class="input">
+					<td><input name="repair" type="text" class="input">
 					<span class="red">*</span></td>
 				</tr> -->
 					<tr>

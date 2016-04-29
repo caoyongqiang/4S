@@ -3,7 +3,7 @@
   <StrutsActivity path="/index.do" location="50,50" dimension="79,70" />
   <StrutsActivity path="/main.do" location="350,50" dimension="76,70" />
   <StrutsActivity path="/adduser.do" location="650,50" dimension="96,70" />
-  <StrutsActivity path="/addjob.do" location="950,50" dimension="90,70" />
+  <StrutsActivity path="/addrepair.do" location="950,50" dimension="90,70" />
   <StrutsActivity path="/addeducate.do" location="1250,50" dimension="117,70" />
   <StrutsActivity path="/addclue.do" location="1550,50" dimension="127,70" />
   <StrutsActivity path="/addcarOwners.do" location="1850,50" dimension="114,70" />
@@ -11,10 +11,10 @@
   <StrutsActivity path="/user.do" location="350,250" dimension="126,104" />
   <StrutsActivity path="/modifyuser.do" location="650,250" dimension="126,104" />
   <StrutsActivity path="/selectuser.do" location="950,250" dimension="126,104" />
-  <StrutsActivity path="/job.do" location="1250,250" dimension="114,104" />
-  <StrutsActivity path="/modifyjob.do" location="1550,250" dimension="114,104" />
-  <StrutsActivity path="/detailjob.do" location="1850,250" dimension="114,104" />
-  <StrutsActivity path="/updatejob.do" location="50,450" dimension="114,104" />
+  <StrutsActivity path="/repair.do" location="1250,250" dimension="114,104" />
+  <StrutsActivity path="/modifyrepair.do" location="1550,250" dimension="114,104" />
+  <StrutsActivity path="/detailrepair.do" location="1850,250" dimension="114,104" />
+  <StrutsActivity path="/updaterepair.do" location="50,450" dimension="114,104" />
   <StrutsActivity path="/educate.do" location="350,450" dimension="139,104" />
   <StrutsActivity path="/modifyeducate.do" location="650,450" dimension="139,104" />
   <StrutsActivity path="/detaileducate.do" location="950,450" dimension="139,104" />
@@ -32,16 +32,16 @@
   <StrutsActivity path="/welcome.jsp" location="50,850" dimension="108,53" />
   <StrutsActivity path="/main.jsp" location="350,850" dimension="85,53" />
   <StrutsActivity path="/adduser.jsp" location="650,850" dimension="105,53" />
-  <StrutsActivity path="/addjob.jsp" location="950,850" dimension="99,53" />
+  <StrutsActivity path="/addrepair.jsp" location="950,850" dimension="99,53" />
   <StrutsActivity path="/addeducate.jsp" location="1250,850" dimension="126,53" />
   <StrutsActivity path="/addclue.jsp" location="1550,850" dimension="136,53" />
   <StrutsActivity path="/addcarOwners.jsp" location="1850,850" dimension="123,53" />
   <StrutsActivity path="/manage.jsp" location="350,1050" dimension="104,53" />
   <StrutsActivity path="/listuser.jsp" location="650,1050" dimension="98,53" />
   <StrutsActivity path="/updateuser.jsp" location="950,1050" dimension="123,53" />
-  <StrutsActivity path="/listjob.jsp" location="1250,1050" dimension="92,53" />
-  <StrutsActivity path="/detailjob.jsp" location="1550,1050" dimension="108,53" />
-  <StrutsActivity path="/updatejob.jsp" location="1850,1050" dimension="117,53" />
+  <StrutsActivity path="/listrepair.jsp" location="1250,1050" dimension="92,53" />
+  <StrutsActivity path="/detailrepair.jsp" location="1550,1050" dimension="108,53" />
+  <StrutsActivity path="/updaterepair.jsp" location="1850,1050" dimension="117,53" />
   <StrutsActivity path="/listeducate.jsp" location="50,1250" dimension="119,53" />
   <StrutsActivity path="/detaileducate.jsp" location="350,1250" dimension="135,53" />
   <StrutsActivity path="/updateeducate.jsp" location="650,1250" dimension="144,53" />
@@ -131,7 +131,7 @@
       <AbsolutePoint location="50,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addjob.do,null,/addjob.jsp,1" routingType="0">
+  <StrutsTransition id="/addrepair.do,null,/addrepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,85" />
       <AbsolutePoint location="869,85" />
@@ -165,7 +165,7 @@
       <AbsolutePoint location="699,1050" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/modifyjob.do,success,/job.do,1" routingType="0">
+  <StrutsTransition id="/modifyrepair.do,success,/repair.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1550,302" />
       <AbsolutePoint location="1364,302" />
@@ -208,7 +208,7 @@
       <AbsolutePoint location="158,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/updatejob.do,success,/updatejob.jsp,1" routingType="0">
+  <StrutsTransition id="/updaterepair.do,success,/updaterepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="164,502" />
       <AbsolutePoint location="305,502" />
@@ -217,7 +217,7 @@
       <AbsolutePoint location="1908,1050" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/detailjob.do,success,/detailjob.jsp,1" routingType="0">
+  <StrutsTransition id="/detailrepair.do,success,/detailrepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1850,302" />
       <AbsolutePoint location="1719,302" />
@@ -247,7 +247,7 @@
       <AbsolutePoint location="169,1276" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/job.do,success,/listjob.jsp,1" routingType="0">
+  <StrutsTransition id="/repair.do,success,/listrepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,302" />
       <AbsolutePoint location="1224,302" />

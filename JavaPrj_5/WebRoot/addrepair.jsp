@@ -14,7 +14,7 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="jobForm" method="post" action="modifyjob.do?action=addjob" onSubmit="return jobValidate();" >
+<form name="repairForm" method="post" action="modifyrepair.do?action=addrepair" onSubmit="return repairValidate();" >
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
@@ -47,7 +47,7 @@
 					<td nowrap align="right" width="9%">维修次数：</td>
 					<td><input name="repairTimes" type="text" class="input"></td>
 					<td><div align="right">职位：</div></td>
-					<td><input name="job" type="text" class="input">
+					<td><input name="repair" type="text" class="input">
 					<span class="red">*</span></td>
 				</tr> -->
 					<tr>

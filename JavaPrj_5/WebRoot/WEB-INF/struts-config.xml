@@ -4,7 +4,7 @@
 <struts-config>
   <form-beans>
     <form-bean name="userForm" type="com.sanqing.action.UsersForm" />
-    <form-bean name="jobForm" type="com.sanqing.action.JobForm" />
+    <form-bean name="repairForm" type="com.sanqing.action.RepairForm" />
     <form-bean name="educateForm" type="com.sanqing.action.EducateForm" />
     <form-bean name="clueForm" type="com.sanqing.action.ClueForm" />
     <form-bean name="carOwnersForm" type="com.sanqing.action.CarOwnersForm" />
@@ -16,7 +16,7 @@
     <action forward="/welcome.jsp" path="/index" />
     <action forward="/main.jsp" path="/main" />
     <action forward="/adduser.jsp" path="/adduser" />
-    <action forward="/addjob.jsp" path="/addjob" />
+    <action forward="/addrepair.jsp" path="/addrepair" />
     <action forward="/addeducate.jsp" path="/addeducate" />
     <action forward="/addclue.jsp" path="/addclue" />
     <action forward="/addcarOwners.jsp" path="/addcarOwners" />
@@ -34,17 +34,17 @@
     <action path="/selectuser" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/updateuser.jsp" />
     </action>
-	<action name="jobForm" path="/job" scope="request" type="com.sanqing.action.JobAction">
-		<forward name="success" path="/listjob.jsp" />
+	<action name="repairForm" path="/repair" scope="request" type="com.sanqing.action.RepairAction">
+		<forward name="success" path="/listrepair.jsp" />
 	</action>
-	<action name="jobForm" path="/modifyjob" scope="session" type="com.sanqing.action.JobAction">
-		<forward name="success" path="/job.do?action=listjob" />
+	<action name="repairForm" path="/modifyrepair" scope="session" type="com.sanqing.action.RepairAction">
+		<forward name="success" path="/repair.do?action=listrepair" />
 	</action>
-	<action path="/detailjob" scope="request" type="com.sanqing.action.JobAction">
-		<forward name="success" path="/detailjob.jsp" />
+	<action path="/detailrepair" scope="request" type="com.sanqing.action.RepairAction">
+		<forward name="success" path="/detailrepair.jsp" />
 	</action>
-    <action path="/updatejob" scope="request" type="com.sanqing.action.JobAction">
-      <forward name="success" path="/updatejob.jsp" />
+    <action path="/updaterepair" scope="request" type="com.sanqing.action.RepairAction">
+      <forward name="success" path="/updaterepair.jsp" />
     </action>
     <action name="educateForm" path="/educate" scope="request" type="com.sanqing.action.EducateAction">
       <forward name="success" path="/listeducate.jsp" />

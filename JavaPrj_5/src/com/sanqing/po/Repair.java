@@ -3,12 +3,12 @@ package com.sanqing.po;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Job implements Serializable {
+public class Repair implements Serializable {
     private Long id;	//ӦƸ��Ա���
     private String name;//ӦƸ��Ա����
     private Byte sex;	//�Ա�
     private Integer repairTimes;//����
-    private String job;	//ְλ
+    private String repair;	//ְλ
     private String car;//��ѧרҵ
     private String plateNumber;//��������
     private String repairType;//ѧ��
@@ -19,12 +19,12 @@ public class Job implements Serializable {
     private String repairDetail;	//��ϸ����
     private Byte isstock;	//�Ƿ����
 
-    public Job(Long id,String name, Byte sex, Integer repairTimes, String job, String car, String plateNumber, String repairType, String repairCost, String tel, String email, Date createtime, String repairDetail, Byte isstock) {
+    public Repair(Long id,String name, Byte sex, Integer repairTimes, String repair, String car, String plateNumber, String repairType, String repairCost, String tel, String email, Date createtime, String repairDetail, Byte isstock) {
         this.id=id;
         this.name = name;
         this.sex = sex;
         this.repairTimes = repairTimes;
-        this.job = job;
+        this.repair = repair;
         this.car = car;
         this.plateNumber = plateNumber;
         this.repairType = repairType;
@@ -35,7 +35,7 @@ public class Job implements Serializable {
         this.repairDetail = repairDetail;
         this.isstock = isstock;
     }
-    public Job() {
+    public Repair() {
     }
 
     public Long getId() {
@@ -70,12 +70,12 @@ public class Job implements Serializable {
         this.repairTimes = repairTimes;
     }
 
-    public String getJob() {
-        return this.job;
+    public String getRepair() {
+        return this.repair;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setRepair(String repair) {
+        this.repair = repair;
     }
 
     public String getCar() {
@@ -152,12 +152,12 @@ public class Job implements Serializable {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Job] = [\n");
+        toStr.append("[Repair] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    sex = " + this.sex + ";\n");
         toStr.append("    repairTimes = " + this.repairTimes + ";\n");
-        toStr.append("    job = " + this.job + ";\n");
+        toStr.append("    repair = " + this.repair + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    repairType = " + this.repairType + ";\n");
