@@ -175,15 +175,15 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu6" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="addeducate.do" target="mainFrame" class="left-font03" onClick="tupian('6');">客户需求录入</a></td>
+				  <td width="91%"><a href="addservice.do" target="mainFrame" class="left-font03" onClick="tupian('6');">客户需求录入</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu7" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="educate.do?action=listeducate" target="mainFrame" class="left-font03" onClick="tupian('7');">客户需求查看</a></td>
+				  <td width="91%"><a href="service.do?action=listservice" target="mainFrame" class="left-font03" onClick="tupian('7');">客户需求查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu8" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="educate.do?action=listeducate&educate=1" target="mainFrame" class="left-font03" onClick="tupian('8');">已完成需求</a></td>
+				  <td width="91%"><a href="service.do?action=listservice&service=1" target="mainFrame" class="left-font03" onClick="tupian('8');">已完成需求</a></td>
 				</tr>
       </table>
 		<!--  项目系统结束    -->

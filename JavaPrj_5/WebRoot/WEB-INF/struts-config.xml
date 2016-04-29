@@ -5,7 +5,7 @@
   <form-beans>
     <form-bean name="userForm" type="com.sanqing.action.UsersForm" />
     <form-bean name="repairForm" type="com.sanqing.action.RepairForm" />
-    <form-bean name="educateForm" type="com.sanqing.action.EducateForm" />
+    <form-bean name="serviceForm" type="com.sanqing.action.ServiceForm" />
     <form-bean name="clueForm" type="com.sanqing.action.ClueForm" />
     <form-bean name="carOwnersForm" type="com.sanqing.action.CarOwnersForm" />
   </form-beans>
@@ -17,7 +17,7 @@
     <action forward="/main.jsp" path="/main" />
     <action forward="/adduser.jsp" path="/adduser" />
     <action forward="/addrepair.jsp" path="/addrepair" />
-    <action forward="/addeducate.jsp" path="/addeducate" />
+    <action forward="/addservice.jsp" path="/addservice" />
     <action forward="/addclue.jsp" path="/addclue" />
     <action forward="/addcarOwners.jsp" path="/addcarOwners" />
     <action name="userForm" path="/logon" scope="request" type="com.sanqing.action.UsersAction">
@@ -46,17 +46,17 @@
     <action path="/updaterepair" scope="request" type="com.sanqing.action.RepairAction">
       <forward name="success" path="/updaterepair.jsp" />
     </action>
-    <action name="educateForm" path="/educate" scope="request" type="com.sanqing.action.EducateAction">
-      <forward name="success" path="/listeducate.jsp" />
+    <action name="serviceForm" path="/service" scope="request" type="com.sanqing.action.ServiceAction">
+      <forward name="success" path="/listservice.jsp" />
     </action>
-    <action name="educateForm" path="/modifyeducate" scope="session" type="com.sanqing.action.EducateAction">
-      <forward name="success" path="/educate.do?action=listeducate" />
+    <action name="serviceForm" path="/modifyservice" scope="session" type="com.sanqing.action.ServiceAction">
+      <forward name="success" path="/service.do?action=listservice" />
     </action>
-    <action path="/detaileducate" scope="request" type="com.sanqing.action.EducateAction">
-      <forward name="success" path="/detaileducate.jsp" />
+    <action path="/detailservice" scope="request" type="com.sanqing.action.ServiceAction">
+      <forward name="success" path="/detailservice.jsp" />
     </action>
-    <action path="/updateeducate" scope="request" type="com.sanqing.action.EducateAction">
-      <forward name="success" path="/updateeducate.jsp" />
+    <action path="/updateservice" scope="request" type="com.sanqing.action.ServiceAction">
+      <forward name="success" path="/updateservice.jsp" />
     </action>
     <action name="clueForm" path="/clue" scope="request" type="com.sanqing.action.ClueAction">
       <forward name="success" path="/listclue.jsp" />

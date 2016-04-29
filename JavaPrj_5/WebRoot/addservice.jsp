@@ -14,7 +14,7 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="educateForm" method="post" action="modifyeducate.do?action=addeducate" onsubmit="return educateValidate();">
+<form name="serviceForm" method="post" action="modifyservice.do?action=addservice" onsubmit="return serviceValidate();">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>

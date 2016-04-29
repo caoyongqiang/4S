@@ -4,7 +4,7 @@
   <StrutsActivity path="/main.do" location="350,50" dimension="76,70" />
   <StrutsActivity path="/adduser.do" location="650,50" dimension="96,70" />
   <StrutsActivity path="/addrepair.do" location="950,50" dimension="90,70" />
-  <StrutsActivity path="/addeducate.do" location="1250,50" dimension="117,70" />
+  <StrutsActivity path="/addservice.do" location="1250,50" dimension="117,70" />
   <StrutsActivity path="/addclue.do" location="1550,50" dimension="127,70" />
   <StrutsActivity path="/addcarOwners.do" location="1850,50" dimension="114,70" />
   <StrutsActivity path="/logon.do" location="50,250" dimension="126,104" />
@@ -15,10 +15,10 @@
   <StrutsActivity path="/modifyrepair.do" location="1550,250" dimension="114,104" />
   <StrutsActivity path="/detailrepair.do" location="1850,250" dimension="114,104" />
   <StrutsActivity path="/updaterepair.do" location="50,450" dimension="114,104" />
-  <StrutsActivity path="/educate.do" location="350,450" dimension="139,104" />
-  <StrutsActivity path="/modifyeducate.do" location="650,450" dimension="139,104" />
-  <StrutsActivity path="/detaileducate.do" location="950,450" dimension="139,104" />
-  <StrutsActivity path="/updateeducate.do" location="1250,450" dimension="139,104" />
+  <StrutsActivity path="/service.do" location="350,450" dimension="139,104" />
+  <StrutsActivity path="/modifyservice.do" location="650,450" dimension="139,104" />
+  <StrutsActivity path="/detailservice.do" location="950,450" dimension="139,104" />
+  <StrutsActivity path="/updateservice.do" location="1250,450" dimension="139,104" />
   <StrutsActivity path="/clue.do" location="1550,450" dimension="150,104" />
   <StrutsActivity path="/modifyclue.do" location="1850,450" dimension="150,104" />
   <StrutsActivity path="/detailclue.do" location="50,650" dimension="150,104" />
@@ -33,7 +33,7 @@
   <StrutsActivity path="/main.jsp" location="350,850" dimension="85,53" />
   <StrutsActivity path="/adduser.jsp" location="650,850" dimension="105,53" />
   <StrutsActivity path="/addrepair.jsp" location="950,850" dimension="99,53" />
-  <StrutsActivity path="/addeducate.jsp" location="1250,850" dimension="126,53" />
+  <StrutsActivity path="/addservice.jsp" location="1250,850" dimension="126,53" />
   <StrutsActivity path="/addclue.jsp" location="1550,850" dimension="136,53" />
   <StrutsActivity path="/addcarOwners.jsp" location="1850,850" dimension="123,53" />
   <StrutsActivity path="/manage.jsp" location="350,1050" dimension="104,53" />
@@ -42,9 +42,9 @@
   <StrutsActivity path="/listrepair.jsp" location="1250,1050" dimension="92,53" />
   <StrutsActivity path="/detailrepair.jsp" location="1550,1050" dimension="108,53" />
   <StrutsActivity path="/updaterepair.jsp" location="1850,1050" dimension="117,53" />
-  <StrutsActivity path="/listeducate.jsp" location="50,1250" dimension="119,53" />
-  <StrutsActivity path="/detaileducate.jsp" location="350,1250" dimension="135,53" />
-  <StrutsActivity path="/updateeducate.jsp" location="650,1250" dimension="144,53" />
+  <StrutsActivity path="/listservice.jsp" location="50,1250" dimension="119,53" />
+  <StrutsActivity path="/detailservice.jsp" location="350,1250" dimension="135,53" />
+  <StrutsActivity path="/updateservice.jsp" location="650,1250" dimension="144,53" />
   <StrutsActivity path="/listclue.jsp" location="950,1250" dimension="129,53" />
   <StrutsActivity path="/detailclue.jsp" location="1250,1250" dimension="145,53" />
   <StrutsActivity path="/updateclue.jsp" location="1550,1250" dimension="154,53" />
@@ -76,7 +76,7 @@
       <AbsolutePoint location="787,702" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addeducate.do,null,/addeducate.jsp,1" routingType="0">
+  <StrutsTransition id="/addservice.do,null,/addservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,85" />
       <AbsolutePoint location="1164,85" />
@@ -92,7 +92,7 @@
       <AbsolutePoint location="1627,1250" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/updateeducate.do,success,/updateeducate.jsp,1" routingType="0">
+  <StrutsTransition id="/updateservice.do,success,/updateservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,502" />
       <AbsolutePoint location="1104,502" />
@@ -185,7 +185,7 @@
       <AbsolutePoint location="1911,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/modifyeducate.do,success,/educate.do,1" routingType="0">
+  <StrutsTransition id="/modifyservice.do,success,/service.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="650,502" />
       <AbsolutePoint location="489,502" />
@@ -239,7 +239,7 @@
       <AbsolutePoint location="1850,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/educate.do,success,/listeducate.jsp,1" routingType="0">
+  <StrutsTransition id="/service.do,success,/listservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="350,502" />
       <AbsolutePoint location="335,502" />
@@ -312,7 +312,7 @@
       <AbsolutePoint location="350,1076" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/detaileducate.do,success,/detaileducate.jsp,1" routingType="0">
+  <StrutsTransition id="/detailservice.do,success,/detailservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,502" />
       <AbsolutePoint location="809,502" />

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Educate"%>
+<%@ page import="com.sanqing.po.Service"%>
 <%@ page import="com.sanqing.tool.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -65,17 +65,17 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="20"><span class="newfont07">	<%
-	String educate=null;
-	try{
-		educate=request.getParameter("educate").toString();
-	}catch(Exception e){
-		educate="0";
-	}
-	if("1".equals(educate)){
+		String service=null;
+			try{
+		service=request.getParameter("service").toString();
+			}catch(Exception e){
+		service="0";
+			}
+			if("1".equals(service)){
 		out.print("已完成需求");
-	  }else{
+			  }else{
 		out.print("客户需求查看");
-	  }
+			  }
 	%></span></td>
           	 </tr>
               <tr>
@@ -84,12 +84,12 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				 <tr class="CTitle" >
                     	<td height="22" colspan="8" align="center" style="font-size:16px">
                     	<%
-	if("1".equals(educate)){
-		out.print("维护记录");
-	  }else{
-		out.print("客户需求");
-	  }
-	%>列表</td>
+                    		if("1".equals(service)){
+                    	                    			out.print("维护记录");
+                    	                    		  }else{
+                    	                    			out.print("客户需求");
+                    	                    		  }
+                    	%>列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
 				        <td height="22" align="center" >客户名称</td>
@@ -98,22 +98,22 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 						<td height="22" align="center" >创建时间</td>
 						<td height="22" align="center" >执行操作</td>
                   </tr>
-				<% List list=(List)request.getAttribute("list");
-					 if(list!=null&&list.size()>0){
-						Iterator it = list.iterator();
-						   while (it.hasNext()) {
-									Educate j = (Educate) it.next();
-				
-				  %>
+				<%
+					List list=(List)request.getAttribute("list");
+									 if(list!=null&&list.size()>0){
+										Iterator it = list.iterator();
+										   while (it.hasNext()) {
+													Service j = (Service) it.next();
+				%>
 				  <tr  bgcolor="#FFFFFF">
 					<td height="22" align="center" ><%=j.getName()%></td>
 					<td height="22" align="center" ><%=j.getCar()%></td>
 					<td height="22" align="center" ><%=j.getPlateNumber()%></td>
 					<td height="22" align="center" ><%=StringUtil.notNull(DateUtil.parseToString(j.getCreatetime(),DateUtil.yyyyMMdd))%></td>
 					<td height="22" align="center" >
-					  <a href="detaileducate.do?educate=<%=educate%>&action=detaileducate&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
-					  <a href="modifyeducate.do?action=deleteeducate&id=<%=j.getId()%>">删除</a>
-					  <%if(!"1".equals(educate)){%>&nbsp;&nbsp;<a href="updateeducate.do?educate=1&action=detaileducate&id=<%=j.getId()%>">需求完成</a><%}%></td>
+					  <a href="detailservice.do?service=<%=service%>&action=detailservice&id=<%=j.getId()%>">详细</a>&nbsp;&nbsp;
+					  <a href="modifyservice.do?action=deleteservice&id=<%=j.getId()%>">删除</a>
+					  <%if(!"1".equals(service)){%>&nbsp;&nbsp;<a href="updateservice.do?service=1&action=detailservice&id=<%=j.getId()%>">需求完成</a><%}%></td>
 				  </tr>
 				  <%		}
 				   }else{

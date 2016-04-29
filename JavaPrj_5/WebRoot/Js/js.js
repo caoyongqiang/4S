@@ -70,52 +70,52 @@ function userValidate(){
 	return true;
 }
 
-function educateValidate(){
-	if(educateForm.name.value==""){
+function serviceValidate(){
+	if(serviceForm.name.value==""){
 		alert("请添写客户名称！");		
-		educateForm.name.focus();
+		serviceForm.name.focus();
 		return false;
 	}
-	if(educateForm.phoneNumber.value==""){
+	if(serviceForm.phoneNumber.value==""){
 		alert("请添写手机号！");		
-		educateForm.phoneNumber.focus();
+		serviceForm.phoneNumber.focus();
 		return false;
 	}
-	/*if(educateForm.begintime.value==""){
+	/*if(serviceForm.begintime.value==""){
 		alert("请添写培训开始时间！");		
-		educateForm.begintime.focus();
+		serviceForm.begintime.focus();
 		return false;
 	}
-	if(!checkIsValidDate(educateForm.begintime.value)){
+	if(!checkIsValidDate(serviceForm.begintime.value)){
 		alert("输入的时间不合法！（年-月-日）");
-		educateForm.begintime.focus();
+		serviceForm.begintime.focus();
 		return false;
 	}
 
-	if(educateForm.endtime.value==""){
+	if(serviceForm.endtime.value==""){
 		alert("请添写培训结束时间！");		
-		educateForm.endtime.focus();
+		serviceForm.endtime.focus();
 		return false;
 	}
-	if(!checkIsValidDate(educateForm.endtime.value)){
+	if(!checkIsValidDate(serviceForm.endtime.value)){
 		alert("输入的时间不合法！（年-月-日）");
-		educateForm.endtime.focus();
+		serviceForm.endtime.focus();
 		return false;
 	}
-	if(!checkDateEarlier(educateForm.begintime.value,educateForm.endtime.value)){
+	if(!checkDateEarlier(serviceForm.begintime.value,serviceForm.endtime.value)){
 		alert("起始日期不能晚于结束日期！");
-		educateForm.begintime.focus();
+		serviceForm.begintime.focus();
 		return false;
 	}*/
 
-	if(educateForm.car.value==""){
+	if(serviceForm.car.value==""){
 		alert("请添写车型！");		
-		educateForm.car.focus();
+		serviceForm.car.focus();
 		return false;
 	}
-	if(educateForm.plateNumber.value==""){
+	if(serviceForm.plateNumber.value==""){
 		alert("请添写车牌号！");		
-		educateForm.plateNumber.focus();
+		serviceForm.plateNumber.focus();
 		return false;
 	}
 	return true;

@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.sanqing.po.CarOwners" table="car_owners">
+	<class name="com.sanqing.po.CarOwners" table="owners">
 		<id column="id" name="id" type="long">
 			<generator class="native"/>
 		</id>

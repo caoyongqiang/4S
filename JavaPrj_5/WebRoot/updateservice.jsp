@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Educate"%>
+<%@ page import="com.sanqing.po.Service"%>
 <%@ page import="com.sanqing.tool.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +18,7 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="educateForm" method="post" action="modifyeducate.do?action=updateeducate" onSubmit="return educateValidate();">
+<form name="serviceForm" method="post" action="modifyservice.do?action=updateservice" onSubmit="return serviceValidate();">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
@@ -34,11 +34,11 @@
 			<input type="reset" value="返回" class="button"/>
 		</td></tr>
 		<%
-		  Educate e=(Educate)request.getAttribute("educate");
-		  if(e!=null){
-	  	%>
+			Service e=(Service)request.getAttribute("service");
+				  if(e!=null){
+		%>
 	  	<input type="hidden" name="id" value="<%=e.getId()%>"/>
-	  	<input type="hidden" name="educate" value="<%=request.getParameter("educate")%>"/>
+	  	<input type="hidden" name="service" value="<%=request.getParameter("service")%>"/>
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">

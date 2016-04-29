@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** ��ѵ */
-public class Educate implements Serializable {
+public class Service implements Serializable {
     private Long id;		//��ѵ���
     private String name;	//��ѵ���
     private String phoneNumber;	//��ѵĿ��
@@ -14,11 +14,11 @@ public class Educate implements Serializable {
     private String car;	//��ѵ��ʦ
     private String plateNumber;	//��ѵ��Ա
     private Date createtime;//����ʱ��
-    private Byte educate;	//��ѵ�Ƿ����
+    private Byte service;	//��ѵ�Ƿ����
     private String effect;	//��ѵЧ��
     private String summarize;//�ܽ� 
 
-    public Educate(String name, String phoneNumber, Date begintime, Date endtime, String requireDetail, String car, String plateNumber, Date createtime, Byte educate,String effect, String summarize) {
+    public Service(String name, String phoneNumber, Date begintime, Date endtime, String requireDetail, String car, String plateNumber, Date createtime, Byte service,String effect, String summarize) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.begintime = begintime;
@@ -27,13 +27,13 @@ public class Educate implements Serializable {
         this.car = car;
         this.plateNumber = plateNumber;
         this.createtime = createtime;
-        this.educate=educate;
+        this.service=service;
         this.effect = effect;
         this.summarize = summarize;
     }
 
     /** default constructor */
-    public Educate() {
+    public Service() {
     }
 
     public Long getId() {
@@ -126,7 +126,7 @@ public class Educate implements Serializable {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Educate] = [\n");
+        toStr.append("[Service] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    begintime = " + this.begintime+ ";\n");
@@ -136,7 +136,7 @@ public class Educate implements Serializable {
         toStr.append("    requireDetail = " + this.requireDetail + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
-        toStr.append("    educate = " + this.educate+ ";\n");
+        toStr.append("    service = " + this.service+ ";\n");
         toStr.append("    effect = " + this.effect + ";\n");
         toStr.append("    summarize = " + this.summarize + ";\n");
         toStr.append("    ];\n");
@@ -144,15 +144,15 @@ public class Educate implements Serializable {
     }
 
     /**
-     * @return Returns the educate.
+     * @return Returns the service.
      */
-    public Byte getEducate() {
-        return educate;
+    public Byte getService() {
+        return service;
     }
     /**
-     * @param educate The educate to set.
+     * @param service The service to set.
      */
-    public void setEducate(Byte educate) {
-        this.educate = educate;
+    public void setService(Byte service) {
+        this.service = service;
     }
 }

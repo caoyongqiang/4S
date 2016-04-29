@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.sanqing.po.Educate" table="educate">
+	<class name="com.sanqing.po.Service" table="service">
 		<id column="id" name="id" type="long">
 			<generator class="native"/>		<!-- 主键生成策略 -->
 		</id>
@@ -16,7 +16,7 @@
 		<property name="plateNumber" length="50" type="string"/>
 		<property name="createtime" length="23" type="timestamp"/>
 		<property name="effect" length="500" type="string"/>
-		<property name="educate" length="1" type="byte"/>
+		<property name="service" length="1" type="byte"/>
 		<property name="summarize" length="2000" type="string"/>
 	</class>
 </hibernate-mapping>

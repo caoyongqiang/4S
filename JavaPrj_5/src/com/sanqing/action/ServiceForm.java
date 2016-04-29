@@ -6,14 +6,14 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import com.sanqing.po.Educate;
+import com.sanqing.po.Service;
 import com.sanqing.tool.DateUtil;
 
 /**
  * @author BWeiMing
  *
  */
-public class EducateForm extends ActionForm {
+public class ServiceForm extends ActionForm {
     /** identifier field */
     private Long id;
 
@@ -47,7 +47,7 @@ public class EducateForm extends ActionForm {
     /** nullable persistent field */
     private String summarize;
 
-    private Byte educate;
+    private Byte service;
 
     /** full constructor */
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
@@ -59,7 +59,7 @@ public class EducateForm extends ActionForm {
         this.car = null;
         this.plateNumber = null;
         this.createtime = null;
-        this.educate=null;
+        this.service=null;
         this.effect = null;
         this.summarize = null;
     }
@@ -158,7 +158,7 @@ public class EducateForm extends ActionForm {
 
     public String toString() {
         StringBuffer toStr = new StringBuffer();
-        toStr.append("[Educate] = [\n");
+        toStr.append("[Service] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
         toStr.append("    begintime = " + this.begintime+ ";\n");
@@ -168,15 +168,15 @@ public class EducateForm extends ActionForm {
         toStr.append("    requireDetail = " + this.requireDetail + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
-        toStr.append("    educate = " + this.educate+ ";\n");
+        toStr.append("    service = " + this.service+ ";\n");
         toStr.append("    effect = " + this.effect + ";\n");
         toStr.append("    summarize = " + this.summarize + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
     }
 
-    public Educate populate(){
-        Educate e=new Educate();
+    public Service populate(){
+        Service e=new Service();
         e.setBegintime(DateUtil.parseToDate(this.getBegintime(),DateUtil.yyyyMMdd));
         e.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
         e.setRequireDetail(this.getRequireDetail());
@@ -187,21 +187,21 @@ public class EducateForm extends ActionForm {
         e.setPhoneNumber(this.getPhoneNumber());
         e.setPlateNumber(this.getPlateNumber());
         e.setSummarize(this.getSummarize());
-        e.setEducate(this.getEducate());
+        e.setService(this.getService());
         e.setCar(this.getCar());
         return e;
     }
 
     /**
-     * @return Returns the educate.
+     * @return Returns the service.
      */
-    public Byte getEducate() {
-        return educate;
+    public Byte getService() {
+        return service;
     }
     /**
-     * @param educate The educate to set.
+     * @param service The service to set.
      */
-    public void setEducate(Byte educate) {
-        this.educate = educate;
+    public void setService(Byte service) {
+        this.service = service;
     }
 }

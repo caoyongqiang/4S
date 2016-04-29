@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
-<%@ page import="com.sanqing.po.Educate"%>
+<%@ page import="com.sanqing.po.Service"%>
 <%@ page import="com.sanqing.tool.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,30 +18,30 @@
 </style>
 </head>
 <body class="ContentBody">
-<form name="educateForm" method="post" action="modifyeducate.do?action=addeducate" onsubmit="return educateValidate();">
+<form name="serviceForm" method="post" action="modifyservice.do?action=addservice" onsubmit="return serviceValidate();">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
   <tr>
       <th class="tablestyle_title" >
       	<%
-		String educate=null;
-		try{
-			educate=request.getParameter("educate").toString();
-		}catch(Exception e){
-			educate="0";
-		}
-		if("1".equals(educate)){
-			out.print("完成需求详细");
-		  }else{
-			out.print("待完成需求详细");
-		  }
-		%>
+      		String service=null;
+      	      			try{
+      	      		service=request.getParameter("service").toString();
+      	      			}catch(Exception e){
+      	      		service="0";
+      	      			}
+      	      			if("1".equals(service)){
+      	      		out.print("完成需求详细");
+      	      			  }else{
+      	      		out.print("待完成需求详细");
+      	      			  }
+      	%>
       </th>
   </tr>
     <%
-	  Educate e=(Educate)request.getAttribute("educate");
-	  if(e!=null){
-  	%>
+    	Service e=(Service)request.getAttribute("service");
+        	  if(e!=null){
+    %>
 		<TR>
 			<TD width="100%">
 				<fieldset style="height:100%;">
@@ -73,7 +73,7 @@
 					    <td width="11%" nowrap align="right">需求详细：</td>
 					    <td colspan="3"><%=e.getRequireDetail()%></td>
 					  </tr>
-					   <%if("1".equals(educate)){%>
+					   <%if("1".equals(service)){%>
 						  <%-- <tr>
 						    <td width="11%" height="22" align="center" >培训效果：</td>
 						    <td height="22" colspan="3" align="left" ><%=StringUtil.notNull(e.getEffect())%>&nbsp;</td>
