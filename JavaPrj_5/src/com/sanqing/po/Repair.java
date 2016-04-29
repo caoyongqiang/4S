@@ -6,7 +6,6 @@ import java.util.Date;
 public class Repair implements Serializable {
     private Long id;	//ӦƸ��Ա���
     private String name;//ӦƸ��Ա����
-    private Byte sex;	//�Ա�
     private Integer repairTimes;//����
     private String repair;	//ְλ
     private String car;//��ѧרҵ
@@ -19,10 +18,9 @@ public class Repair implements Serializable {
     private String repairDetail;	//��ϸ����
     private Byte isstock;	//�Ƿ����
 
-    public Repair(Long id,String name, Byte sex, Integer repairTimes, String repair, String car, String plateNumber, String repairType, String repairCost, String tel, String email, Date createtime, String repairDetail, Byte isstock) {
+    public Repair(Long id,String name, Integer repairTimes, String repair, String car, String plateNumber, String repairType, String repairCost, String tel, String email, Date createtime, String repairDetail, Byte isstock) {
         this.id=id;
         this.name = name;
-        this.sex = sex;
         this.repairTimes = repairTimes;
         this.repair = repair;
         this.car = car;
@@ -52,14 +50,6 @@ public class Repair implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Byte getSex() {
-        return this.sex;
-    }
-
-    public void setSex(Byte sex) {
-        this.sex = sex;
     }
 
     public Integer getRepairTimes() {
@@ -155,7 +145,6 @@ public class Repair implements Serializable {
         toStr.append("[Repair] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    sex = " + this.sex + ";\n");
         toStr.append("    repairTimes = " + this.repairTimes + ";\n");
         toStr.append("    repair = " + this.repair + ";\n");
         toStr.append("    car = " + this.car + ";\n");

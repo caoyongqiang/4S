@@ -22,9 +22,6 @@ public class RepairForm extends ActionForm {
     private String name;
 
     /** nullable persistent field */
-    private Byte sex;
-
-    /** nullable persistent field */
     private Integer repairTimes;
 
     /** nullable persistent field */
@@ -71,7 +68,6 @@ public class RepairForm extends ActionForm {
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
         this.id=null;
         this.name = null;
-        this.sex = null;
         this.repairTimes = null;
         this.repair = null;
         this.car = null;
@@ -100,14 +96,6 @@ public class RepairForm extends ActionForm {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Byte getSex() {
-        return this.sex;
-    }
-
-    public void setSex(Byte sex) {
-        this.sex = sex;
     }
 
     public Integer getRepairTimes() {
@@ -187,7 +175,6 @@ public class RepairForm extends ActionForm {
         toStr.append("[RepairForm] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    sex = " + this.sex + ";\n");
         toStr.append("    repairTimes = " + this.repairTimes + ";\n");
         toStr.append("    repair = " + this.repair + ";\n");
         toStr.append("    car = " + this.car + ";\n");
@@ -218,7 +205,6 @@ public class RepairForm extends ActionForm {
         j.setRepair(this.getRepair());
         j.setName(this.getName());
         j.setRepairCost(this.getRepairCost());
-        j.setSex(this.getSex());
         j.setCar(this.getCar());
         j.setRepairType(this.getRepairType());
         j.setTel(this.getTel());

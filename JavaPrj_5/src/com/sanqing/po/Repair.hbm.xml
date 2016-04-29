@@ -8,7 +8,6 @@
 			<generator class="native"/>		<!-- 主键生成策略 -->
 		</id>
 		<property name="name" length="50" type="string"/>
-		<property name="sex" length="1" type="byte"/>
 		<property name="RepairTimes" length="10" type="integer"/>
 		<property name="repair" length="50" type="string"/>
 		<property name="car" length="100" type="string"/>

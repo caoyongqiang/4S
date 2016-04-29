@@ -70,9 +70,6 @@ public class RepairDao {
         if(repair.getRepairCost()!=null){
             j.setRepairCost(repair.getRepairCost());
         }
-        if(repair.getSex()!=null){
-            j.setSex(repair.getSex());
-        }
         if(repair.getCar()!=null){
             j.setCar(repair.getCar());
         }
