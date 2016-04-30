@@ -48,9 +48,6 @@ public class UsersForm extends ActionForm {
     private String createtime;
 
     /** nullable persistent field */
-    private Byte isadmin;
-
-    /** nullable persistent field */
     private String content;
 
     /**
@@ -76,18 +73,6 @@ public class UsersForm extends ActionForm {
      */
     public void setId(Long id) {
         this.id = id;
-    }
-    /**
-     * @return Returns the isadmin.
-     */
-    public Byte getIsadmin() {
-        return isadmin;
-    }
-    /**
-     * @param isadmin The isadmin to set.
-     */
-    public void setIsadmin(Byte isadmin) {
-        this.isadmin = isadmin;
     }
     /**
      * @return Returns the password.
@@ -132,7 +117,6 @@ public class UsersForm extends ActionForm {
         this.username=null;
         this.phoneNumber = null;
         this.password=null;
-        this.isadmin=null;
         this.createtime=null;
         this.content=null;
         this.roleType=null;
@@ -154,7 +138,6 @@ public class UsersForm extends ActionForm {
         toStr.append("    roleType = " + this.roleType + ";\n");
         toStr.append("    idCard = " + this.idCard+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    isadmin = " + this.isadmin + ";\n");
         toStr.append("    content = " + this.content + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
@@ -187,7 +170,6 @@ public class UsersForm extends ActionForm {
     public Users populate(){
         Users u=new Users();
         u.setId(getId());
-        u.setIsadmin(getIsadmin());
         u.setContent(getContent());
         u.setUsername(getUsername());
         u.setPhoneNumber(getPhoneNumber());

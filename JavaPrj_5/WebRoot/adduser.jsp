@@ -62,12 +62,6 @@
 						<span class="red">*</span></td>
 					</tr>
 					<tr>
-						<!-- <td nowrap align="right">是否管理员：</td>
-						<td>
-						<input name="isadminhelp" type="checkbox" onClick="javascript:adminChecked();" >
-						<input type="hidden"  name="isadmin" ></td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td> -->
 						<td nowrap align="right" width="9%">员工角色：</td>
 						<td>
 						  <input name="roleType" type="radio" value="0" checked>普通员工

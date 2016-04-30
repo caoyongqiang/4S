@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>科帮网4S店客户管理系统Powered by 52itstyle</title>
+<title>4S店客户管理系统Powered by 52itstyle</title>
 <style type="text/css">
 <!--
 body {

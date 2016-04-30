@@ -38,9 +38,6 @@ public class UsersDao {
 		if (users.getContent() != null) {
 			u.setContent(users.getContent());//设置人员简介
 	    }
-		if (users.getIsadmin() != null) {
-			u.setIsadmin(users.getIsadmin());//设置是否为管理员
-	    }
 		if (users.getPassword() != null) {
 			u.setPassword(users.getPassword());//设置登录密码
 		}

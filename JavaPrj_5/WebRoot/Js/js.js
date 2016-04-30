@@ -228,10 +228,3 @@ function repairValidate(){
 	}*/
 	return true;
 }
-function adminChecked(){
-	if(userForm.isadminhelp.checked){
-		document.userForm.isadmin.value="1";
-	}else{
-		document.userForm.isadmin.value="0";
-	}
-}

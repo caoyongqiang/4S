@@ -11,9 +11,8 @@ public class Users implements Serializable {
     private Integer roleType;		//性别
     private String idCard;	//身份证号
     private Date createtime;//创建时间
-    private Byte isadmin;	//是否为管理员
     private String content;	//人员简介
-    public Users(Long id,String username, String password, String phoneNumber, Integer roleType, String idCard, Date createtime, Byte isadmin, String content) {
+    public Users(Long id,String username, String password, String phoneNumber, Integer roleType, String idCard, Date createtime, String content) {
         this.id=id;
         this.username = username;
         this.phoneNumber = phoneNumber;
@@ -21,7 +20,6 @@ public class Users implements Serializable {
         this.roleType = roleType;
         this.idCard = idCard;
         this.createtime = createtime;
-        this.isadmin = isadmin;
         this.content = content;
     }
     public Users() {
@@ -83,14 +81,6 @@ public class Users implements Serializable {
         this.createtime = createtime;
     }
 
-    public Byte getIsadmin() {
-        return this.isadmin;
-    }
-
-    public void setIsadmin(Byte isadmin) {
-        this.isadmin = isadmin;
-    }
-
     public String getContent() {
         return this.content;
     }
@@ -109,7 +99,6 @@ public class Users implements Serializable {
         toStr.append("    roleType = " + this.roleType + ";\n");
         toStr.append("    idCard = " + this.idCard+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
-        toStr.append("    isadmin = " + this.isadmin + ";\n");
         toStr.append("    content = " + this.content + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
