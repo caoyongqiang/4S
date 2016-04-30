@@ -13,6 +13,5 @@
 		<property name="tel" length="50" type="string"/>
 		<property name="createtime" length="23" type="timestamp"/>
 		<property name="repairDetail" length="1073741823" type="string"/>
-		<property name="isstock" length="1" type="byte"/>
 	</class>
 </hibernate-mapping>

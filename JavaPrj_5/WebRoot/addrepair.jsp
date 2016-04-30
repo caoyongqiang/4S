@@ -43,14 +43,7 @@
 					<td><input name="tel" type="text" class="input">
 					<span class="red">*</span></td> 
 				</tr>
-				<!-- <tr>
-					<td nowrap align="right" width="9%">维修次数：</td>
-					<td><input name="repairTimes" type="text" class="input"></td>
-					<td><div align="right">职位：</div></td>
-					<td><input name="repair" type="text" class="input">
-					<span class="red">*</span></td>
-				</tr> -->
-					<tr>
+				<tr>
 					<td nowrap align="right">车型：</td>
 					<td><input name="car" type="text" class="input">
 					<span class="red">*</span></td>
@@ -58,14 +51,6 @@
 					<td><input name="plateNumber" type="text" class="input">
 					<span class="red">*</span></td>
 				</tr>
-				<!-- <tr>
-					<td nowrap align="right">维修类型：</td>
-					<td><input name="repairType" type="text" class="input">
-					<span class="red">*</span></td>
-					<td><div align="right">维修金额：</div></td>
-					<td><input name="repairCost" type="text" class="input">
-					<span class="red">*</span></td>
-				</tr> -->
 				<tr>
 					<td width="9%" nowrap align="right">维修详细：</td>
 					<td colspan="3">

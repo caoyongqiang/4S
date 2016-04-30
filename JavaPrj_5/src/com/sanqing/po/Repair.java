@@ -10,10 +10,9 @@ public class Repair implements Serializable {
     private String plateNumber;
     private String tel;
     private Date createtime;//����ʱ��
-    private String repairDetail;	//��ϸ����
-    private Byte isstock;	//�Ƿ����
+    private String repairDetail;
 
-    public Repair(Long id,String name, String car, String plateNumber, String tel, Date createtime, String repairDetail, Byte isstock) {
+    public Repair(Long id,String name, String car, String plateNumber, String tel, Date createtime, String repairDetail) {
         this.id=id;
         this.name = name;
         this.car = car;
@@ -21,7 +20,6 @@ public class Repair implements Serializable {
         this.tel = tel;
         this.createtime = createtime;
         this.repairDetail = repairDetail;
-        this.isstock = isstock;
     }
     public Repair() {
     }
@@ -82,14 +80,6 @@ public class Repair implements Serializable {
         this.repairDetail = repairDetail;
     }
 
-    public Byte getIsstock() {
-        return this.isstock;
-    }
-
-    public void setIsstock(Byte isstock) {
-        this.isstock = isstock;
-    }
-
     public String toString() {
         StringBuffer toStr = new StringBuffer();
         toStr.append("[Repair] = [\n");
@@ -100,7 +90,6 @@ public class Repair implements Serializable {
         toStr.append("    tel = " + this.tel + ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    repairDetail = " + this.repairDetail+ ";\n");
-        toStr.append("    isstock = " + this.isstock + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
     }

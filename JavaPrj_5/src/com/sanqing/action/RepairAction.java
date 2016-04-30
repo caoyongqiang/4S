@@ -70,14 +70,7 @@ public class RepairAction extends Action {
 	}
 
 	private ActionForward listRepair(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
-	    String isstock=request.getParameter("isstock");//获得isstock参数
-	    if(isstock==null||"".equals(isstock)){//如果isstock为null或者为空
-	        request.setAttribute("list",
-	        		dao.listRepair(new Byte("0").byteValue()));//查询所有没入库的维修信息
-	    }else{
-	        request.setAttribute("list",
-	        		dao.listRepair(new Byte("1").byteValue()));//查询所有入库的维修信息
-	    }
+	    request.setAttribute("list", dao.listRepair());
 	    return mapping.findForward("success");
 	}
 }

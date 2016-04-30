@@ -33,9 +33,6 @@ public class RepairForm extends ActionForm {
     /** nullable persistent field */
     private String repairDetail;
 
-    /** nullable persistent field */
-    private Byte isstock;
-
     private String createtime;
 
     /** full constructor */
@@ -47,7 +44,6 @@ public class RepairForm extends ActionForm {
         this.tel = null;
         this.createtime=null;
         this.repairDetail = null;
-        this.isstock = null;
     }
 
 
@@ -99,14 +95,6 @@ public class RepairForm extends ActionForm {
         this.repairDetail = repairDetail;
     }
 
-    public Byte getIsstock() {
-        return this.isstock;
-    }
-
-    public void setIsstock(Byte isstock) {
-        this.isstock = isstock;
-    }
-
     public String toString() {
         StringBuffer toStr = new StringBuffer();
         toStr.append("[RepairForm] = [\n");
@@ -117,7 +105,6 @@ public class RepairForm extends ActionForm {
         toStr.append("    tel = " + this.tel + ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    repairDetail = " + this.repairDetail+ ";\n");
-        toStr.append("    isstock = " + this.isstock + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
     }
@@ -132,7 +119,6 @@ public class RepairForm extends ActionForm {
         j.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
         j.setPlateNumber(this.getPlateNumber());
         j.setId(this.getId());
-        j.setIsstock(this.getIsstock());
         j.setName(this.getName());
         j.setCar(this.getCar());
         j.setTel(this.getTel());

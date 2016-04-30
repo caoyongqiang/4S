@@ -13,7 +13,6 @@ import com.sanqing.po.Repair;
 public class RepairDao {
 
 	public void addRepair(Repair repair) throws HibernateException{
-	    repair.setIsstock(new Byte("0"));//设置入库信息为0，表示暂时不入库
 	    repair.setCreatetime(new java.util.Date());//设置当前时间
 	    Session session = HibernateSessionFactory.getSession();//获得Session对象
 	    Transaction tx = session.beginTransaction();//开启事务处理
@@ -22,11 +21,10 @@ public class RepairDao {
 	    HibernateSessionFactory.closeSession();//关闭Session对象
 	}
 
-	public List listRepair(byte isstock) throws HibernateException{
+	public List listRepair() throws HibernateException{
 		Session session = HibernateSessionFactory.getSession();//获得Session对象
 		Query query = session.createQuery("select j from Repair " +
-			"as j where j.isstock = :isstock order by createtime");//查询所有维修信息
-		query.setByte("isstock",isstock);//设置是否入库
+			"as j order by createtime");//查询所有维修信息
 		List list = query.list();//获得维修信息列表
 		HibernateSessionFactory.closeSession();//关闭Session对象
 		return list;
@@ -54,9 +52,6 @@ public class RepairDao {
         }
         if (repair.getPlateNumber() != null) {
             j.setPlateNumber(repair.getPlateNumber());
-        }
-        if (repair.getIsstock()!= null) {
-            j.setIsstock(repair.getIsstock());
         }
         if(repair.getName()!=null){
             j.setName(repair.getName());
