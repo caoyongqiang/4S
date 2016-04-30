@@ -81,33 +81,6 @@ function serviceValidate(){
 		serviceForm.phoneNumber.focus();
 		return false;
 	}
-	/*if(serviceForm.begintime.value==""){
-		alert("请添写培训开始时间！");		
-		serviceForm.begintime.focus();
-		return false;
-	}
-	if(!checkIsValidDate(serviceForm.begintime.value)){
-		alert("输入的时间不合法！（年-月-日）");
-		serviceForm.begintime.focus();
-		return false;
-	}
-
-	if(serviceForm.endtime.value==""){
-		alert("请添写培训结束时间！");		
-		serviceForm.endtime.focus();
-		return false;
-	}
-	if(!checkIsValidDate(serviceForm.endtime.value)){
-		alert("输入的时间不合法！（年-月-日）");
-		serviceForm.endtime.focus();
-		return false;
-	}
-	if(!checkDateEarlier(serviceForm.begintime.value,serviceForm.endtime.value)){
-		alert("起始日期不能晚于结束日期！");
-		serviceForm.begintime.focus();
-		return false;
-	}*/
-
 	if(serviceForm.car.value==""){
 		alert("请添写车型！");		
 		serviceForm.car.focus();

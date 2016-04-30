@@ -24,12 +24,6 @@ public class ServiceForm extends ActionForm {
     private String phoneNumber;
 
     /** nullable persistent field */
-    private String begintime;
-
-    /** nullable persistent field */
-    private String endtime;
-
-    /** nullable persistent field */
     private String requireDetail;
 
     /** nullable persistent field */
@@ -42,9 +36,6 @@ public class ServiceForm extends ActionForm {
     private String createtime;
 
     /** nullable persistent field */
-    private String effect;
-
-    /** nullable persistent field */
     private String summarize;
 
     private Byte service;
@@ -53,14 +44,11 @@ public class ServiceForm extends ActionForm {
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
         this.name = null;
         this.phoneNumber = null;
-        this.begintime = null;
-        this.endtime = null;
         this.requireDetail = null;
         this.car = null;
         this.plateNumber = null;
         this.createtime = null;
         this.service=null;
-        this.effect = null;
         this.summarize = null;
     }
 
@@ -90,22 +78,6 @@ public class ServiceForm extends ActionForm {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getBegintime() {
-        return this.begintime;
-    }
-
-    public void setBegintime(String begintime) {
-        this.begintime = begintime;
-    }
-
-    public String getEndtime() {
-        return this.endtime;
-    }
-
-    public void setEndtime(String endtime) {
-        this.endtime = endtime;
     }
 
     public String getRequireDetail() {
@@ -140,14 +112,6 @@ public class ServiceForm extends ActionForm {
         this.createtime = createtime;
     }
 
-    public String getEffect() {
-        return this.effect;
-    }
-
-    public void setEffect(String effect) {
-        this.effect = effect;
-    }
-
     public String getSummarize() {
         return this.summarize;
     }
@@ -161,15 +125,12 @@ public class ServiceForm extends ActionForm {
         toStr.append("[Service] = [\n");
         toStr.append("    id = " + this.id + ";\n");
         toStr.append("    name = " + this.name + ";\n");
-        toStr.append("    begintime = " + this.begintime+ ";\n");
-        toStr.append("    endtime = " + this.endtime+ ";\n");
         toStr.append("    createtime = " + this.createtime+ ";\n");
         toStr.append("    phoneNumber = " + this.phoneNumber + ";\n");
         toStr.append("    requireDetail = " + this.requireDetail + ";\n");
         toStr.append("    car = " + this.car + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    service = " + this.service+ ";\n");
-        toStr.append("    effect = " + this.effect + ";\n");
         toStr.append("    summarize = " + this.summarize + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
@@ -177,11 +138,8 @@ public class ServiceForm extends ActionForm {
 
     public Service populate(){
         Service e=new Service();
-        e.setBegintime(DateUtil.parseToDate(this.getBegintime(),DateUtil.yyyyMMdd));
         e.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
         e.setRequireDetail(this.getRequireDetail());
-        e.setEffect(this.getEffect());
-        e.setEndtime(DateUtil.parseToDate(this.getEndtime(),DateUtil.yyyyMMdd));
         e.setId(this.getId());
         e.setName(this.getName());
         e.setPhoneNumber(this.getPhoneNumber());

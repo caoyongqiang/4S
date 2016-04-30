@@ -56,7 +56,7 @@
 					    </tr>
 					  <tr>
 					    <td nowrap align="right" width="11%">创建时间：</td>
-					    <td colspan="3"><input type="text" name="begintime" class="input" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getCreatetime(),DateUtil.yyyyMMdd))%>" disabled/>
+					    <td colspan="3"><input type="text" name="createtime" class="input" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getCreatetime(),DateUtil.yyyyMMdd))%>" disabled/>
 					    	<span class="red">*</span></td>
 					  </tr>
 					  <tr>
@@ -73,11 +73,6 @@
 					    <td width="11%" nowrap align="right">需求详细：</td>
 					    <td colspan="3"><textarea name="requireDetail" cols="100" rows="6" class="input" disabled><%=e.getRequireDetail()%></textarea></td>
 					  </tr>
-					  
-<%-- 					  <tr align="center">
-					    <td width="11%" height="22" >培训效果：</td>
-					    <td height="22" colspan="3" align="left" ><input name="effect" type="text"  class="input" value="<%=StringUtil.notNull(e.getEffect())%>" size="50"></td>
-					  </tr> --%>
 					  <tr align="center">
 					    <td width="11%" height="22" >完成情况：</td>
 					    <td height="22" colspan="3" align="left" ><textarea name="summarize" cols="100" rows="6"  class="input"><%=StringUtil.notNull(e.getSummarize())%></textarea></td>

@@ -43,19 +43,6 @@
 					    <td width="42%"><input type="text" name="phoneNumber" class="input"/>
 					    <span class="red">*</span></td>
 					  </tr>
-					  <!-- <tr>
-					    <td nowrap align="right" width="11%">手机号：</td>
-					    <td colspan="3"><input type="text" name="phoneNumber" class="input"/>
-					    <span class="red">*</span></td>
-					  </tr> -->
-					  <!-- <tr>
-					    <td nowrap align="right">培训开始时间：</td>
-					    <td width="29%"><input type="text" name="begintime" class="input"/>
-					    	<span class="red">*</span></td>
-					    <td width="18%">培训结束时间：</td>
-					    <td width="42%"><input type="text" name="endtime" class="input"/>
-					    <span class="red">*</span></td>
-					  </tr> -->
 					  <tr>
 					    <td nowrap align="right">车型：</td>
 					    <td><input type="text" name="car" class="input"/>

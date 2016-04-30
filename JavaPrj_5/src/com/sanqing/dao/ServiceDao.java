@@ -56,17 +56,8 @@ public class ServiceDao {
 
     public void updateService(Service service) throws HibernateException{
         Service e =this.loadService(service.getId().longValue());
-        if (service.getBegintime()!=null){
-            e.setBegintime(service.getBegintime());
-        }
         if(service.getRequireDetail()!=null){
             e.setRequireDetail(service.getRequireDetail());
-        }
-        if (service.getEffect()!= null) {
-            e.setEffect(service.getEffect());
-        }
-        if (service.getEndtime()!= null) {
-            e.setEndtime(service.getEndtime());
         }
         if(service.getName()!=null){
             e.setName(service.getName());

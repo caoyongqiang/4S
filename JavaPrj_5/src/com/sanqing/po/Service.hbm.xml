@@ -9,13 +9,10 @@
 		</id>
 		<property name="name" length="100" type="string"/>
 		<property name="phoneNumber" length="20" type="string"/>
-		<property name="begintime" length="23" type="timestamp"/>
-		<property name="endtime" length="23" type="timestamp"/>
 		<property name="requireDetail" length="2000" type="string"/>
 		<property name="car" length="50" type="string"/>
 		<property name="plateNumber" length="50" type="string"/>
 		<property name="createtime" length="23" type="timestamp"/>
-		<property name="effect" length="500" type="string"/>
 		<property name="service" length="1" type="byte"/>
 		<property name="summarize" length="2000" type="string"/>
 	</class>
