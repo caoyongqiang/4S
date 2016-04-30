@@ -85,7 +85,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
                     	<td height="22" colspan="8" align="center" style="font-size:16px">
                     	<%
                     		if("1".equals(service)){
-                    	                    			out.print("维护记录");
+                    	                    			out.print("已完成需求");
                     	                    		  }else{
                     	                    			out.print("客户需求");
                     	                    		  }

@@ -2,6 +2,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="com.sanqing.po.Clue"%>
+<%@ page import="com.sanqing.tool.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -61,7 +62,7 @@
 						    <td nowrap align="right">预购车型：</td>
 						    <td><input name="desireCar" type="text" class="input" id="desireCar" value="<%=e.getDesireCar()%>"></td>
 						    <td nowrap align="right">来店时间：</td>
-						    <td><input name="visitTime" type="text" class="input" id="visitTime" value="<%=e.getVisitTime()%>"></td>
+						    <td><input name="visitTime" type="text" class="input" id="visitTime" value="<%=StringUtil.notNull(DateUtil.parseToString(e.getVisitTime(),DateUtil.yyyyMMdd))%>"></td>
 						  </tr>
 					  </table>
 				</fieldset>			
