@@ -108,8 +108,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					<td height="22" align="center" >
 					  <%if(u.getRoleType() == 2 || u.getRoleType() == 3 ){%>
 					  <a href="updatecarOwners.do?action=detailcarOwners&id=<%=j.getId()%>">修改</a>&nbsp;&nbsp;
-					  <a href="modifycarOwners.do?action=deletecarOwners&id=<%=j.getId()%>">删除</a></td>
+					  <a href="modifycarOwners.do?action=deletecarOwners&id=<%=j.getId()%>">删除</a>
 					  <%}%>
+					</td>
 				  </tr>
 				  <%		}
 				   }else{

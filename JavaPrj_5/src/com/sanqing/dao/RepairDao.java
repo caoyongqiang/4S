@@ -16,7 +16,7 @@ public class RepairDao {
 	    repair.setCreatetime(new java.util.Date());//设置当前时间
 	    Session session = HibernateSessionFactory.getSession();//获得Session对象
 	    Transaction tx = session.beginTransaction();//开启事务处理
-	    session.save(repair);//保存应聘人员信息
+	    session.save(repair);//保存维修记录信息
 	    tx.commit();//提交事务
 	    HibernateSessionFactory.closeSession();//关闭Session对象
 	}

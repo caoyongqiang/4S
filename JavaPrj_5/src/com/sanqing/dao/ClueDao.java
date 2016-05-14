@@ -69,6 +69,9 @@ public class ClueDao {
         if (ins.getPhoneNumber()!= null) {
             e.setPhoneNumber(ins.getPhoneNumber());
         }
+        if (ins.getVisitTime()!= null) {
+            e.setVisitTime(ins.getVisitTime());
+        }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.update(e);

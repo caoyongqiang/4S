@@ -11,6 +11,7 @@ import org.hibernate.HibernateException;
 
 import com.sanqing.dao.CarOwnersDao;
 import com.sanqing.po.CarOwners;
+import com.sanqing.po.Users;
 import com.sanqing.dao.ClueDao;
 import com.sanqing.po.Clue;
 
@@ -77,7 +78,11 @@ public class CarOwnersAction extends Action {
      * @throws HibernateException
      */
     private ActionForward deleteCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        Long id=new Long(request.getParameter("id").toString());
+    	Users u = (Users)request.getSession().getAttribute("users");
+    	if (u.getRoleType() != 2 || u.getRoleType() != 3) {
+    		return mapping.findForward("success");
+    	}
+    	Long id=new Long(request.getParameter("id").toString());
         CarOwners s=new CarOwners();
         s.setId(id);
         dao.deleteCarOwners(s);
