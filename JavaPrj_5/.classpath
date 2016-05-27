@@ -9,5 +9,12 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/commons-lang.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/ezmorph-1.0.5.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/json-lib-2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/morph-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/4SPro/json_jar/commons-collections-3.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

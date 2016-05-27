@@ -75,6 +75,10 @@
     </action>
     <action name="carOwnersForm" path="/carOwners" scope="request" type="com.sanqing.action.CarOwnersAction">
       <forward name="success" path="/listcarOwners.jsp" />
+      <forward name="chart" path="/carOwnersChart.jsp" />
+    </action>
+    <action name="carOwnersForm" path="/carOwnersChart" scope="session" type="com.sanqing.action.CarOwnersAction">
+      <forward name="success" path="/carOwners.do?action=carOwnersChart" />
     </action>
     <action name="carOwnersForm" path="/modifycarOwners" scope="session" type="com.sanqing.action.CarOwnersAction">
       <forward name="success" path="/carOwners.do?action=listcarOwners" />

@@ -24,7 +24,7 @@ function tupian(idt){
     var tp = document.getElementById(nametu);
     tp.src="images/ico05.gif";//图片ico04为白色的正方形
 	
-	for(var i=1;i<30;i++)
+	for(var i=1;i<31;i++)
 	{
 	  
 	  var nametu2="xiaotu"+i;
@@ -137,6 +137,10 @@ function list(idstr){
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu12" src="images/ico06.gif" width="8" height="12" /></td>
           <td width="91%"><a href="carOwners.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
+        </tr>
+        <tr>
+          <td width="9%" height="20" ><img id="xiaotu13" src="images/ico06.gif" width="8" height="12" /></td>
+          <td width="91%"><a href="carOwnersChart.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('13');">车主信息图表</a></td>
         </tr>
       </table>
 	  <!--  车主信息结束    -->

@@ -1,7 +1,15 @@
 package com.sanqing.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -35,6 +43,8 @@ public class CarOwnersAction extends Action {
             return updateCarOwners(mapping,form,request,response);
         }else if("detailcarOwners".equals(action)){
             return detailCarOwners(mapping,form,request,response);
+        }else if("carOwnersChart".equals(action)){
+            return carOwnersChart(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -125,4 +135,26 @@ public class CarOwnersAction extends Action {
         return mapping.findForward("success");
     }
 
+    /**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
+    private ActionForward carOwnersChart(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	String startDate = request.getParameter("startDate");
+    	String endDate = request.getParameter("endDate");
+    	if(startDate == null && endDate == null) {
+    		Calendar calendar = new GregorianCalendar(); 
+            Calendar cal  = Calendar.getInstance();
+            SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM");
+            startDate = formatter_shuzi.format(cal.getTime());
+            cal.add(Calendar.MONTH, -7);
+            endDate = formatter_shuzi.format(cal.getTime());
+    	}
+        request.setAttribute("arr",dao.carSaleDist(startDate, endDate));
+        return mapping.findForward("chart");
+    }
 }
