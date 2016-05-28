@@ -40,18 +40,52 @@ body {
                      结束时间：<input id="date_timepicker_end" type="text" >
       </p>
     </div>
-    <%Integer[] arr=(Integer[])request.getAttribute("arr");
+    <div>
+    <%-- <%Integer[] arr=(Integer[])session.getAttribute("arr");
       int length = arr.length;
 	  String str = "";
 	  for(int i = 0; i < length-1; i++) {
-	    str = str + arr[i] + ',';
+	    str = str + arr[i] + ",";
 	  }
 	  str += arr[length-1];
-    %>
-    <input id="ownersArr" type='hidden' value='<%=str%>'/>
+	  out.print(str);
+    %> --%>
+    </div>
+    <%-- <input id="ownersArr" type='hidden' value='<%=str%>'/> --%>
     <script type="text/javascript" src="Js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="Js/jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript">
+         var getxAxisData = function() {
+            if(!$('#date_timepicker_start').val() && !$('#date_timepicker_end').val()) {
+                var today = new Date();
+                var year = today.getFullYear();
+                var month = today.getMonth()+1;
+                var endDate = new Date(year + '/' + month);
+                today.setMonth( month - 12 );
+                var startDate = today;
+            }else{
+	            var startDate=new Date($('#date_timepicker_start').val().replace("-", "/"));
+	        	var endDate=new Date($('#date_timepicker_end').val().replace("-", "/"));
+	        }
+		    var number = 0;      
+		    var yearToMonth = (endDate.getFullYear() - startDate.getFullYear()) * 12;      
+		    number += yearToMonth;      
+	        monthToMonth = endDate.getMonth() - startDate.getMonth();      
+	        number += monthToMonth;
+            var xAxisData = [];
+            var year = startDate.getFullYear();
+            var month = startDate.getMonth()+1;
+            console.log(number);
+            for(var i = parseInt(number); i >= 0; i--){
+                if(month >= 13) {
+                    year++;
+                    month = 1;
+                }
+                xAxisData.push('' + year + '-' + (month++) );
+            }
+            return xAxisData;
+         };
+    
 	   	 jQuery(function(){
 	   	 jQuery.datetimepicker.setLocale('zh');
 		 jQuery('#date_timepicker_start').datetimepicker({
@@ -69,6 +103,14 @@ body {
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
+		        },
+		        success: function(result) {
+		          var ownersArr = $.parseJSON(result)[0].owners;
+		          var xAxisData = getxAxisData();
+		          option.xAxis[0].data = xAxisData;
+		          option.series[0].data = ownersArr;
+		          myChart.clear();
+		          myChart.setOption(option);
 		        }
 	        });
 		  },
@@ -89,6 +131,14 @@ body {
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
+		        },
+		        success: function(result) {
+		          var ownersArr = $.parseJSON(result)[0].owners;
+		          var xAxisData = getxAxisData();
+		          option.xAxis[0].data = xAxisData;
+		          option.series[0].data = ownersArr;
+		          myChart.clear();
+		          myChart.setOption(option);
 		        }
 	        });
 		  },
@@ -112,23 +162,41 @@ body {
         require(
             [
                 'echarts',
-                'echarts/chart/line'            ],
+                'echarts/chart/line',
+                'echarts/chart/bar'
+            ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('main')); 
-                var ownersArr = $('#ownersArr').val().split(',');
-                var startDate = $('#date_timepicker_start').val();
-                
-                var option = {
+                myChart = ec.init(document.getElementById('main')); 
+                var ownersArr = '';
+                var today = new Date();
+                var year = today.getFullYear();
+                var month = today.getMonth()+2;
+                var endDate = year + '-' + month;
+                today.setMonth( month - 12 );
+                var startDate = today.getFullYear() + '-' + today.getMonth();
+                $.ajax({
+			        url: "carOwnersChart.do?action=carOwnersChart",
+			        data: {
+			          startDate: startDate,
+			          endDate: endDate
+			        },
+			        async: false,
+			        success: function(result) {
+			          ownersArr = $.parseJSON(result)[0].owners;
+			        }
+		        });
+                var xAxisData = getxAxisData();
+                option = {
 				    title : {
-				        text: '未来一周气温变化',
-				        subtext: '纯属虚构'
+				        text: '车辆销售分布',
+				        subtext: '按月计数'
 				    },
 				    tooltip : {
 				        trigger: 'axis'
 				    },
 				    legend: {
-				        data:['最高气温','最低气温']
+				        data:['售出车辆数']
 				    },
 				    toolbox: {
 				        show : true,
@@ -145,20 +213,20 @@ body {
 				        {
 				            type : 'category',
 				            boundaryGap : false,
-				            data : ['周一','周二','周三','周四','周五','周六','周日']
+				            data : xAxisData
 				        }
 				    ],
 				    yAxis : [
 				        {
 				            type : 'value',
 				            axisLabel : {
-				                formatter: '{value} °C'
+				                formatter: ''
 				            }
 				        }
 				    ],
 				    series : [
 				        {
-				            name:'最高气温',
+				            name:'售出车辆数',
 				            type:'line',
 				            data:ownersArr,
 				            markPoint : {
@@ -170,21 +238,6 @@ body {
 				            markLine : {
 				                data : [
 				                    {type : 'average', name: '平均值'}
-				                ]
-				            }
-				        },
-				        {
-				            name:'最低气温',
-				            type:'line',
-				            data:[1, -2, 2, 5, 3, 2, 0],
-				            markPoint : {
-				                data : [
-				                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
-				                ]
-				            },
-				            markLine : {
-				                data : [
-				                    {type : 'average', name : '平均值'}
 				                ]
 				            }
 				        }

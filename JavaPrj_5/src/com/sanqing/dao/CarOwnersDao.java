@@ -86,17 +86,29 @@ public class CarOwnersDao {
         }catch(Exception e){
         	e.printStackTrace();
         }
-        List list = new ArrayList<Integer>(); 
-        for(int i = 0; i < months; i++) {
+        List list = new ArrayList<Integer>();
+        int year = Integer.parseInt(startArr[0]);
+        int month = Integer.parseInt(startArr[1]);
+        String str = "";
+        for(int i = 0; i <= months; i++) {
+          if(month >= 13) {
+        	  month = 1;
+        	  year++;
+          }
+          if(month < 10) {
+        	  str = year + "-0" + (month++);
+          } else{
+        	  str = year + "-" + (month++);
+          }
           Query query = session.createQuery("select count(*) from CarOwners as e where e.purchaseTime like'%" 
-                                           + startArr[0] + "-0" + (startArr[1]+i) + "%'");
+                                           + str + "%'");
           list.add(query.list().get(0));
         }
         int size = list.size();
         Integer[] arr=new Integer[list.size()];
         for(int i=0; i<size; i++) {
-        	//arr[i] = ((Number)list.get(i)).intValue();
-        	arr[i] = i+1;
+        	arr[i] = ((Number)list.get(i)).intValue();
+//        	arr[i] = i+1;
         }
         tx.commit();
         HibernateSessionFactory.closeSession();
@@ -109,8 +121,8 @@ public class CarOwnersDao {
     	Calendar cal2 = new GregorianCalendar();
     	cal2.setTime(date2);
     	int c =
-    	(cal1.get(Calendar.YEAR) - cal2.get(Calendar.YEAR)) * 12 + cal1.get(Calendar.MONTH)
-    	- cal2.get(Calendar.MONTH);
+    	(cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR)) * 12 + cal2.get(Calendar.MONTH)
+    	- cal1.get(Calendar.MONTH);
     	return c;
    }
 

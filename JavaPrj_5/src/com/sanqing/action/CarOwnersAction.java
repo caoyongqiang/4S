@@ -1,9 +1,13 @@
 package com.sanqing.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,7 +93,7 @@ public class CarOwnersAction extends Action {
      */
     private ActionForward deleteCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
     	Users u = (Users)request.getSession().getAttribute("users");
-    	if (u.getRoleType() != 2 || u.getRoleType() != 3) {
+    	if (u.getRoleType() != 2 && u.getRoleType() != 3) {
     		return mapping.findForward("success");
     	}
     	Long id=new Long(request.getParameter("id").toString());
@@ -150,11 +154,20 @@ public class CarOwnersAction extends Action {
     		Calendar calendar = new GregorianCalendar(); 
             Calendar cal  = Calendar.getInstance();
             SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM");
-            startDate = formatter_shuzi.format(cal.getTime());
-            cal.add(Calendar.MONTH, -7);
             endDate = formatter_shuzi.format(cal.getTime());
+            cal.add(Calendar.MONTH, -12);
+            startDate = formatter_shuzi.format(cal.getTime());
     	}
-        request.setAttribute("arr",dao.carSaleDist(startDate, endDate));
+    	response.setCharacterEncoding("UTF-8");
+    	Map<String, Object> hashMap=new HashMap<String, Object>();
+        hashMap.put("owners", dao.carSaleDist(startDate, endDate));
+    	try {
+    		JSONArray result=JSONArray.fromObject(hashMap);
+            response.getWriter().write(result.toString());
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	// request.getSession().setAttribute("arr",dao.carSaleDist(startDate, endDate));
         return mapping.findForward("chart");
     }
 }
