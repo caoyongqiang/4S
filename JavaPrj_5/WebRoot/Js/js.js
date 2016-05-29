@@ -39,6 +39,11 @@ function clueValidate(){
 		clueForm.phoneNumber.focus();
 		return false;
 	}
+	if(clueForm.visitTime.value==""){
+		alert("请添写来店时间！");
+		clueForm.visitTime.focus();
+		return false;
+	}
 	return true;
 }
 function userValidate(){

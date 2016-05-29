@@ -138,10 +138,10 @@ function list(idstr){
           <td width="9%" height="20" ><img id="xiaotu12" src="images/ico06.gif" width="8" height="12" /></td>
           <td width="91%"><a href="carOwners.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('12');">车主信息查看</a></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td width="9%" height="20" ><img id="xiaotu13" src="images/ico06.gif" width="8" height="12" /></td>
           <td width="91%"><a href="carOwnersChart.do?action=listcarOwners" target="mainFrame" class="left-font03" onClick="tupian('13');">车主信息图表</a></td>
-        </tr>
+        </tr> -->
       </table>
 	  <!--  车主信息结束    -->
 		
@@ -215,7 +215,7 @@ function list(idstr){
 					<tr>
 						<td width="8%"><img name="img8" id="img8" src="images/ico04.gif" width="8" height="11" /></td>
 						<td width="92%">
-								<a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >员工管理</a></td>
+						  <a href="javascript:" target="mainFrame" class="left-font03" onClick="list('8');" >员工管理</a></td>
 					</tr>
 				</table>
 			</td>
@@ -224,8 +224,9 @@ function list(idstr){
 		<table id="subtree8" style="display: none;" width="80%" border="0" align="center" cellpadding="0" 
 			   cellspacing="0" class="left-table02">
 				<tr>
-				  <td width="9%" height="20" ><img id="xiaotu1" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">员工信息录入</a></td>
+				   <td width="9%" height="20" ><img id="xiaotu1" src="images/ico06.gif" width="8" height="12" /></td>
+                   <td width="91%"><a href="adduser.do" target="mainFrame" class="left-font03" onClick="tupian('1');">员工信息录入</a></td>
+
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu2" src="images/ico06.gif" width="8" height="12" /></td>
@@ -233,6 +234,38 @@ function list(idstr){
 				</tr>
       </table>
 		<!--  员工管理结束    -->
+		
+		<!--  商业智能    -->
+		<TABLE <%if(u.getRoleType() != 2 && u.getRoleType() != 3) {%> style="DISPLAY: none" <%} %>
+		       width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
+          <tr>
+            <td height="29">
+				<table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="8%"><img name="img9" id="img9" src="images/ico04.gif" width="8" height="11" /></td>
+						<td width="92%">
+						  <a href="javascript:" target="mainFrame" class="left-font03" onClick="list('9');" >商业智能</a></td>
+					</tr>
+				</table>
+			</td>
+          </tr>		  
+        </TABLE>
+		<table id="subtree9" style="display: none;" width="80%" border="0" align="center" cellpadding="0" 
+			   cellspacing="0" class="left-table02">
+			    <tr>
+				  <td width="9%" height="20" ><img id="xiaotu13" src="images/ico06.gif" width="8" height="12" /></td>
+                  <td width="91%"><a href="carOwnersDist.do" target="mainFrame" class="left-font03" onClick="tupian('13');">车辆销售</a></td>
+				</tr>
+				<tr>
+				  <td width="9%" height="20" ><img id="xiaotu14" src="images/ico06.gif" width="8" height="12" /></td>
+				  <td width="91%"><a href="clueDist.do" target="mainFrame" class="left-font03" onClick="tupian('14');">来店线索</a></td>
+				</tr>
+				<tr>
+				  <td width="9%" height="21" ><img id="xiaotu15" src="images/ico06.gif" width="8" height="12" /></td>
+				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('15');">售后服务分析</a></td>
+				</tr>
+      </table>
+		<!--  商业智能    -->
 
 	  </TD>
   </tr>

@@ -64,6 +64,7 @@ body {
             var xAxisData = [];
             var year = startDate.getFullYear();
             var month = startDate.getMonth()+1;
+            console.log(number);
             for(var i = parseInt(number); i >= 0; i--){
                 if(month >= 13) {
                     year++;
@@ -87,13 +88,13 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "carOwnersChart.do?action=carOwnersChart",
+		        url: "clue.do?action=clueDist",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result)[0].owners;
+		          var ownersArr = $.parseJSON(result).clues;
 		          var xAxisData = getxAxisData();
 		          option.xAxis[0].data = xAxisData;
 		          option.series[0].data = ownersArr;
@@ -115,13 +116,13 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "carOwnersChart.do?action=carOwnersChart",
+		        url: "clue.do?action=clueDist",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result)[0].owners;
+		          var ownersArr = $.parseJSON(result).clues;
 		          var xAxisData = getxAxisData();
 		          option.xAxis[0].data = xAxisData;
 		          option.series[0].data = ownersArr;
@@ -164,20 +165,20 @@ body {
                 today.setMonth( month - 12 );
                 var startDate = today.getFullYear() + '-' + today.getMonth();
                 $.ajax({
-			        url: "carOwnersChart.do?action=carOwnersChart",
+			        url: "clue.do?action=clueDist",
 			        data: {
 			          startDate: startDate,
 			          endDate: endDate
 			        },
 			        async: false,
 			        success: function(result) {
-			          ownersArr = $.parseJSON(result)[0].owners;
+			          ownersArr = $.parseJSON(result).clues;
 			        }
 		        });
                 var xAxisData = getxAxisData();
                 option = {
 				    title : {
-				        text: '车辆销售分布',
+				        text: '来店线索分布',
 				        subtext: '按月计数'
 				    },
 				    tooltip : {

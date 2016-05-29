@@ -54,7 +54,9 @@
 					    <td nowrap align="right">预购车型：</td>
 					    <td><input name="desireCar" type="text" class="input" id="desireCar"></td>
 					    <td nowrap align="right">来店时间：</td>
-					    <td><input name="visitTime" type="text" class="input" id="visitTime"></td>
+					    <td><input name="visitTime" type="text" class="input" id="visitTime">
+					    <span class="red">*</span>
+					    </td>
 					    </tr>
 					  </table>
 			  <br />

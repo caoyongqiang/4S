@@ -160,7 +160,7 @@ public class CarOwnersAction extends Action {
             Calendar cal  = Calendar.getInstance();
             SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM");
             endDate = formatter_shuzi.format(cal.getTime());
-            cal.add(Calendar.MONTH, -12);
+            cal.add(Calendar.MONTH, -11);
             startDate = formatter_shuzi.format(cal.getTime());
     	}
     	response.setCharacterEncoding("UTF-8");
@@ -172,7 +172,6 @@ public class CarOwnersAction extends Action {
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
-    	// request.getSession().setAttribute("arr",dao.carSaleDist(startDate, endDate));
         return mapping.findForward("chart");
     }
     

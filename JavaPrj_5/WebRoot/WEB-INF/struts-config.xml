@@ -20,6 +20,8 @@
     <action forward="/addservice.jsp" path="/addservice" />
     <action forward="/addclue.jsp" path="/addclue" />
     <action forward="/addcarOwners.jsp" path="/addcarOwners" />
+    <action forward="/clueDist.jsp" path="/clueDist" />
+    <action forward="/carOwnersChart.jsp" path="/carOwnersDist" />
     <action name="userForm" path="/logon" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/manage.jsp" />
       <forward name="failed" path="/welcome.jsp" />
@@ -60,6 +62,7 @@
     </action>
     <action name="clueForm" path="/clue" scope="request" type="com.sanqing.action.ClueAction">
       <forward name="success" path="/listclue.jsp" />
+      <forward name="chart" path="/clueDist.jsp" />
     </action>
     <action name="clueForm" path="/modifyclue" scope="session" type="com.sanqing.action.ClueAction">
       <forward name="success" path="/clue.do?action=listclue" />

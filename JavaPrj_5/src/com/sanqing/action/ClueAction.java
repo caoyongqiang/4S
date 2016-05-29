@@ -1,7 +1,17 @@
 package com.sanqing.action;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -36,6 +46,8 @@ public class ClueAction extends Action {
             return deleteClue(mapping,form,request,response);
         }else if("detailclue".equals(action)){
             return detailClue(mapping,form,request,response);
+        }else if("clueDist".equals(action)){
+            return clueDist(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -113,5 +125,36 @@ public class ClueAction extends Action {
         request.setAttribute("list",dao.listClue());
         return mapping.findForward("success");
     }
-
+    
+    /**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
+    private ActionForward clueDist(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	String startDate = request.getParameter("startDate");
+    	String endDate = request.getParameter("endDate");
+    	if(startDate == null && endDate == null) {
+    		Calendar calendar = new GregorianCalendar(); 
+            Calendar cal  = Calendar.getInstance();
+            SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM");
+            endDate = formatter_shuzi.format(cal.getTime());
+            cal.add(Calendar.MONTH, -11);
+            startDate = formatter_shuzi.format(cal.getTime());
+    	}
+    	response.setCharacterEncoding("UTF-8");
+    	Map<String, Object> hashMap=new HashMap<String, Object>();
+        hashMap.put("clues", dao.getClueDist(startDate, endDate));
+    	try {
+    		JSONObject result=JSONObject.fromObject(hashMap);
+    		response.getWriter().write(result.toString());
+            response.getWriter().close();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+        return mapping.findForward("chart");
+    }
 }

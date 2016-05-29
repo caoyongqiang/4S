@@ -70,7 +70,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
              <tr>
                <TD width="100%">
 				<fieldset style="height:100%;">
-				<legend>车主信息</legend>
+				<legend>查找车主</legend>
  				  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right" width="">车主姓名：</td>
@@ -105,7 +105,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 				</fieldset>			</TD>
           	 </tr>
           	 <tr>
-               <td height="20"><span class="newfont07">车主信息查看</span></td>
+               <td height="20"><span class="newfont07">车主信息列表</span></td>
           	 </tr>
               <tr>
                 <td height="40" class="font42">
