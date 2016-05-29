@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSONObject;
 
@@ -25,12 +26,11 @@ import com.sanqing.po.CarOwners;
 public class CarOwnersDao {
 
     /**
-     *	���㹤������
+     *	车辆落地价
      **/
     private CarOwners getCountTotalize(CarOwners e){
         float count=0;
         count=count+e.getOther();
-        //count=count-e.getPlateNumber().longValue();
         count=count+e.getCarPrice();
         e.setTotalize((new Float(count)));
         return e;
@@ -66,6 +66,30 @@ public class CarOwnersDao {
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         Query query = session.createQuery("select e from CarOwners as e order by e.purchaseTime");
+        List list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
+    }
+    
+    public List searchCarOwners(Map<String, String> owner) throws HibernateException{
+    	String timeSqlStr = "";
+    	if(owner.get("startDate")=="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.purchaseTime < '" + owner.get("endDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")=="") {
+    		timeSqlStr = "and e.purchaseTime > '" + owner.get("startDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.purchaseTime between '" +owner.get("startDate")+ "' and '" + owner.get("endDate") + "'";
+    	}
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("select e from CarOwners as e " +
+        		"where e.name like '%" +owner.get("ownerName")+ "%' " +
+        		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and e.idCard like '%" +owner.get("idCard")+ "%'" +
+        		"and e.house like '%" +owner.get("house")+ "%'" +
+        		"and e.car like '%" +owner.get("car")+ "%'" +
+        		"and e.plateNumber like '%" +owner.get("plateNumber")+ "%'" + timeSqlStr );
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
@@ -108,7 +132,6 @@ public class CarOwnersDao {
         Integer[] arr=new Integer[list.size()];
         for(int i=0; i<size; i++) {
         	arr[i] = ((Number)list.get(i)).intValue();
-//        	arr[i] = i+1;
         }
         tx.commit();
         HibernateSessionFactory.closeSession();

@@ -40,18 +40,7 @@ body {
                      结束时间：<input id="date_timepicker_end" type="text" >
       </p>
     </div>
-    <div>
-    <%-- <%Integer[] arr=(Integer[])session.getAttribute("arr");
-      int length = arr.length;
-	  String str = "";
-	  for(int i = 0; i < length-1; i++) {
-	    str = str + arr[i] + ",";
-	  }
-	  str += arr[length-1];
-	  out.print(str);
-    %> --%>
-    </div>
-    <%-- <input id="ownersArr" type='hidden' value='<%=str%>'/> --%>
+
     <script type="text/javascript" src="Js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="Js/jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript">
