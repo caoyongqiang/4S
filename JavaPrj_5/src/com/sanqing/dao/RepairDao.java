@@ -1,6 +1,7 @@
 package com.sanqing.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -67,5 +68,27 @@ public class RepairDao {
         session.update(j);
         tx.commit();
         HibernateSessionFactory.closeSession();
+    }
+    
+    public List searchRepair(Map<String, String> owner) throws HibernateException{
+    	String timeSqlStr = "";
+    	if(owner.get("startDate")=="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime < '" + owner.get("endDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")=="") {
+    		timeSqlStr = "and e.createtime > '" + owner.get("startDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime between '" +owner.get("startDate")+ "' and '" + owner.get("endDate") + "'";
+    	}
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("select e from Repair as e " +
+        		"where e.name like '%" +owner.get("ownerName")+ "%' " +
+        		"and e.tel like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and e.plateNumber like '%" +owner.get("plateNumber")+ "%'" +
+        		"and e.car like '%" +owner.get("car")+ "%'" + timeSqlStr );
+        List list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
     }
 }

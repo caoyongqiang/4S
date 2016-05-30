@@ -1,7 +1,14 @@
 package com.sanqing.action;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -10,7 +17,10 @@ import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
 import com.sanqing.dao.RepairDao;
+import com.sanqing.po.Clue;
 import com.sanqing.po.Repair;
+import com.sanqing.tool.DateUtil;
+import com.sanqing.tool.StringUtil;
 
 public class RepairAction extends Action {
     private RepairDao dao=new RepairDao();
@@ -31,6 +41,8 @@ public class RepairAction extends Action {
             return updateRepair(mapping,form,request,response);
         }else if("detailrepair".equals(action)){
             return detailrepair(mapping,form,request,response);
+        }else if("searchRepair".equals(action)){
+            return searchRepair(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -73,4 +85,59 @@ public class RepairAction extends Action {
 	    request.setAttribute("list", dao.listRepair());
 	    return mapping.findForward("success");
 	}
+	
+	/**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
+    private ActionForward searchRepair(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	try{
+    	  request.setCharacterEncoding("UTF-8");
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	String ownerName = request.getParameter("ownerName");
+    	String phoneNumber = request.getParameter("phoneNumber");
+    	String car = request.getParameter("car");
+    	String plateNumber = request.getParameter("plateNumber");
+    	String startDate = request.getParameter("startDate");
+    	String endDate = request.getParameter("endDate");
+    	Map<String, String> owner=new HashMap<String, String>();
+        owner.put("ownerName", ownerName);
+        owner.put("phoneNumber", phoneNumber);
+        owner.put("car", car);
+        owner.put("plateNumber", plateNumber);
+        owner.put("startDate", startDate);
+        owner.put("endDate", endDate);
+    	response.setCharacterEncoding("UTF-8");
+    	Map<String, Object> hashMap=new HashMap<String, Object>();
+    	List<Repair> ownersList = dao.searchRepair(owner);
+    	int length = ownersList.size();
+    	String[][] ownersArr;
+    	ownersArr = new String[length][];
+    	for(int i=0; i<length; i++) {
+    		ownersArr[i] = new String[7];
+    		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
+    		ownersArr[i][1] = ownersList.get(i).getName();
+    		ownersArr[i][2] = ownersList.get(i).getTel();
+    		ownersArr[i][3] = ownersList.get(i).getCar();
+    		ownersArr[i][4] = ownersList.get(i).getPlateNumber();
+    		ownersArr[i][5] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getCreatetime(),DateUtil.yyyyMMdd));
+    		ownersArr[i][6] = "<a href='modifyrepair.do?action=deleterepair&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+					          "<a href='updaterepair.do?action=detailrepair&id=" +ownersArr[i][0]+ "'>删除</a>";
+    	}
+        hashMap.put("owners", ownersArr);
+    	try {
+    		JSONObject result=JSONObject.fromObject(hashMap);
+            response.getWriter().write(result.toString());
+            response.getWriter().close();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+        return mapping.findForward("success");
+    }
 }
