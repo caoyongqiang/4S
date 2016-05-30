@@ -1,7 +1,14 @@
 package com.sanqing.action;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -10,7 +17,10 @@ import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
 import com.sanqing.dao.UsersDao;
+import com.sanqing.po.Clue;
 import com.sanqing.po.Users;
+import com.sanqing.tool.DateUtil;
+import com.sanqing.tool.StringUtil;
 
 public class UsersAction extends Action {
 
@@ -33,6 +43,8 @@ public class UsersAction extends Action {
 			return deleteUser(mapping,form,request,response);
 		}else if("selectuser".equals(action)){
 			return selectUser(mapping,form,request,response);
+		}else if("searchUsers".equals(action)){
+			return searchUsers(mapping,form,request,response);
 		}
 		return mapping.findForward("error");
 	}
@@ -90,5 +102,67 @@ public class UsersAction extends Action {
 	    request.setAttribute("list",dao.listUser());//将人员信息列表保存到request范围
 	    return mapping.findForward("success");		//跳转到成功页面
 	}
+	
+	/**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
+    private ActionForward searchUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	try{
+    	  request.setCharacterEncoding("UTF-8");
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	String ownerName = request.getParameter("ownerName");
+    	String phoneNumber = request.getParameter("phoneNumber");
+    	String idCard = request.getParameter("idCard");
+    	String role = request.getParameter("role");
+    	String startDate = request.getParameter("startDate");
+    	String endDate = request.getParameter("endDate");
+    	Map<String, String> owner=new HashMap<String, String>();
+        owner.put("ownerName", ownerName);
+        owner.put("phoneNumber", phoneNumber);
+        owner.put("idCard", idCard);
+        owner.put("role", "(" + role + ")");
+        owner.put("startDate", startDate);
+        owner.put("endDate", endDate);
+    	response.setCharacterEncoding("UTF-8");
+    	Map<String, Object> hashMap=new HashMap<String, Object>();
+    	List<Users> ownersList = dao.searchUsers(owner);
+    	int length = ownersList.size();
+    	String[][] ownersArr;
+    	ownersArr = new String[length][];
+    	for(int i=0; i<length; i++) {
+    		ownersArr[i] = new String[8];
+    		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
+    		ownersArr[i][1] = ownersList.get(i).getUsername();
+    		ownersArr[i][2] = ownersList.get(i).getPhoneNumber();
+    		ownersArr[i][3] = ownersList.get(i).getIdCard();
+    		if(ownersList.get(i).getRoleType() == 0) {
+    			ownersArr[i][4] = "普通员工";
+    		}else if(ownersList.get(i).getRoleType() == 1) {
+    			ownersArr[i][4] = "中层管理员";
+    		}else if(ownersList.get(i).getRoleType() == 2) {
+    			ownersArr[i][4] = "高层管理员";
+    		}
+    		ownersArr[i][5] = ownersList.get(i).getContent();
+    		ownersArr[i][6] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getCreatetime(),DateUtil.yyyyMMdd));
+    		ownersArr[i][7] = "<a href='selectuser.do?action=selectuser&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+					          "<a href='modifyuser.do?action=deleteuser&id=" +ownersArr[i][0]+ "'>删除</a>&nbsp;&nbsp;";
+    	}
+        hashMap.put("owners", ownersArr);
+    	try {
+    		JSONObject result=JSONObject.fromObject(hashMap);
+            response.getWriter().write(result.toString());
+            response.getWriter().close();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+        return mapping.findForward("success");
+    }
 
 }

@@ -2,6 +2,7 @@ package com.sanqing.dao;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -111,4 +112,26 @@ public class UsersDao {
 	    HibernateSessionFactory.closeSession();//关闭Session对象
 	    return list;		//返回人员列表
 	}
+	
+	public List searchUsers(Map<String, String> owner) throws HibernateException{
+    	String timeSqlStr = "";
+    	if(owner.get("startDate")=="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime < '" + owner.get("endDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")=="") {
+    		timeSqlStr = "and e.createtime > '" + owner.get("startDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime between '" +owner.get("startDate")+ "' and '" + owner.get("endDate") + "'";
+    	}
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("select e from Users as e " +
+        		"where e.username like '%" +owner.get("ownerName")+ "%' " +
+        		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and e.idCard like '%" +owner.get("idCard")+ "%'" +
+        		"and e.roleType in " +owner.get("role") +  timeSqlStr );
+        List list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
+    }
 }
