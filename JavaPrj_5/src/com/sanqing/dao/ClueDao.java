@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -13,6 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.sanqing.hb.HibernateSessionFactory;
+import com.sanqing.po.CarOwners;
 import com.sanqing.po.Clue;
 
 /**
@@ -135,6 +137,29 @@ public class ClueDao {
         session.update(e);
         tx.commit();
         HibernateSessionFactory.closeSession();
+    }
+
+	public List searchClues(Map<String, String> owner) throws HibernateException{
+    	String timeSqlStr = "";
+    	if(owner.get("startDate")=="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.visitTime < '" + owner.get("endDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")=="") {
+    		timeSqlStr = "and e.visitTime > '" + owner.get("startDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.visitTime between '" +owner.get("startDate")+ "' and '" + owner.get("endDate") + "'";
+    	}
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("select e from Clue as e " +
+        		"where e.name like '%" +owner.get("clueName")+ "%' " +
+        		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and e.idCard like '%" +owner.get("idCard")+ "%'" +
+        		"and e.house like '%" +owner.get("house")+ "%'" +
+        		"and e.desireCar like '%" +owner.get("car")+ "%'" + timeSqlStr );
+        List list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
     }
 
 

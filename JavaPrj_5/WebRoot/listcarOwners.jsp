@@ -40,6 +40,9 @@ body {
 	font-size: 14px;
 	height: 37px;
 }
+table tbody tr td {
+	text-align: center;
+}
 html { overflow-x: auto; overflow-y: auto; border:0;} 
 -->
 </style>
@@ -217,7 +220,6 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
   $.ajax({
       url: 'carOwners.do?action=searchCarOwners',
       method: 'post',
-      type: 'json',
       data: {
 	          ownerName: $('#ownerName').val() || '',
 	          phoneNumber: $('#phoneNumber').val() || '',
