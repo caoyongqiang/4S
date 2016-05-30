@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -170,6 +171,29 @@ public class ServiceDao {
         session.update(e);
         tx.commit();
         HibernateSessionFactory.closeSession();
+    }
+    
+    public List searchService(Map<String, String> owner) throws HibernateException{
+    	String timeSqlStr = "";
+    	if(owner.get("startDate")=="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime < '" + owner.get("endDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")=="") {
+    		timeSqlStr = "and e.createtime > '" + owner.get("startDate") + "'";
+    	}else if(owner.get("startDate")!="" && owner.get("endDate")!="") {
+    		timeSqlStr = "and e.createtime between '" +owner.get("startDate")+ "' and '" + owner.get("endDate") + "'";
+    	}
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("select e from Service as e " +
+        		"where e.name like '%" +owner.get("ownerName")+ "%' " +
+        		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and e.plateNumber like '%" +owner.get("plateNumber")+ "%'" +
+        		"and e.service in " +owner.get("service") +
+        		"and e.car like '%" +owner.get("car")+ "%'" + timeSqlStr );
+        List list = query.list();
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
     }
 
 }

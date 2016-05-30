@@ -197,12 +197,12 @@ function list(idstr){
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu7" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="service.do?action=listservice" target="mainFrame" class="left-font03" onClick="tupian('7');">待完成需求</a></td>
+				  <td width="91%"><a href="service.do?action=listservice" target="mainFrame" class="left-font03" onClick="tupian('7');">需求信息查看</a></td>
 				</tr>
-				<tr>
+				<!-- <tr>
 				  <td width="9%" height="20" ><img id="xiaotu8" src="images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%"><a href="service.do?action=listservice&service=1" target="mainFrame" class="left-font03" onClick="tupian('8');">已完成需求</a></td>
-				</tr>
+				</tr> -->
       </table>
 		<!--  项目系统结束    -->
 		
