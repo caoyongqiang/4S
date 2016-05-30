@@ -22,6 +22,7 @@
     <action forward="/addcarOwners.jsp" path="/addcarOwners" />
     <action forward="/clueDist.jsp" path="/clueDist" />
     <action forward="/carOwnersChart.jsp" path="/carOwnersDist" />
+    <action forward="/serviceAnalysis.jsp" path="/serviceAnalysis" />
     <action name="userForm" path="/logon" scope="request" type="com.sanqing.action.UsersAction">
       <forward name="success" path="/manage.jsp" />
       <forward name="failed" path="/welcome.jsp" />
@@ -50,6 +51,7 @@
     </action>
     <action name="serviceForm" path="/service" scope="request" type="com.sanqing.action.ServiceAction">
       <forward name="success" path="/listservice.jsp" />
+      <forward name="chart" path="/serviceAnalysis.jsp" />
     </action>
     <action name="serviceForm" path="/modifyservice" scope="session" type="com.sanqing.action.ServiceAction">
       <forward name="success" path="/service.do?action=listservice" />

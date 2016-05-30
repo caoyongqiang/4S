@@ -99,6 +99,7 @@ body {
 		          option.series[0].data = ownersArr;
 		          myChart.clear();
 		          myChart.setOption(option);
+		          myChart.setTheme('macarons');
 		        }
 	        });
 		  },
@@ -127,6 +128,7 @@ body {
 		          option.series[0].data = ownersArr;
 		          myChart.clear();
 		          myChart.setOption(option);
+		          myChart.setTheme('macarons');
 		        }
 	        });
 		  },
@@ -162,7 +164,7 @@ body {
                 var month = today.getMonth()+2;
                 var endDate = year + '-' + month;
                 today.setMonth( month - 12 );
-                var startDate = today.getFullYear() + '-' + today.getMonth();
+                var startDate = today.getFullYear() + '-' + (today.getMonth()+1);
                 $.ajax({
 			        url: "carOwnersChart.do?action=carOwnersChart",
 			        data: {
@@ -233,7 +235,8 @@ body {
 				};
         
                 // 为echarts对象加载数据 
-                myChart.setOption(option); 
+                myChart.setOption(option);
+                myChart.setTheme('macarons');
             }
         );
     </script>

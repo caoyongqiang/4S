@@ -5,8 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>4S店客户管理系统</title>
 <link rel="stylesheet" rev="stylesheet" href="css/style.css " type="text/css" media="all" />
-<script type="text/javascript" src="Js/typem.js"></script>
-<script type="text/javascript" src="Js/js.js"></script>
+<link href="css/jquery.datetimepicker.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 <!--
 .atten {font-size:12px;font-weight:normal;color:#F00;}
@@ -37,19 +36,26 @@
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
 					    <td nowrap align="right">客户名称：</td>
-					    <td width="29%"><input name="name" type="text" class="input"/>
+					    <td width=""><input name="name" type="text" class="input"/>
 					    <span class="red">*</span></td>
-					    <td width="18%">手机号：</td>
-					    <td width="42%"><input type="text" name="phoneNumber" class="input"/>
+					    <td width="">手机号：</td>
+					    <td width=""><input type="text" name="phoneNumber" class="input"/>
 					    <span class="red">*</span></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">车型：</td>
 					    <td><input type="text" name="car" class="input"/>
 					    <span class="red">*</span></td>
-					    <td>车牌号：</td>
-					    <td><input type="text" name="plateNumber" class="input"/>
+					    <td>预约时间：</td>
+					    <td><input type="text" name="createtime" class="input" id="appointment"/>
 					    <span class="red">*</span>
+						</td>
+					  </tr>
+					  
+					  <tr>
+					    <td nowrap align="right">车牌号：</td>
+					    <td><input type="text" name="plateNumber" class="input"/>
+					    </td>
 						</td>
 					  </tr>
 					    
@@ -72,6 +78,16 @@
 	</TABLE>	
 </div>
 </form>
+<script type="text/javascript" src="Js/typem.js"></script>
+<script type="text/javascript" src="Js/js.js"></script>
+<script type="text/javascript" src="Js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="Js/jquery.datetimepicker.full.min.js"></script>
+<script type="text/javascript">
+  jQuery('#appointment').datetimepicker({
+  timepicker:false,
+  format:'Y-m-d'
+});
+</script>
 </body>
 </html>
 

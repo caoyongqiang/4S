@@ -64,7 +64,6 @@ body {
             var xAxisData = [];
             var year = startDate.getFullYear();
             var month = startDate.getMonth()+1;
-            console.log(number);
             for(var i = parseInt(number); i >= 0; i--){
                 if(month >= 13) {
                     year++;
@@ -88,16 +87,19 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "clue.do?action=clueDist",
+		        url: "service.do?action=serviceAnalysis",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result).clues;
-		          var xAxisData = getxAxisData();
-		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          option.xAxis[0].data = getxAxisData();
+		          option.series[0].data = $.parseJSON(result).serviceData[0];
+		          option.series[1].data = $.parseJSON(result).serviceData[1];
+		          option.series[2].data = $.parseJSON(result).serviceData[2];
+		          var serviceRate = $.parseJSON(result).serviceData[3];
+		          arrToFixed(serviceRate, 2);
+		          option.series[3].data = serviceRate;
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -117,16 +119,19 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "clue.do?action=clueDist",
+		        url: "service.do?action=serviceAnalysis",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result).clues;
-		          var xAxisData = getxAxisData();
-		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          option.xAxis[0].data = getxAxisData();
+		          option.series[0].data = $.parseJSON(result).serviceData[0];
+		          option.series[1].data = $.parseJSON(result).serviceData[1];
+		          option.series[2].data = $.parseJSON(result).serviceData[2];
+		          var serviceRate = $.parseJSON(result).serviceData[3];
+		          arrToFixed(serviceRate, 2);
+		          option.series[3].data = serviceRate;
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -162,19 +167,23 @@ body {
                 var ownersArr = '';
                 var today = new Date();
                 var year = today.getFullYear();
-                var month = today.getMonth()+2;
+                var month = today.getMonth()+1;
                 var endDate = year + '-' + month;
                 today.setMonth( month - 12 );
                 var startDate = today.getFullYear() + '-' + (today.getMonth()+1);
                 $.ajax({
-			        url: "clue.do?action=clueDist",
+			        url: "service.do?action=serviceAnalysis",
 			        data: {
 			          startDate: startDate,
 			          endDate: endDate
 			        },
 			        async: false,
 			        success: function(result) {
-			          ownersArr = $.parseJSON(result).clues;
+			          serviceAll = $.parseJSON(result).serviceData[0];
+			          serviceUnDone = $.parseJSON(result).serviceData[1];
+			          serviceDone = $.parseJSON(result).serviceData[2];
+			          serviceRate = $.parseJSON(result).serviceData[3];
+			          arrToFixed(serviceRate, 2);
 			        }
 		        });
                 var xAxisData = getxAxisData();
@@ -187,7 +196,7 @@ body {
 				        trigger: 'axis'
 				    },
 				    legend: {
-				        data:['来店线索数']
+				        data:['总客户需求', '待完成需求', '已完成需求', '需求完成率']
 				    },
 				    toolbox: {
 				        show : true,
@@ -217,20 +226,24 @@ body {
 				    ],
 				    series : [
 				        {
-				            name:'来店线索数',
+				            name:'总客户需求',
 				            type:'line',
-				            data:ownersArr,
-				            markPoint : {
-				                data : [
-				                    {type : 'max', name: '最大值'},
-				                    {type : 'min', name: '最小值'}
-				                ]
-				            },
-				            markLine : {
-				                data : [
-				                    {type : 'average', name: '平均值'}
-				                ]
-				            }
+				            data:serviceAll
+				        },
+				        {
+				            name:'待完成需求',
+				            type:'line',
+				            data:serviceUnDone
+				        },
+				        {
+				            name:'已完成需求',
+				            type:'line',
+				            data:serviceDone
+				        },
+				        {
+				            name:'需求完成率',
+				            type:'line',
+				            data:serviceRate
 				        }
 				    ]
 				};
@@ -240,6 +253,14 @@ body {
                 myChart.setTheme('macarons');
             }
         );
+     
+      var arrToFixed = function(arr, decimal) {
+        for(var i=0, len=arr.length; i<len; i++) {
+          if(arr[i] != 0 && arr[i] != 1) {
+            arr[i] = arr[i].toFixed(decimal);
+          }
+        }
+      }
     </script>
 </body>
 </html>

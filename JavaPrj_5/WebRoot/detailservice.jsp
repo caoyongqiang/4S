@@ -57,7 +57,7 @@
 					    </td>
 					    </tr>
 					  <tr>
-					    <td nowrap align="right" width="11%">创建时间：</td>
+					    <td nowrap align="right" width="11%">预约时间：</td>
 					    <td colspan="3"><%=StringUtil.notNull(DateUtil.parseToString(e.getCreatetime(),DateUtil.yyyyMMdd))%></td>
 					  </tr>
 					  <tr>

@@ -91,9 +91,9 @@ function serviceValidate(){
 		serviceForm.car.focus();
 		return false;
 	}
-	if(serviceForm.plateNumber.value==""){
-		alert("请添写车牌号！");		
-		serviceForm.plateNumber.focus();
+	if(serviceForm.appointment.value==""){
+		alert("请添写预约时间！");		
+		serviceForm.appointment.focus();
 		return false;
 	}
 	return true;

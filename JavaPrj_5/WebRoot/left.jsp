@@ -262,7 +262,7 @@ function list(idstr){
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu15" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="user.do?action=listuser" target="mainFrame" class="left-font03" onClick="tupian('15');">售后服务分析</a></td>
+				  <td width="91%"><a href="serviceAnalysis.do" target="mainFrame" class="left-font03" onClick="tupian('15');">售后服务分析</a></td>
 				</tr>
       </table>
 		<!--  商业智能    -->

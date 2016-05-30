@@ -138,7 +138,7 @@ public class ServiceForm extends ActionForm {
 
     public Service populate(){
         Service e=new Service();
-        e.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMddHHmmss));
+        e.setCreatetime(DateUtil.parseToDate(this.getCreatetime(),DateUtil.yyyyMMdd));
         e.setRequireDetail(this.getRequireDetail());
         e.setId(this.getId());
         e.setName(this.getName());

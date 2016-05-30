@@ -64,7 +64,7 @@
 					    <td><input type="text" name="car" class="input" value="<%=e.getCar()%>" disabled/>
 					    <span class="red">*</span></td>
 					    <td>车牌号：</td>
-					    <td><input type="text" name="plateNumber" class="input" value="<%=e.getPlateNumber()%>" disabled/>
+					    <td><input type="text" name="plateNumber" class="input" value="<%=e.getPlateNumber()%>" />
 					    <span class="red">*</span>
 						</td>
 					  </tr>
