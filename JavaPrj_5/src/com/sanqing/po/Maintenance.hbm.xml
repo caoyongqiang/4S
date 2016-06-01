@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.sanqing.po.Maintenance" table="maintenance">
+		<id column="id" name="id" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="name" length="50"  type="string"/>
+		<property name="phoneNumber" length="20" type="string"/>
+		<property name="car" length="50" type="string"/>
+		<property name="plateNumber" length="50" type="string"/>
+		<property name="content" length="500" type="text"/>
+		<property name="preTime" length="23" type="timestamp"/>
+		<property name="nextTime" length="23" type="timestamp"/>
+	</class>
+</hibernate-mapping>

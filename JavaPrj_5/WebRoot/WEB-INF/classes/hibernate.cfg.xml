@@ -24,5 +24,6 @@
 		 <mapping resource="com/sanqing/po/Service.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/Clue.hbm.xml"/>
 		 <mapping resource="com/sanqing/po/CarOwners.hbm.xml"/>
+		 <mapping resource="com/sanqing/po/Maintenance.hbm.xml"/>
      </session-factory>
 </hibernate-configuration>

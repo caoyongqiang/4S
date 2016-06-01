@@ -52,6 +52,8 @@ body {
                 var endDate = new Date(year + '/' + month);
                 today.setMonth( month - 12 );
                 var startDate = today;
+                $('#date_timepicker_start').val(startDate.getFullYear()+'-'+(startDate.getMonth()+1));
+                $('#date_timepicker_end').val(endDate.getFullYear()+'-'+(endDate.getMonth()+1));
             }else{
 	            var startDate=new Date($('#date_timepicker_start').val().replace("-", "/"));
 	        	var endDate=new Date($('#date_timepicker_end').val().replace("-", "/"));
