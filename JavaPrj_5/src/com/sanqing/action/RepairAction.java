@@ -82,7 +82,7 @@ public class RepairAction extends Action {
 	}
 
 	private ActionForward listRepair(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
-	    request.setAttribute("list", dao.listRepair());
+	    //request.setAttribute("list", dao.listRepair());
 	    return mapping.findForward("success");
 	}
 	

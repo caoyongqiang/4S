@@ -82,6 +82,7 @@
 <script type="text/javascript" src="Js/jquery.datetimepicker.full.min.js"></script>
 <script src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
+  jQuery.datetimepicker.setLocale('zh');
   jQuery('#preTime').datetimepicker({
     timepicker:false,
     format:'Y-m-d'

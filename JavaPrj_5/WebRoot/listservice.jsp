@@ -142,7 +142,6 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	 jQuery.datetimepicker.setLocale('zh');
 	 jQuery('#date_timepicker_start').datetimepicker({
 	  format:'Y-m-d',
-	  maxDate:'+1970/01/02',
 	  onShow:function( ct ){
 	    this.setOptions({
 	    maxDate:jQuery('#date_timepicker_end').val()?jQuery('#date_timepicker_end').val():false
@@ -152,7 +151,6 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	 });
 	 jQuery('#date_timepicker_end').datetimepicker({
 	  format:'Y-m-d',
-	  maxDate:'+1970/01/02',
 	  onShow:function( ct ){
 	   this.setOptions({
 	    minDate:jQuery('#date_timepicker_start').val()?jQuery('#date_timepicker_start').val():false

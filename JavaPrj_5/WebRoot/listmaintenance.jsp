@@ -155,6 +155,16 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	  timepicker:false
 	 });
 	});
+  
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = today.getMonth()+1;
+  var date = today.getDate();
+  var endDate = new Date(year + '/' + month + '/' + date);
+  today.setDate( date - 7 );
+  var startDate = today;
+  $('#date_timepicker_start').val(startDate.getFullYear()+'-'+(startDate.getMonth()+1)+'-'+startDate.getDate());
+  $('#date_timepicker_end').val(endDate.getFullYear()+'-'+(endDate.getMonth()+1)+'-'+endDate.getDate());
 
   $.ajax({
       url: 'searchmaintenance.do?action=searchMaintenance',

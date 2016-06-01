@@ -77,7 +77,8 @@ a:hover{
 
 
 .ContentBody{
- background:#F6F6F6 url(../images/mainbg.gif); 
+ background:#F6F6F6 url(../images/mainbg.gif);
+ background-position: center;
  /*url(../images/mainback.jpg) repeat-x fixed; */
  margin:15px;
 

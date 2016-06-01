@@ -123,7 +123,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>身份证号</th>
 		                <th>用户角色</th>
 		                <th>简介</th>
-		                <th>购买日期</th>
+		                <th>注册日期</th>
 		                <th>执行操作</th>
 		            </tr>
 		        </thead>

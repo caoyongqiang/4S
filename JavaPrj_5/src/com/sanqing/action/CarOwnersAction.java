@@ -140,7 +140,7 @@ public class CarOwnersAction extends Action {
      * @throws HibernateException
      */
     private ActionForward listCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        request.setAttribute("list",dao.listCarOwners());
+        //request.setAttribute("list",dao.listCarOwners());
         return mapping.findForward("success");
     }
 

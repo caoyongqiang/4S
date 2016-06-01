@@ -83,6 +83,7 @@
 <script type="text/javascript" src="Js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="Js/jquery.datetimepicker.full.min.js"></script>
 <script type="text/javascript">
+  jQuery.datetimepicker.setLocale('zh');
   jQuery('#appointment').datetimepicker({
   timepicker:false,
   format:'Y-m-d'

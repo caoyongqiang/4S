@@ -99,7 +99,7 @@ public class UsersAction extends Action {
 	}
 
 	private ActionForward listUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
-	    request.setAttribute("list",dao.listUser());//将人员信息列表保存到request范围
+	    //request.setAttribute("list",dao.listUser());//将人员信息列表保存到request范围
 	    return mapping.findForward("success");		//跳转到成功页面
 	}
 	

@@ -152,12 +152,12 @@ public class ServiceAction extends Action {
      * @throws HibernateException
      */
     private ActionForward listService(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        String service=request.getParameter("service");
+        /*String service=request.getParameter("service");
         if(service==null||"".equals(service)||"0".equals(service)){
             request.setAttribute("list",dao.listService(new Byte("0").byteValue()));
         }else{
             request.setAttribute("list",dao.listService(new Byte("1").byteValue()));
-        }
+        }*/
         return mapping.findForward("success");
     }
     

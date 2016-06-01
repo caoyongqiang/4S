@@ -128,7 +128,7 @@ public class ClueAction extends Action {
      * @throws HibernateException
      */
     private ActionForward listClue(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        request.setAttribute("list",dao.listClue());
+        //request.setAttribute("list",dao.listClue());
         return mapping.findForward("success");
     }
     
