@@ -21,6 +21,7 @@
     <action forward="/addclue.jsp" path="/addclue" />
     <action forward="/addcarOwners.jsp" path="/addcarOwners" />
     <action forward="/addmaintenance.jsp" path="/addmaintenance" />
+    <action forward="/addmaintenance.jsp" path="/updatemaintenance" />
     <action forward="/listmaintenance.jsp" path="/listmaintenance" />
     <action forward="/clueDist.jsp" path="/clueDist" />
     <action forward="/carOwnersChart.jsp" path="/carOwnersDist" />
@@ -65,7 +66,10 @@
       <forward name="success" path="/updateservice.jsp" />
     </action>
     <action path="/maintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
-      <forward name="success" path="/carOwners.do?action=carOwnersChart" />
+      <forward name="success" path="/listmaintenance.jsp" />
+    </action>
+    <action path="/updatemaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
+      <forward name="success" path="/addmaintenance.jsp" />
     </action>
     <action path="/searchmaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
       <forward name="success" path="/carOwners.do?action=carOwnersChart" />

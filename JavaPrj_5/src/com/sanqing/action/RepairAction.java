@@ -19,6 +19,7 @@ import org.hibernate.HibernateException;
 import com.sanqing.dao.RepairDao;
 import com.sanqing.po.Clue;
 import com.sanqing.po.Repair;
+import com.sanqing.po.Users;
 import com.sanqing.tool.DateUtil;
 import com.sanqing.tool.StringUtil;
 
@@ -100,6 +101,7 @@ public class RepairAction extends Action {
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
+    	Users u = (Users)request.getSession().getAttribute("users");
     	String ownerName = request.getParameter("ownerName");
     	String phoneNumber = request.getParameter("phoneNumber");
     	String car = request.getParameter("car");
@@ -127,8 +129,10 @@ public class RepairAction extends Action {
     		ownersArr[i][3] = ownersList.get(i).getCar();
     		ownersArr[i][4] = ownersList.get(i).getPlateNumber();
     		ownersArr[i][5] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getCreatetime(),DateUtil.yyyyMMdd));
-    		ownersArr[i][6] = "<a href='modifyrepair.do?action=deleterepair&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
-					          "<a href='updaterepair.do?action=detailrepair&id=" +ownersArr[i][0]+ "'>删除</a>";
+    		if(u.getRoleType() != 0) {
+    		  ownersArr[i][6] = "<a href='updaterepair.do?action=detailrepair&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+					            "<a href='modifyrepair.do?action=deleterepair&id=" +ownersArr[i][0]+ "'>删除</a>";
+    		}
     	}
         hashMap.put("owners", ownersArr);
     	try {

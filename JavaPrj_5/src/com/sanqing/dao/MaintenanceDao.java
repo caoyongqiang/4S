@@ -41,10 +41,10 @@ public class MaintenanceDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public Clue loadClue(long id) throws HibernateException{
+    public Maintenance loadMaintenance(long id) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Clue e=(Clue)session.get(Clue.class,new Long(id));
+        Maintenance e=(Maintenance)session.get(Maintenance.class,new Long(id));
         tx.commit();
         HibernateSessionFactory.closeSession();
         return e;
@@ -113,16 +113,16 @@ public class MaintenanceDao {
     	return c;
    }
 
-    public void updateClue(Clue ins) throws HibernateException{
-        Clue e =this.loadClue(ins.getId().longValue());
-        if (ins.getIdCard()!=null){
-            e.setIdCard(ins.getIdCard());
+    public void updateMaintenance(Maintenance ins) throws HibernateException{
+    	Maintenance e =this.loadMaintenance(ins.getId().longValue());
+        if (ins.getContent()!=null){
+            e.setContent(ins.getContent());
         }
-        if (ins.getHouse()!=null){
-            e.setHouse(ins.getHouse());
+        if (ins.getPlateNumber()!=null){
+            e.setPlateNumber(ins.getPlateNumber());
         }
-        if (ins.getDesireCar()!=null){
-            e.setDesireCar(ins.getDesireCar());
+        if (ins.getCar()!=null){
+            e.setCar(ins.getCar());
         }
         if(ins.getName()!=null){
             e.setName(ins.getName());
@@ -130,8 +130,11 @@ public class MaintenanceDao {
         if (ins.getPhoneNumber()!= null) {
             e.setPhoneNumber(ins.getPhoneNumber());
         }
-        if (ins.getVisitTime()!= null) {
-            e.setVisitTime(ins.getVisitTime());
+        if (ins.getPreTime()!= null) {
+            e.setPreTime(ins.getPreTime());
+        }
+        if (ins.getNextTime()!= null) {
+            e.setNextTime(ins.getNextTime());
         }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();

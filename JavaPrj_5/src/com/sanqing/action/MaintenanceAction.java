@@ -49,11 +49,11 @@ public class MaintenanceAction extends Action {
         }else if("addMaintenance".equals(action)){
             return addMaintenance(mapping,form,request,response);
         }else if("updateclue".equals(action)){
-            return updateClue(mapping,form,request,response);
+            return updateMaintenance(mapping,form,request,response);
         }else if("deleteclue".equals(action)){
             return deleteClue(mapping,form,request,response);
-        }else if("detailclue".equals(action)){
-            return detailClue(mapping,form,request,response);
+        }else if("detailMaintenance".equals(action)){
+            return detailMaintenance(mapping,form,request,response);
         }else if("clueDist".equals(action)){
             return clueDist(mapping,form,request,response);
         }
@@ -68,10 +68,10 @@ public class MaintenanceAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward detailClue(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward detailMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id"));
-        Clue i=dao.loadClue(id.longValue());
-        request.setAttribute("clue",i);
+        Maintenance i=dao.loadMaintenance(id.longValue());
+        request.setAttribute("maintenance",i);
         return mapping.findForward("success");
     }
 
@@ -99,10 +99,11 @@ public class MaintenanceAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward updateClue(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        ClueForm clueForm=(ClueForm)form;
-        Clue i=clueForm.populate();
-        dao.updateClue(i);
+    private ActionForward updateMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+        /*ClueForm clueForm=(ClueForm)form;
+        Clue i=clueForm.populate();*/
+    	Maintenance m = new Maintenance();
+        dao.updateMaintenance(m);
         return mapping.findForward("success");
     }
 
@@ -124,7 +125,12 @@ public class MaintenanceAction extends Action {
     	e.setContent(request.getParameter("content"));
     	e.setPreTime(DateUtil.parseToDate(request.getParameter("preTime"),DateUtil.yyyyMMdd));
     	e.setNextTime(DateUtil.parseToDate(request.getParameter("nextTime"),DateUtil.yyyyMMdd));
-        dao.addMaintenance(e);
+    	if(request.getParameter("id") != ""){
+    		e.setId(new Long(request.getParameter("id")));
+    		dao.updateMaintenance(e);
+    	}else{
+            dao.addMaintenance(e);
+    	}
         return mapping.findForward(null);
     }
 
@@ -193,14 +199,14 @@ public class MaintenanceAction extends Action {
     	String plateNumber = request.getParameter("plateNumber");
     	String startDate = request.getParameter("startDate");
     	String endDate = request.getParameter("endDate");
-    	if(startDate == "" && endDate == "") {
+    	/*if(startDate == "" && endDate == "") {
     		Calendar calendar = new GregorianCalendar(); 
             Calendar cal  = Calendar.getInstance();
             SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM-dd");
             endDate = formatter_shuzi.format(cal.getTime());
             cal.add(Calendar.WEEK_OF_YEAR, -1);
             startDate = formatter_shuzi.format(cal.getTime());
-    	}
+    	}*/
     	Map<String, String> owner=new HashMap<String, String>();
         owner.put("name", name);
         owner.put("phoneNumber", phoneNumber);
@@ -215,7 +221,7 @@ public class MaintenanceAction extends Action {
     	String[][] ownersArr;
     	ownersArr = new String[length][];
     	for(int i=0; i<length; i++) {
-    		ownersArr[i] = new String[8];
+    		ownersArr[i] = new String[9];
     		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
     		ownersArr[i][1] = ownersList.get(i).getName();
     		ownersArr[i][2] = ownersList.get(i).getPhoneNumber();
@@ -224,9 +230,9 @@ public class MaintenanceAction extends Action {
     		ownersArr[i][5] = ownersList.get(i).getContent();
     		ownersArr[i][6] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPreTime(),DateUtil.yyyyMMdd));
     		ownersArr[i][7] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getNextTime(),DateUtil.yyyyMMdd));
-    		/*ownersArr[i][8] = "<a href='updateclue.do?action=detailclue&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+    		ownersArr[i][8] = "<a href='updatemaintenance.do?action=detailMaintenance&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
 					          "<a href='modifyclue.do?action=deleteclue&id=" +ownersArr[i][0]+ "'>删除</a>&nbsp;&nbsp;" + 
-					          "<a href='buyclue.do?action=detailclue&id=" +ownersArr[i][0]+ "'>购车</a>";*/
+					          "<a href='buyclue.do?action=detailclue&id=" +ownersArr[i][0]+ "'>购车</a>";
     	}
         hashMap.put("owners", ownersArr);
     	try {

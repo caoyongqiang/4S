@@ -168,8 +168,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	          endDate: $('#date_timepicker_end').val() || '',
 	  },
 	  success: function(result) {
-	    var dataSet = $.parseJSON(result).owners;
-	      $('#example').DataTable({
+	      var dataSet = $.parseJSON(result).owners;
+	      var dataTable = $('#example').DataTable({
           data: dataSet,
           oLanguage: {
 			sLengthMenu: '每页显示 _MENU_ 条记录',
@@ -192,6 +192,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
             }
           ]
         });
+        if(!dataSet[0][6]){
+          dataTable.column(6).visible(false);
+        }
 	  }
     })
 

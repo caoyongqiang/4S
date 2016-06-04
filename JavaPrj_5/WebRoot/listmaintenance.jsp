@@ -119,6 +119,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>车保养内容</th>
 		                <th>上次保养时间</th>
 		                <th>下次保养时间</th>
+		                <th>操作</th>
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -160,9 +161,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
   var year = today.getFullYear();
   var month = today.getMonth()+1;
   var date = today.getDate();
-  var endDate = new Date(year + '/' + month + '/' + date);
-  today.setDate( date - 7 );
-  var startDate = today;
+  var startDate = new Date(year + '/' + month + '/' + date);
+  today.setDate( date + 7 );
+  var endDate = today;
   $('#date_timepicker_start').val(startDate.getFullYear()+'-'+(startDate.getMonth()+1)+'-'+startDate.getDate());
   $('#date_timepicker_end').val(endDate.getFullYear()+'-'+(endDate.getMonth()+1)+'-'+endDate.getDate());
 

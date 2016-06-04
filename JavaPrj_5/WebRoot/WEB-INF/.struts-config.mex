@@ -8,6 +8,7 @@
   <StrutsActivity path="/addclue.do" location="1550,50" dimension="127,70" />
   <StrutsActivity path="/addcarOwners.do" location="1850,50" dimension="114,70" />
   <StrutsActivity path="/addmaintenance.do" location="2150,750" dimension="144,70" />
+  <StrutsActivity path="/listmaintenance.do" location="350,1850" dimension="137,70" />
   <StrutsActivity path="/clueDist.do" location="350,1650" dimension="93,70" />
   <StrutsActivity path="/carOwnersDist.do" location="1550,1650" dimension="132,70" />
   <StrutsActivity path="/serviceAnalysis.do" location="1850,1650" dimension="134,70" />
@@ -23,6 +24,8 @@
   <StrutsActivity path="/modifyservice.do" location="650,450" dimension="139,104" />
   <StrutsActivity path="/detailservice.do" location="950,450" dimension="139,104" />
   <StrutsActivity path="/updateservice.do" location="1250,450" dimension="139,104" />
+  <StrutsActivity path="/maintenance.do" location="2150,1350" dimension="257,104" />
+  <StrutsActivity path="/searchmaintenance.do" location="2150,350" dimension="267,104" />
   <StrutsActivity path="/clue.do" location="1550,450" dimension="150,104" />
   <StrutsActivity path="/modifyclue.do" location="1850,450" dimension="150,104" />
   <StrutsActivity path="/detailclue.do" location="50,650" dimension="150,104" />
@@ -42,6 +45,7 @@
   <StrutsActivity path="/addclue.jsp" location="1550,850" dimension="136,53" />
   <StrutsActivity path="/addcarOwners.jsp" location="1850,850" dimension="123,53" />
   <StrutsActivity path="/addmaintenance.jsp" location="2150,1150" dimension="153,53" />
+  <StrutsActivity path="/listmaintenance.jsp" location="2150,1550" dimension="146,53" />
   <StrutsActivity path="/clueDist.jsp" location="50,1650" dimension="102,53" />
   <StrutsActivity path="/carOwnersChart.jsp" location="1850,1450" dimension="150,53" />
   <StrutsActivity path="/serviceAnalysis.jsp" location="50,1850" dimension="143,53" />
@@ -54,7 +58,6 @@
   <StrutsActivity path="/listservice.jsp" location="50,1250" dimension="119,53" />
   <StrutsActivity path="/detailservice.jsp" location="350,1250" dimension="135,53" />
   <StrutsActivity path="/updateservice.jsp" location="650,1250" dimension="144,53" />
-  <StrutsActivity path="/listmaintenance.jsp" location="2150,1550" dimension="146,53" />
   <StrutsActivity path="/listclue.jsp" location="950,1250" dimension="129,53" />
   <StrutsActivity path="/detailclue.jsp" location="1250,1250" dimension="145,53" />
   <StrutsActivity path="/updateclue.jsp" location="1550,1250" dimension="154,53" />
@@ -68,21 +71,14 @@
   <StrutsActivity path="/carOwners.jsp" location="1250,1650" dimension="119,53" />
   <StrutsActivity path="/addcarmaintenance.jsp" location="2150,950" dimension="171,53" />
   <StrutsActivity path="/maintenance.jsp" location="2150,1750" dimension="130,53" />
-  <StrutsActivity path="/maintenance.do" location="2150,1350" dimension="257,104" />
-  <StrutsActivity path="/listmaintenance.do" location="350,1850" dimension="137,70" />
-  <StrutsActivity path="/searchmaintenance.do" />
-  <StrutsTransition id="/maintenance.do,list,/updateservice.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2150,1408" />
-      <AbsolutePoint location="722,1408" />
-      <AbsolutePoint location="722,1303" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
+  <StrutsActivity path="/updatemaintenance.do" location="650,1850" dimension="267,104" />
+  <StrutsActivity path="addmaintenance" location="1850,1850" dimension="128,53" />
+  <StrutsActivity path="addmaintenance.jsp" location="2150,1950" dimension="148,53" />
   <StrutsTransition id="/listmaintenance.do,null,/listmaintenance.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="487,1885" />
-      <AbsolutePoint location="2295,1885" />
-      <AbsolutePoint location="2295,1603" />
+      <AbsolutePoint location="458,1850" />
+      <AbsolutePoint location="458,1599" />
+      <AbsolutePoint location="2150,1599" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/clueDist.do,null,/clueDist.jsp,1" routingType="0">
@@ -105,24 +101,6 @@
       <AbsolutePoint location="787,702" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addmaintenance.do,list,/updateservice.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2222,820" />
-      <AbsolutePoint location="2222,918" />
-      <AbsolutePoint location="894,918" />
-      <AbsolutePoint location="894,1276" />
-      <AbsolutePoint location="794,1276" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/addmaintenance.do,success,/updateservice.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2222,750" />
-      <AbsolutePoint location="2222,195" />
-      <AbsolutePoint location="635,195" />
-      <AbsolutePoint location="635,1276" />
-      <AbsolutePoint location="650,1276" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/updateservice.do,success,/updateservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1250,502" />
@@ -141,6 +119,13 @@
       <AbsolutePoint location="693,1450" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/maintenance.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="894,1850" />
+      <AbsolutePoint location="894,1378" />
+      <AbsolutePoint location="2150,1378" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/detailrepair.do,success,/detailrepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1850,302" />
@@ -157,19 +142,18 @@
       <AbsolutePoint location="1908,1250" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/modifymaintenance.do,success,addmaintenance,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1517,1876" />
+      <AbsolutePoint location="1850,1876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/addrepair.do,null,/addrepair.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,85" />
       <AbsolutePoint location="894,85" />
       <AbsolutePoint location="894,876" />
       <AbsolutePoint location="950,876" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/listclue.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2150,1378" />
-      <AbsolutePoint location="1014,1378" />
-      <AbsolutePoint location="1014,1303" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/repair.do,success,/listrepair.jsp,1" routingType="0">
@@ -184,6 +168,22 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="650,272" />
       <AbsolutePoint location="476,272" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,null,/addmaintenance.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="834,1850" />
+      <AbsolutePoint location="834,1018" />
+      <AbsolutePoint location="2226,1018" />
+      <AbsolutePoint location="2226,1150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/carOwners.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1902" />
+      <AbsolutePoint location="545,1902" />
+      <AbsolutePoint location="545,672" />
+      <AbsolutePoint location="650,672" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/modifyuser.do,failed,/adduser.jsp,1" routingType="0">
@@ -206,6 +206,15 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="0,0" />
       <AbsolutePoint location="718,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modifymaintenance.do,success,/modifymaintenance.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1383,1954" />
+      <AbsolutePoint location="1383,2158" />
+      <AbsolutePoint location="1625,2158" />
+      <AbsolutePoint location="1625,1902" />
+      <AbsolutePoint location="1517,1902" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/carOwners.do,chart,/carOwnersChart.jsp,1" routingType="0">
@@ -242,12 +251,21 @@
       <AbsolutePoint location="158,876" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/updatemaintenance.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="783,1954" />
+      <AbsolutePoint location="783,2158" />
+      <AbsolutePoint location="1025,2158" />
+      <AbsolutePoint location="1025,1902" />
+      <AbsolutePoint location="917,1902" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/serviceAnalysis.do,null,/serviceAnalysis.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1917,1720" />
-      <AbsolutePoint location="1917,2068" />
-      <AbsolutePoint location="91,2068" />
-      <AbsolutePoint location="91,1903" />
+      <AbsolutePoint location="1917,1765" />
+      <AbsolutePoint location="121,1765" />
+      <AbsolutePoint location="121,1850" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/updateclue.do,success,/updateclue.jsp,1" routingType="0">
@@ -266,26 +284,12 @@
       <AbsolutePoint location="2150,1176" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,list,/listmaintenance.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2223,1454" />
-      <AbsolutePoint location="2223,1550" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/buyclue.do,success,/addcarOwners.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1104,1450" />
       <AbsolutePoint location="1104,965" />
       <AbsolutePoint location="1911,965" />
       <AbsolutePoint location="1911,903" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/clue.do,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2336,1350" />
-      <AbsolutePoint location="2336,569" />
-      <AbsolutePoint location="1625,569" />
-      <AbsolutePoint location="1625,554" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/modifyrepair.do,success,/repair.do,1" routingType="0">
@@ -345,6 +349,14 @@
       <AbsolutePoint location="417,1450" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/addservice.do,null,/addservice.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1367,85" />
+      <AbsolutePoint location="1440,85" />
+      <AbsolutePoint location="1440,876" />
+      <AbsolutePoint location="1376,876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/detailservice.do,success,/detailservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,502" />
@@ -354,26 +366,12 @@
       <AbsolutePoint location="417,1303" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/addservice.do,null,/addservice.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="1367,85" />
-      <AbsolutePoint location="1440,85" />
-      <AbsolutePoint location="1440,876" />
-      <AbsolutePoint location="1376,876" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/service.do,success,/listservice.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="350,532" />
       <AbsolutePoint location="335,532" />
       <AbsolutePoint location="335,1276" />
       <AbsolutePoint location="169,1276" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/addmaintenance.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2226,1350" />
-      <AbsolutePoint location="2226,1203" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/main.do,null,/main.jsp,1" routingType="0">
@@ -410,6 +408,12 @@
       <AbsolutePoint location="1850,1076" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/modifymaintenance.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="917,1902" />
+      <AbsolutePoint location="1250,1902" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/clue.do,chart,/clueDist.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1550,502" />
@@ -419,19 +423,19 @@
       <AbsolutePoint location="101,1650" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/updateservice.jsp,1" routingType="0">
+  <StrutsTransition id="/modifymaintenance.do,success,/addmaintenance.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="2150,1378" />
-      <AbsolutePoint location="1625,1378" />
-      <AbsolutePoint location="1625,1569" />
-      <AbsolutePoint location="752,1569" />
-      <AbsolutePoint location="752,1303" />
+      <AbsolutePoint location="1517,1918" />
+      <AbsolutePoint location="2492,1918" />
+      <AbsolutePoint location="2492,1176" />
+      <AbsolutePoint location="2303,1176" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/listmaintenance.jsp,1" routingType="0">
+  <StrutsTransition id="/modifymaintenance.do,success,addmaintenance.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="2223,1454" />
-      <AbsolutePoint location="2223,1550" />
+      <AbsolutePoint location="1383,1954" />
+      <AbsolutePoint location="1383,1978" />
+      <AbsolutePoint location="2150,1978" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/modifyclue.do,success,/clue.do,1" routingType="0">
@@ -440,12 +444,20 @@
       <AbsolutePoint location="1700,502" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/listmaintenance.do,success,/carOwners.do,1" routingType="0">
+  <StrutsTransition id="/maintenance.do,success,/listmaintenance.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="487,1855" />
-      <AbsolutePoint location="545,1855" />
-      <AbsolutePoint location="545,672" />
-      <AbsolutePoint location="650,672" />
+      <AbsolutePoint location="2223,1454" />
+      <AbsolutePoint location="2223,1550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/addmaintenance.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="783,1954" />
+      <AbsolutePoint location="783,2078" />
+      <AbsolutePoint location="2582,2078" />
+      <AbsolutePoint location="2582,1265" />
+      <AbsolutePoint location="2226,1265" />
+      <AbsolutePoint location="2226,1203" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/modifyservice.do,success,/service.do,1" routingType="0">
@@ -459,13 +471,6 @@
       <AbsolutePoint location="1616,1650" />
       <AbsolutePoint location="1616,1476" />
       <AbsolutePoint location="1850,1476" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/maintenance.do,success,/maintenance.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2311,1454" />
-      <AbsolutePoint location="2311,1776" />
-      <AbsolutePoint location="2280,1776" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/maintenance.do,success,/carOwners.do,1" routingType="0">
@@ -483,14 +488,6 @@
       <AbsolutePoint location="305,302" />
       <AbsolutePoint location="305,1076" />
       <AbsolutePoint location="350,1076" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/addmaintenance.do,success,/clue.do,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="2222,750" />
-      <AbsolutePoint location="2222,399" />
-      <AbsolutePoint location="1625,399" />
-      <AbsolutePoint location="1625,450" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>

@@ -189,6 +189,7 @@ public class CarOwnersAction extends Action {
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
+    	Users u = (Users)request.getSession().getAttribute("users");
     	String ownerName = request.getParameter("ownerName");
     	String phoneNumber = request.getParameter("phoneNumber");
     	String idCard = request.getParameter("idCard");
@@ -224,9 +225,11 @@ public class CarOwnersAction extends Action {
     		ownersArr[i][7] = String.valueOf(ownersList.get(i).getOther());
     		ownersArr[i][8] = String.valueOf(ownersList.get(i).getTotalize());
     		ownersArr[i][9] = ownersList.get(i).getPlateNumber();
-    		ownersArr[i][10] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPurchaseTime(),DateUtil.yyyyMMdd));//ownersList.get(i).getPurchaseTime().toLocaleString();
-    		ownersArr[i][11] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
-					           "<a href='modifycarOwners.do?action=deletecarOwners&id=" +ownersArr[i][0]+ "'>删除</a>";
+    		ownersArr[i][10] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPurchaseTime(),DateUtil.yyyyMMdd));
+    		if(u.getRoleType() == 2 || u.getRoleType()==3) {
+    		  ownersArr[i][11] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+				   	             "<a href='modifycarOwners.do?action=deletecarOwners&id=" +ownersArr[i][0]+ "'>删除</a>";
+    		}
     	}
         hashMap.put("owners", ownersArr);
     	try {

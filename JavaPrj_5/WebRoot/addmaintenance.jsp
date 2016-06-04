@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<%@ page import="com.sanqing.po.Maintenance"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,6 +17,9 @@
 </style>
 </head>
 <body class="ContentBody">
+<%
+	  Maintenance e=(Maintenance)request.getAttribute("maintenance");
+  %>
 <form name="clueForm" method="post" action="modifyclue.do?action=addclue" onSubmit="return clueValidate()">
 <div class="MainDiv">
 <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
@@ -35,32 +39,33 @@
 				<legend>线索信息</legend>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr>
+					    <input name="name" type="text" style="display:none;" id="maintenanceId" <%if(e != null) {%> value="<%=e.getId()%>" <%} %>>
 					    <td nowrap align="right" width="9%">车主姓名：</td>
-					    <td width="36%"><input name="name" type="text" class="input" id="name">
+					    <td width="36%"><input name="name" type="text" class="input" id="name" <%if(e != null) {%> value="<%=e.getName()%>" <%} %>>
 						<span class="red">*</span></td>
 					    <td width="12%"><div align="right">手机号：</div></td>
 					    <td width="43%">
-					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" />
+					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" <%if(e != null) {%> value="<%=e.getPhoneNumber()%>" <%} %>/>
 					      <span class="red">*</span></td></tr>
 					  <tr>
 					    <td nowrap align="right" width="9%">车型：</td>
-					    <td><input name="car" type="text" class="input" id="car">
+					    <td><input name="car" type="text" class="input" id="car" <%if(e != null) {%> value="<%=e.getCar()%>" <%} %>>
 					    </td>
 					    <td><div align="right">车牌号：</div></td>
-					    <td><input name="plateNumber" type="text" class="input" id="plateNumber"></td>
+					    <td><input name="plateNumber" type="text" class="input" id="plateNumber" <%if(e != null) {%> value="<%=e.getPlateNumber()%>" <%} %>></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">当前保养时间：</td>
-					    <td><input name="preTime" type="text" class="input" id="preTime"></td>
+					    <td><input name="preTime" type="text" class="input" id="preTime" <%if(e != null) {%> value="<%=e.getPreTime()%>" <%} %>></td>
 					    <td nowrap align="right">下次时间：</td>
-					    <td><input name="nextTime" type="text" class="input" id="nextTime">
+					    <td><input name="nextTime" type="text" class="input" id="nextTime" <%if(e != null) {%> value="<%=e.getNextTime()%>" <%} %>>
 					    <span class="red">*</span>
 					    </td>
 					    </tr>
 					  <tr>
 						<td nowrap align="right">保养内容：</td>
 						<td colspan="3">
-						<textarea name="content" cols="100" rows="6" class="input" id="content"></textarea></td>
+						<textarea name="content" cols="100" rows="6" class="input" id="content" <%if(e != null) {%> value="<%=e.getContent()%>" <%} %>></textarea></td>
 					 </tr>
 					  </table>
 			  <br />
@@ -96,6 +101,7 @@
       url: 'maintenance.do?action=addMaintenance',
       type: 'post',
       data: {
+          id: $('#maintenanceId').val() || '',
           name: $('#name').val() || '',
 	      phoneNumber: $('#phoneNumber').val() || '',
 	      car: $('#car').val() || '',
