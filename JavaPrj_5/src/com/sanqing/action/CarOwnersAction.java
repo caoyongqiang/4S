@@ -139,6 +139,7 @@ public class CarOwnersAction extends Action {
         main.setOwnerId(s.getId());
         main.setPreTime(s.getPurchaseTime());
         main.setNextTime(c.getTime());
+        main.setContent("首保");
         main.setIsDone(new Long(0));
         mainDao.addMaintenance(main);
         return mapping.findForward("success");

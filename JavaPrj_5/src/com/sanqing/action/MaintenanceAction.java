@@ -76,8 +76,8 @@ public class MaintenanceAction extends Action {
     private ActionForward doneMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id"));
         Maintenance i=dao.loadMaintenance(id.longValue());
-        i.setIsDone(new Long(1));
-        dao.updateMaintenance(i);
+        /*i.setIsDone(new Long(1));
+        dao.updateMaintenance(i);*/
         CarOwnersDao ownerDao = new CarOwnersDao();
         CarOwners owner = ownerDao.loadCarOwners(i.getOwnerId());
         HashMap<String , Object> map = new HashMap<String , Object>();
@@ -142,6 +142,8 @@ public class MaintenanceAction extends Action {
     	if(request.getParameter("id") != ""){
     		Long id = new Long(request.getParameter("id"));
     		Maintenance i=dao.loadMaintenance(id.longValue());
+    		i.setIsDone(new Long(1));
+    		dao.updateMaintenance(i);
     		e.setOwnerId(i.getOwnerId());
     	}
         dao.addMaintenance(e);
