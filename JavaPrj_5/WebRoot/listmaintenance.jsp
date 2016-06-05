@@ -93,6 +93,12 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					    <td><input name="purchaseTime" type="text" class="input" id="date_timepicker_start"></td>
 					    <td nowrap align="right">结束时间：</td>
 					    <td><input name="purchaseTime" type="text" class="input" id="date_timepicker_end"></td>
+					    <td><select name="status" type="text" class="input" id="status">
+					          <option value="0,1">全部</option>
+					          <option selected value="0">待完成</option>
+					          <option value="1">已完成</option>
+					        </select>
+					    </td>
 					  </tr>
 					  <TR>
 						<TD colspan="8" align="center" height="20px">
@@ -178,6 +184,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		      plateNumber: $('#plateNumber').val() || '',
 		      startDate: $('#date_timepicker_start').val() || '',
 		      endDate: $('#date_timepicker_end').val() || '',
+		      status: $('#status').val() || '',
 	  },
 	  success: function(result) {
 	    var dataSet = $.parseJSON(result).owners;
@@ -217,7 +224,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	          car: $('#car').val() || '',
 	          plateNumber: $('#plateNumber').val() || '',
 	          startDate: $('#date_timepicker_start').val() || '',
-	          endDate: $('#date_timepicker_end').val() || ''
+	          endDate: $('#date_timepicker_end').val() || '',
+	          status: $('#status').val() || '',
 	  },
 	  success: function(result) {
 	    var dataSet = $.parseJSON(result).owners;

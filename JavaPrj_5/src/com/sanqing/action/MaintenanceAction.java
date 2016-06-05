@@ -21,6 +21,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
+import com.sanqing.dao.CarOwnersDao;
 import com.sanqing.dao.ClueDao;
 import com.sanqing.dao.MaintenanceDao;
 import com.sanqing.po.CarOwners;
@@ -50,12 +51,14 @@ public class MaintenanceAction extends Action {
             return addMaintenance(mapping,form,request,response);
         }else if("updateclue".equals(action)){
             return updateMaintenance(mapping,form,request,response);
-        }else if("deleteclue".equals(action)){
-            return deleteClue(mapping,form,request,response);
-        }else if("detailMaintenance".equals(action)){
-            return detailMaintenance(mapping,form,request,response);
+        }else if("deleteMaintenance".equals(action)){
+            return deleteMaintenance(mapping,form,request,response);
+        }else if("doneMaintenance".equals(action)){
+            return doneMaintenance(mapping,form,request,response);
         }else if("clueDist".equals(action)){
             return clueDist(mapping,form,request,response);
+        }else if("detailMaintenance".equals(action)){
+            return detailMaintenance(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -68,10 +71,17 @@ public class MaintenanceAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward detailMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward doneMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id"));
         Maintenance i=dao.loadMaintenance(id.longValue());
-        request.setAttribute("maintenance",i);
+        i.setIsDone(new Long(1));
+        dao.updateMaintenance(i);
+        CarOwnersDao ownerDao = new CarOwnersDao();
+        CarOwners owner = ownerDao.loadCarOwners(i.getOwnerId());
+        HashMap<String , Object> map = new HashMap<String , Object>();
+        map.put("carOwner", owner);
+        map.put("maintenance", i);
+        request.setAttribute("info",map);
         return mapping.findForward("success");
     }
 
@@ -83,11 +93,11 @@ public class MaintenanceAction extends Action {
      * @return
      * @throws HibernateException
      */
-    private ActionForward deleteClue(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    private ActionForward deleteMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
         Long id=new Long(request.getParameter("id"));
-        Clue i=new Clue();
+        Maintenance i=new Maintenance();
         i.setId(id);
-        dao.deleteClue(i);
+        dao.deleteMaintenance(i);
         return mapping.findForward("success");
     }
 
@@ -103,6 +113,7 @@ public class MaintenanceAction extends Action {
         /*ClueForm clueForm=(ClueForm)form;
         Clue i=clueForm.populate();*/
     	Maintenance m = new Maintenance();
+    	m.setIsDone(new Long(1));
         dao.updateMaintenance(m);
         return mapping.findForward("success");
     }
@@ -118,33 +129,21 @@ public class MaintenanceAction extends Action {
      */
     private ActionForward addMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException, IOException {
     	Maintenance e = new Maintenance();
-    	e.setName(request.getParameter("name"));
+    	/*e.setName(request.getParameter("name"));
     	e.setPhoneNumber(request.getParameter("phoneNumber"));
     	e.setCar(request.getParameter("car"));
-    	e.setPlateNumber(request.getParameter("plateNumber"));
+    	e.setPlateNumber(request.getParameter("plateNumber"));*/
     	e.setContent(request.getParameter("content"));
     	e.setPreTime(DateUtil.parseToDate(request.getParameter("preTime"),DateUtil.yyyyMMdd));
     	e.setNextTime(DateUtil.parseToDate(request.getParameter("nextTime"),DateUtil.yyyyMMdd));
+    	e.setIsDone(new Long(0));
     	if(request.getParameter("id") != ""){
-    		e.setId(new Long(request.getParameter("id")));
-    		dao.updateMaintenance(e);
-    	}else{
-            dao.addMaintenance(e);
+    		Long id = new Long(request.getParameter("id"));
+    		Maintenance i=dao.loadMaintenance(id.longValue());
+    		e.setOwnerId(i.getOwnerId());
     	}
+        dao.addMaintenance(e);
         return mapping.findForward(null);
-    }
-
-    /**
-     * @param mapping
-     * @param form
-     * @param request
-     * @param response
-     * @return
-     * @throws HibernateException
-     */
-    private ActionForward listClue(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
-        request.setAttribute("list",dao.listClue());
-        return mapping.findForward("success");
     }
     
     /**
@@ -199,6 +198,7 @@ public class MaintenanceAction extends Action {
     	String plateNumber = request.getParameter("plateNumber");
     	String startDate = request.getParameter("startDate");
     	String endDate = request.getParameter("endDate");
+    	String status = request.getParameter("status");
     	/*if(startDate == "" && endDate == "") {
     		Calendar calendar = new GregorianCalendar(); 
             Calendar cal  = Calendar.getInstance();
@@ -214,25 +214,30 @@ public class MaintenanceAction extends Action {
         owner.put("plateNumber", plateNumber);
         owner.put("startDate", startDate);
         owner.put("endDate", endDate);
+        owner.put("status", "(" + status + ")");
     	response.setCharacterEncoding("UTF-8");
     	Map<String, Object> hashMap=new HashMap<String, Object>();
-    	List<Maintenance> ownersList = dao.searchMaintenance(owner);
+    	List<Object[]> ownersList = (List<Object[]>)dao.searchMaintenance(owner);
     	int length = ownersList.size();
     	String[][] ownersArr;
     	ownersArr = new String[length][];
     	for(int i=0; i<length; i++) {
     		ownersArr[i] = new String[9];
-    		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
-    		ownersArr[i][1] = ownersList.get(i).getName();
-    		ownersArr[i][2] = ownersList.get(i).getPhoneNumber();
-    		ownersArr[i][3] = ownersList.get(i).getCar();
-    		ownersArr[i][4] = ownersList.get(i).getPlateNumber();
-    		ownersArr[i][5] = ownersList.get(i).getContent();
-    		ownersArr[i][6] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPreTime(),DateUtil.yyyyMMdd));
-    		ownersArr[i][7] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getNextTime(),DateUtil.yyyyMMdd));
-    		ownersArr[i][8] = "<a href='updatemaintenance.do?action=detailMaintenance&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
-					          "<a href='modifyclue.do?action=deleteclue&id=" +ownersArr[i][0]+ "'>删除</a>&nbsp;&nbsp;" + 
-					          "<a href='buyclue.do?action=detailclue&id=" +ownersArr[i][0]+ "'>购车</a>";
+    		ownersArr[i][0] = String.valueOf(ownersList.get(i)[0]);
+    		ownersArr[i][1] = String.valueOf(ownersList.get(i)[1]);
+    		ownersArr[i][2] = String.valueOf(ownersList.get(i)[2]);
+    		ownersArr[i][3] = String.valueOf(ownersList.get(i)[3]);
+    		ownersArr[i][4] = String.valueOf(ownersList.get(i)[4]);
+    		ownersArr[i][5] = String.valueOf(ownersList.get(i)[5]);
+    		ownersArr[i][6] = StringUtil.notNull(DateUtil.parseToString(String.valueOf(ownersList.get(i)[6]),DateUtil.yyyyMMdd));
+    		ownersArr[i][7] = StringUtil.notNull(DateUtil.parseToString(String.valueOf(ownersList.get(i)[7]),DateUtil.yyyyMMdd));
+    		if((Long)ownersList.get(i)[8] != 1){
+    		    ownersArr[i][8] = "<a href='updatemaintenance.do?action=doneMaintenance&id=" +ownersArr[i][0]+ "'>完成</a>&nbsp;&nbsp;" +
+					              "<a href='maintenance.do?action=deleteMaintenance&id=" +ownersArr[i][0]+ "'>删除</a>&nbsp;&nbsp;" + 
+					              "<a href='updatemaintenance.do?action=detailMaintenance&id=" +ownersArr[i][0]+ "'>详情</a>";
+    		}else{
+    			ownersArr[i][8] = "<a href='donemaintenance.do?action=detailMaintenance&id=" +ownersArr[i][0]+ "'>已完成</a>";
+    		}
     	}
         hashMap.put("owners", ownersArr);
     	try {
@@ -244,5 +249,25 @@ public class MaintenanceAction extends Action {
     	}
     	// request.setAttribute("list",dao.listCarOwners());
         return mapping.findForward(null);
+    }
+    
+    /**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
+    private ActionForward detailMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	Long id=new Long(request.getParameter("id"));
+        Maintenance i=dao.loadMaintenance(id.longValue());
+        CarOwnersDao ownerDao = new CarOwnersDao();
+        CarOwners owner = ownerDao.loadCarOwners(i.getOwnerId());
+        HashMap<String , Object> map = new HashMap<String , Object>();
+        map.put("carOwner", owner);
+        map.put("maintenance", i);
+        request.setAttribute("info",map);
+        return mapping.findForward("success");
     }
 }

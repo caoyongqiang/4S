@@ -70,16 +70,16 @@
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">当前保养时间：</td>
-					    <td><input name="preTime" type="text" class="input" id="preTime" <%if(e != null) {%> value="<%=time%>" <%} %>></td>
+					    <td><input disabled name="preTime" type="text" class="input" id="preTime" <%if(e != null) {%> value="<%=time%>" <%} %>></td>
 					    <td nowrap align="right">下次时间：</td>
-					    <td><input name="nextTime" type="text" class="input" id="nextTime" <%if(e != null) {%> value="<%=StringUtil.notNull(DateUtil.parseToString(e.getNextTime(),DateUtil.yyyyMMdd))%>" <%} %>>
+					    <td><input disabled name="nextTime" type="text" class="input" id="nextTime" <%if(e != null) {%> value="<%=StringUtil.notNull(DateUtil.parseToString(e.getNextTime(),DateUtil.yyyyMMdd))%>" <%} %>>
 					    <span class="red">*</span>
 					    </td>
 					    </tr>
 					  <tr>
 						<td nowrap align="right">保养内容：</td>
 						<td colspan="3">
-						<textarea name="content" cols="100" rows="6" class="input" id="content"><%if(e != null) {%> <%=e.getContent()%> <%} %></textarea></td>
+						<textarea disabled name="content" cols="100" rows="6" class="input" id="content"><%if(e != null) {%> <%=e.getContent()%> <%} %></textarea></td>
 					 </tr>
 					  </table>
 			  <br />
@@ -89,11 +89,6 @@
 		</TABLE>
 	 </td>
   </tr>
-		<TR>
-			<TD colspan="2" align="center" height="50px">
-			<input name="提交" type="button" class="button" value="保存" id="save"/>　
-			<input name="重置" type="reset" class="button" value="重置"/></TD>
-		</TR>
 		</TABLE>	
 </div>
 </form>

@@ -71,6 +71,9 @@
     <action path="/updatemaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
       <forward name="success" path="/addmaintenance.jsp" />
     </action>
+    <action path="/donemaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
+      <forward name="success" path="/donemaintenance.jsp" />
+    </action>
     <action path="/searchmaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
       <forward name="success" path="/carOwners.do?action=carOwnersChart" />
     </action>

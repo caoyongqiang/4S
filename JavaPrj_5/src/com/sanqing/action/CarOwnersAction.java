@@ -23,7 +23,9 @@ import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
 import com.sanqing.dao.CarOwnersDao;
+import com.sanqing.dao.MaintenanceDao;
 import com.sanqing.po.CarOwners;
+import com.sanqing.po.Maintenance;
 import com.sanqing.po.Users;
 import com.sanqing.dao.ClueDao;
 import com.sanqing.po.Clue;
@@ -128,6 +130,17 @@ public class CarOwnersAction extends Action {
     	CarOwnersForm carOwnersForm=(CarOwnersForm)form;
         CarOwners s=carOwnersForm.populate();
         dao.addCarOwners(s);
+        //车主买车后3个月保养
+        MaintenanceDao mainDao=new MaintenanceDao();
+        Maintenance main = new Maintenance();
+        Calendar c=Calendar.getInstance();
+        c.setTime(s.getPurchaseTime());
+        c.add(Calendar.MONTH,3);
+        main.setOwnerId(s.getId());
+        main.setPreTime(s.getPurchaseTime());
+        main.setNextTime(c.getTime());
+        main.setIsDone(new Long(0));
+        mainDao.addMaintenance(main);
         return mapping.findForward("success");
     }
 

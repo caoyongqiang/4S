@@ -35,6 +35,9 @@ public class MaintenanceForm extends ActionForm {
 
     /** nullable persistent field */
     private String visitTime;
+    
+    /** nullable persistent field */
+    private Long isDone ;
 
     /** full constructor */
     public void reset(ActionMapping arg0, HttpServletRequest arg1) {
@@ -132,4 +135,12 @@ public class MaintenanceForm extends ActionForm {
     public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
         return null;
     }
+
+	public Long getIsDone() {
+		return isDone;
+	}
+
+	public void setIsDone(Long isDone) {
+		this.isDone = isDone;
+	}
 }

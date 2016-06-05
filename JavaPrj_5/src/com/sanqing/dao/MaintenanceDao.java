@@ -33,7 +33,7 @@ public class MaintenanceDao {
         HibernateSessionFactory.closeSession();
     }
 
-    public void deleteClue(Clue e) throws HibernateException{
+    public void deleteMaintenance(Maintenance e) throws HibernateException{
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.delete(e);
@@ -48,16 +48,6 @@ public class MaintenanceDao {
         tx.commit();
         HibernateSessionFactory.closeSession();
         return e;
-    }
-
-    public List listClue() throws HibernateException{
-        Session session = HibernateSessionFactory.getSession();
-        Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Clue as e order by visitTime");
-        List list = query.list();
-        tx.commit();
-        HibernateSessionFactory.closeSession();
-        return list;
     }
     
     public Integer[] getClueDist(String startDate, String endDate) throws HibernateException{
@@ -118,7 +108,7 @@ public class MaintenanceDao {
         if (ins.getContent()!=null){
             e.setContent(ins.getContent());
         }
-        if (ins.getPlateNumber()!=null){
+        /*if (ins.getPlateNumber()!=null){
             e.setPlateNumber(ins.getPlateNumber());
         }
         if (ins.getCar()!=null){
@@ -129,12 +119,15 @@ public class MaintenanceDao {
         }
         if (ins.getPhoneNumber()!= null) {
             e.setPhoneNumber(ins.getPhoneNumber());
-        }
+        }*/
         if (ins.getPreTime()!= null) {
             e.setPreTime(ins.getPreTime());
         }
         if (ins.getNextTime()!= null) {
             e.setNextTime(ins.getNextTime());
+        }
+        if (ins.getIsDone() != 0) {
+            e.setIsDone(ins.getIsDone());
         }
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
@@ -154,11 +147,15 @@ public class MaintenanceDao {
     	}
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e from Maintenance as e " +
-        		"where e.name like '%" +owner.get("name")+ "%' " +
-        		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
-        		"and e.car like '%" +owner.get("car")+ "%'" +
-        		"and e.plateNumber like '%" +owner.get("plateNumber")+ "%'" + timeSqlStr );
+        Query query = session.createQuery("select e.id, c.name, c.phoneNumber, c.car, c.plateNumber, e.content, e.preTime, e.nextTime, e.isDone " + 
+                "from Maintenance as e, CarOwners as c " + 
+                "where e.ownerId = c.id " +
+        		"and c.name like '%" +owner.get("name")+ "%' " +
+        		"and c.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
+        		"and c.car like '%" +owner.get("car")+ "%'" +
+        		"and e.isDone in " +owner.get("status") +
+        		"and c.plateNumber like '%" +owner.get("plateNumber")+ "%'" + timeSqlStr );
+        //Query query = session.createQuery("select c.id, c.name, c.phoneNumber, c.car, c.plateNumber, e.content, e.preTime, e.nextTime from Maintenance as e left join  CarOwners as c on e.ownerId = c.id");
         List list = query.list();
         tx.commit();
         HibernateSessionFactory.closeSession();
