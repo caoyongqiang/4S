@@ -37,7 +37,9 @@ public class CarOwnersDao {
     }
 
     public void addCarOwners(CarOwners e) throws HibernateException{
-        e=getCountTotalize(e);
+    	if(e.getCarPrice() == null && e.getOther() != null) {
+            e=getCountTotalize(e);
+    	}
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
         session.save(e);

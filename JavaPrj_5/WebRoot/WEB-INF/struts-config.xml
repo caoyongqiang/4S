@@ -69,7 +69,7 @@
       <forward name="success" path="/listmaintenance.jsp" />
     </action>
     <action path="/updatemaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
-      <forward name="success" path="/addmaintenance.jsp" />
+      <forward name="success" path="/updatemaintenance.jsp" />
     </action>
     <action path="/donemaintenance" scope="session" type="com.sanqing.action.MaintenanceAction">
       <forward name="success" path="/donemaintenance.jsp" />

@@ -75,7 +75,8 @@
   <StrutsActivity path="addmaintenance" location="1850,1850" dimension="128,53" />
   <StrutsActivity path="addmaintenance.jsp" location="2150,1950" dimension="148,53" />
   <StrutsActivity path="/donemaintenance.do" location="1250,1850" dimension="267,104" />
-  <StrutsActivity path="/donemaintenance.jsp" />
+  <StrutsActivity path="/donemaintenance.jsp" location="50,2050" dimension="160,53" />
+  <StrutsActivity path="/updatemaintenance.jsp" />
   <StrutsTransition id="/clueDist.do,null,/clueDist.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="350,1676" />
@@ -142,6 +143,12 @@
       <AbsolutePoint location="1104,965" />
       <AbsolutePoint location="1911,965" />
       <AbsolutePoint location="1911,903" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/updatemaintenance.do,success,/updatemaintenance.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="783,1902" />
+      <AbsolutePoint location="0,0" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/detailclue.do,success,/detailclue.jsp,1" routingType="0">
@@ -279,8 +286,9 @@
   </StrutsTransition>
   <StrutsTransition id="/donemaintenance.do,success,/donemaintenance.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="1383,1902" />
-      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="1383,1954" />
+      <AbsolutePoint location="1383,2076" />
+      <AbsolutePoint location="210,2076" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/updaterepair.do,success,/updaterepair.jsp,1" routingType="0">

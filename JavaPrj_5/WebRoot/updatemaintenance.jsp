@@ -55,18 +55,18 @@
 					  <tr>
 					    <input name="name" type="text" style="display:none;" id="maintenanceId" <%if(e != null) {%> value="<%=e.getId()%>" <%} %>>
 					    <td nowrap align="right" width="9%">车主姓名：</td>
-					    <td width="36%"><input name="name" type="text" class="input" id="name" <%if(e != null) {%> value="<%=c.getName()%>" <%} %>>
+					    <td width="36%"><input disabled name="name" type="text" class="input" id="name" <%if(e != null) {%> value="<%=c.getName()%>" <%} %>>
 						<span class="red">*</span></td>
 					    <td width="12%"><div align="right">手机号：</div></td>
 					    <td width="43%">
-					      <input name="phoneNumber" type="text" class="input" id="phoneNumber" <%if(e != null) {%> value="<%=c.getPhoneNumber()%>" <%} %>/>
+					      <input disabled name="phoneNumber" type="text" class="input" id="phoneNumber" <%if(e != null) {%> value="<%=c.getPhoneNumber()%>" <%} %>/>
 					      <span class="red">*</span></td></tr>
 					  <tr>
 					    <td nowrap align="right" width="9%">车型：</td>
-					    <td><input name="car" type="text" class="input" id="car" <%if(e != null) {%> value="<%=c.getCar()%>" <%} %>>
+					    <td><input disabled name="car" type="text" class="input" id="car" <%if(e != null) {%> value="<%=c.getCar()%>" <%} %>>
 					    </td>
 					    <td><div align="right">车牌号：</div></td>
-					    <td><input name="plateNumber" type="text" class="input" id="plateNumber" <%if(e != null) {%> value="<%=c.getPlateNumber()%>" <%} %>></td>
+					    <td><input disabled name="plateNumber" type="text" class="input" id="plateNumber" <%if(e != null) {%> value="<%=c.getPlateNumber()%>" <%} %>></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">当前保养时间：</td>
@@ -112,7 +112,7 @@
   });
   $('#save').click(function(){
     $.ajax({
-      url: 'maintenance.do?action=addOtherMaintenance',
+      url: 'maintenance.do?action=addMaintenance',
       type: 'post',
       data: {
           id: $('#maintenanceId').val() || '',
@@ -125,8 +125,8 @@
 	      content: $('#content').val() || ''
       },
       success: function(result){
-        alert('添加保养信息成功！');
-      }
+        alert('添加维修信息成功！');
+      } 
     })
   })
 </script>

@@ -59,6 +59,8 @@ public class MaintenanceAction extends Action {
             return clueDist(mapping,form,request,response);
         }else if("detailMaintenance".equals(action)){
             return detailMaintenance(mapping,form,request,response);
+        }else if("addOtherMaintenance".equals(action)){
+            return addOtherMaintenance(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -142,6 +144,33 @@ public class MaintenanceAction extends Action {
     		Maintenance i=dao.loadMaintenance(id.longValue());
     		e.setOwnerId(i.getOwnerId());
     	}
+        dao.addMaintenance(e);
+        return mapping.findForward(null);
+    }
+    
+    /**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     * @throws IOException 
+     */
+    private ActionForward addOtherMaintenance(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException, IOException {
+    	Maintenance e = new Maintenance();
+    	CarOwners c = new CarOwners();
+    	CarOwnersDao ownersDao=new CarOwnersDao();
+    	c.setName(request.getParameter("name"));
+    	c.setPhoneNumber(request.getParameter("phoneNumber"));
+    	c.setCar(request.getParameter("car"));
+    	c.setPlateNumber(request.getParameter("plateNumber"));
+    	ownersDao.addCarOwners(c);
+    	e.setContent(request.getParameter("content"));
+    	e.setPreTime(DateUtil.parseToDate(request.getParameter("preTime"),DateUtil.yyyyMMdd));
+    	e.setNextTime(DateUtil.parseToDate(request.getParameter("nextTime"),DateUtil.yyyyMMdd));
+    	e.setOwnerId(c.getId());
+    	e.setIsDone(new Long(0));
         dao.addMaintenance(e);
         return mapping.findForward(null);
     }
