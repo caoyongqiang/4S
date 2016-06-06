@@ -96,10 +96,12 @@ body {
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result).clues;
+		          var cluesArr = $.parseJSON(result).clues;
+			      var ownersArr = $.parseJSON(result).owners;;
 		          var xAxisData = getxAxisData();
 		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          option.series[0].data = cluesArr;
+		          option.series[1].data = ownersArr
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -125,10 +127,12 @@ body {
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
-		          var ownersArr = $.parseJSON(result).clues;
+		          var cluesArr = $.parseJSON(result).clues;
+			      var ownersArr = $.parseJSON(result).owners;
 		          var xAxisData = getxAxisData();
 		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          option.series[0].data = cluesArr;
+		          option.series[1].data = ownersArr;
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -176,7 +180,8 @@ body {
 			        },
 			        async: false,
 			        success: function(result) {
-			          ownersArr = $.parseJSON(result).clues;
+			          cluesArr = $.parseJSON(result).clues;
+			          ownersArr = $.parseJSON(result).owners;
 			        }
 		        });
                 var xAxisData = getxAxisData();
@@ -189,7 +194,7 @@ body {
 				        trigger: 'axis'
 				    },
 				    legend: {
-				        data:['来店线索数']
+				        data:['来店线索数','买车用户数']
 				    },
 				    toolbox: {
 				        show : true,
@@ -221,18 +226,12 @@ body {
 				        {
 				            name:'来店线索数',
 				            type:'line',
-				            data:ownersArr,
-				            markPoint : {
-				                data : [
-				                    {type : 'max', name: '最大值'},
-				                    {type : 'min', name: '最小值'}
-				                ]
-				            },
-				            markLine : {
-				                data : [
-				                    {type : 'average', name: '平均值'}
-				                ]
-				            }
+				            data:cluesArr,
+				        },
+				        {
+				            name:'买车用户数',
+				            type:'line',
+				            data:ownersArr
 				        }
 				    ]
 				};

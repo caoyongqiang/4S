@@ -5,17 +5,18 @@ import java.util.Date;
 
 /** н�� */
 public class CarOwners implements Serializable {
-    private Long id;		//н����Ϣ���
-    private String name;	//Ա������
-    private String phoneNumber;	//��н��
-    private String idCard;		//����
-    private String house;	//����
-    private Date purchaseTime;	// ���ʷ���ʱ��
-    private String car;		//ȫ�ڽ�
-    private Float carPrice;		//��˰
-    private String plateNumber;//����
-    private Float other;	//���ⲹ��
-    private Float totalize;	//�ܼ�
+    private Long id;
+    private String name;
+    private String phoneNumber;
+    private String idCard;
+    private String house;
+    private Date purchaseTime;
+    private String car;
+    private Float carPrice;
+    private String plateNumber;
+    private Float other;
+    private Float totalize;
+    private String seller;
 
     public CarOwners(String name, String phoneNumber, String idCard, String house, Date purchaseTime, String car, Float carPrice, String plateNumber, Float other, Float totalize) {
         this.name = name;
@@ -143,5 +144,13 @@ public class CarOwners implements Serializable {
         toStr.append("    ];\n");
         return toStr.toString();
     }
+
+	public String getSeller() {
+		return seller;
+	}
+
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
 
 }

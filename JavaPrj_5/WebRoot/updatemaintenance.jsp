@@ -75,11 +75,24 @@
 					    <td><input name="nextTime" type="text" class="input" id="nextTime" <%if(e != null) {%> value="<%=StringUtil.notNull(DateUtil.parseToString(e.getNextTime(),DateUtil.yyyyMMdd))%>" <%} %>>
 					    <span class="red">*</span>
 					    </td>
-					    </tr>
+					  </tr>
 					  <tr>
-						<td nowrap align="right">保养内容：</td>
-						<td colspan="3">
-						<textarea name="content" cols="100" rows="6" class="input" id="content"><%if(e != null) {%> <%=e.getContent()%> <%} %></textarea></td>
+						<td nowrap align="right" width="9%">保养周期：</td>
+						<td id="period">
+						  <input name="period" type="radio" value="0" checked>3个月
+						  <input name="period" type="radio" value="1">半年
+						  <input name="period" type="radio" value="2">一年
+						  <input name="period" type="radio" value="3">两年
+						  <input name="period" type="radio" value="4">其他
+						  <input hidden id="otherPeriod">
+						</td>
+					  </tr>
+					  <tr>
+						<td nowrap align="right">保养项目：</td>
+						<td id="content" width="">
+						  <input name="engineOil" type="radio" value="机油" checked>机油
+						  <input name="oilFilter" type="radio" value="机油滤清器" checked>机油滤清器
+						</td>
 					 </tr>
 					  </table>
 			  <br />
@@ -111,6 +124,32 @@
     format:'Y-m-d'
   });
   $('#save').click(function(){
+    if($('#period input:radio:checked').val() == '4' && !$('#otherPeriod').val()){
+      alert('请填写保养周期');
+      return;
+    }
+    var period = '';
+    switch ($('#period input:radio:checked').val()) {
+      case '0':
+        period = '3个月';
+        break;
+      case '1':
+        period = '半年';
+        break;
+      case '2':
+        period = '一年';
+        break;
+      case '3':
+        period = '两年';
+        break;
+      case '4':
+        period = $('#otherPeriod').val();
+        break;
+    }
+    var content = '';
+    $('#content input:radio:checked').each(function(index, html) {
+      content += ($(html).val() + ',');
+    })
     $.ajax({
       url: 'maintenance.do?action=addMaintenance',
       type: 'post',
@@ -122,12 +161,54 @@
 	      plateNumber: $('#plateNumber').val() || '',
 	      preTime: $('#preTime').val() || '',
 	      nextTime: $('#nextTime').val() || '',
-	      content: $('#content').val() || ''
+	      content: content,
+	      period: period
       },
       success: function(result){
         alert('添加维修信息成功！');
       } 
     })
+  })
+  $('#period').click(function(e){
+      var engineOil = "<input name='engineOil' type='radio' value='机油' checked>机油";
+	  var oilFilter = "<input name='oilFilter' type='radio' value='机油滤清器' checked>机油滤清器";
+	  var airFilter = "<input name='airFilter' type='radio' value='空气滤清器' checked>空气滤清器";
+	  var fuelFilter = "<input name='fuelFilter' type='radio' value='汽油滤清器' checked>汽油滤清器";
+	  var coolantTank = "<input name='coolantTank' type='radio' value='水箱冷却液' checked>水箱冷却液";
+	  var autoTransmission = "<input name='autoTransmission' type='radio' value='自动变速箱' checked>自动变速箱";
+	  var brakeFluid = "<input name='brakeFluid' type='radio' value='煞车油' checked>煞车油";
+	  var gearOil = "<input name='gearOil' type='radio' value='齿轮油' checked>齿轮油";
+	  var powerOil = "<input name='powerOil' type='radio' value='动力油' checked>动力油";
+	  var storageBattery = "<input name='storageBattery' type='radio' value='电瓶' checked>电瓶";
+	  var sparkplug = "<input name='sparkplug' type='radio' value='火星塞' checked>火星塞";
+	  var other = "<input name='other' type='radio' value=''>其他";
+	  switch (e.target.value) {
+	    case '0':
+	      $('#otherPeriod').hide();
+	      $('#content').html(engineOil + oilFilter);
+	      break;
+	    case '1':
+	      $('#otherPeriod').hide();
+	      $('#content').html(engineOil + oilFilter + airFilter);
+	      break;
+	    case '2': 
+	      $('#otherPeriod').hide();
+	      $('#content').html(engineOil + oilFilter + airFilter + fuelFilter + 
+	                         coolantTank +'<br/>'+ autoTransmission + brakeFluid);
+	      break;
+	    case '3':
+	      $('#otherPeriod').hide();
+	      $('#content').html(engineOil + oilFilter + airFilter + fuelFilter + coolantTank +
+	          autoTransmission +'<br/>'+ brakeFluid + gearOil + powerOil + storageBattery + sparkplug);
+	      break;
+	    case '4':
+	      /* if($('#otherPeriod').length == 0) {
+	        $('#period').append("<input id='otherPeriod'/>");
+	      } */
+	      $('#otherPeriod').show();
+	      $('#content').html("<textarea name='content' cols='60' rows='6' class='input'></textarea></td>");
+	      break;
+	  }
   })
 </script>
 </body>

@@ -12,6 +12,7 @@ public class Maintenance implements Serializable {
     private String car;	
     private String plateNumber;*/
     private String content;
+    private String period;
     private Date preTime;
     private Date nextTime;
     private Long isDone;
@@ -125,6 +126,14 @@ public class Maintenance implements Serializable {
 
 	public void setIsDone(Long isDone) {
 		this.isDone = isDone;
+	}
+
+	public String getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
 	}
 
 }

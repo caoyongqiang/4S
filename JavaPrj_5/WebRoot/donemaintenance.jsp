@@ -75,7 +75,13 @@
 					    <td><input disabled name="nextTime" type="text" class="input" id="nextTime" <%if(e != null) {%> value="<%=StringUtil.notNull(DateUtil.parseToString(e.getNextTime(),DateUtil.yyyyMMdd))%>" <%} %>>
 					    <span class="red">*</span>
 					    </td>
-					    </tr>
+					  </tr>
+					  <tr>
+						<td nowrap align="right" width="9%">保养周期：</td>
+						<td id="period">
+						  <input disabled name="period" type="text" class="input" id="period" <%if(e != null) {%> value="<%=e.getPeriod()%>" <%} %>>
+						</td>
+					  </tr>
 					  <tr>
 						<td nowrap align="right">保养内容：</td>
 						<td colspan="3">

@@ -228,7 +228,7 @@ public class CarOwnersAction extends Action {
     	String[][] ownersArr;
     	ownersArr = new String[length][];
     	for(int i=0; i<length; i++) {
-    		ownersArr[i] = new String[12];
+    		ownersArr[i] = new String[13];
     		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
     		ownersArr[i][1] = ownersList.get(i).getName();
     		ownersArr[i][2] = ownersList.get(i).getPhoneNumber();
@@ -240,8 +240,9 @@ public class CarOwnersAction extends Action {
     		ownersArr[i][8] = String.valueOf(ownersList.get(i).getTotalize());
     		ownersArr[i][9] = ownersList.get(i).getPlateNumber();
     		ownersArr[i][10] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPurchaseTime(),DateUtil.yyyyMMdd));
+    		ownersArr[i][11] = ownersList.get(i).getSeller();
     		if(u.getRoleType() == 2 || u.getRoleType()==3) {
-    		  ownersArr[i][11] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+    		  ownersArr[i][12] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
 				   	             "<a href='modifycarOwners.do?action=deletecarOwners&id=" +ownersArr[i][0]+ "'>删除</a>";
     		}
     	}

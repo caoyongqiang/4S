@@ -72,7 +72,9 @@
 					    <td nowrap align="right">购车时间：</td>
 					    <td><input name="purchaseTime" type="text" class="input" id="purchaseTime">
 				        <span class="red">*</span></td>
-					    <td colspan="2"><div align="left">注：金钱单位（元/RMB）</div></td>
+					    <td nowrap align="right">销售人：</td>
+					    <td><input name="seller" type="text" class="input" id="seller">
+				        <span class="red">*</span></td>
 					    </tr>
 					  </table>
 			  <br />

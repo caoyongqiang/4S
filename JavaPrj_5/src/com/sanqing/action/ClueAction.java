@@ -20,6 +20,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.hibernate.HibernateException;
 
+import com.sanqing.dao.CarOwnersDao;
 import com.sanqing.dao.ClueDao;
 import com.sanqing.po.CarOwners;
 import com.sanqing.po.Clue;
@@ -154,6 +155,8 @@ public class ClueAction extends Action {
     	response.setCharacterEncoding("UTF-8");
     	Map<String, Object> hashMap=new HashMap<String, Object>();
         hashMap.put("clues", dao.getClueDist(startDate, endDate));
+        CarOwnersDao dao=new CarOwnersDao();
+        hashMap.put("owners", dao.carSaleDist(startDate, endDate));
     	try {
     		JSONObject result=JSONObject.fromObject(hashMap);
     		response.getWriter().write(result.toString());

@@ -122,7 +122,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>手机号</th>
 		                <th>车型</th>
 		                <th>车牌号</th>
-		                <th>车保养内容</th>
+		                <th>保养周期</th>
 		                <th>上次保养时间</th>
 		                <th>下次保养时间</th>
 		                <th>操作</th>

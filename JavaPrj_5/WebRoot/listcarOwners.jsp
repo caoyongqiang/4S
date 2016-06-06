@@ -177,6 +177,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>成交价格</th>
 		                <th>车牌号</th>
 		                <th>购买日期</th>
+		                <th>销售人</th>
 		                <th>执行操作</th>
 		            </tr>
 		        </thead>

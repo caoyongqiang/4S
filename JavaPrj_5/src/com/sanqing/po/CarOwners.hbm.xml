@@ -17,5 +17,6 @@
 		<property name="plateNumber" length="30"  type="string"/>
 		<property name="other" length="53" type="float"/>
 		<property name="totalize" length="53" type="float"/>
+		<property name="seller" length="50"  type="string"/>
 	</class>
 </hibernate-mapping>

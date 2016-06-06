@@ -45,6 +45,9 @@ public class CarOwnersForm extends ActionForm {
 
     /** nullable persistent field */
     private Float totalize;
+    
+    /** nullable persistent field */
+    private String seller;
 
     /** full constructor */
     public void reset(ActionMapping mapping,HttpServletRequest request) {
@@ -153,6 +156,7 @@ public class CarOwnersForm extends ActionForm {
         toStr.append("    carPrice = " + this.carPrice + ";\n");
         toStr.append("    plateNumber = " + this.plateNumber + ";\n");
         toStr.append("    other = " + this.other + ";\n");
+        toStr.append("    seller = " + this.seller + ";\n");
         toStr.append("    totalize = " + this.totalize + ";\n");
         toStr.append("    ];\n");
         return toStr.toString();
@@ -171,6 +175,7 @@ public class CarOwnersForm extends ActionForm {
         s.setPlateNumber(this.getPlateNumber());
         s.setCarPrice(this.getCarPrice());
         s.setTotalize(this.getTotalize());
+        s.setSeller(this.getSeller());
         return s;
     }
 
@@ -186,4 +191,12 @@ public class CarOwnersForm extends ActionForm {
     public void setPurchaseTime(String purchaseTime) {
         this.purchaseTime = purchaseTime;
     }
+
+	public String getSeller() {
+		return seller;
+	}
+
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
 }

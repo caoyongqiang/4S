@@ -28,6 +28,7 @@ import com.sanqing.po.CarOwners;
 import com.sanqing.po.Clue;
 import com.sanqing.po.Maintenance;
 import com.sanqing.po.Service;
+import com.sanqing.po.Users;
 import com.sanqing.tool.DateUtil;
 import com.sanqing.tool.StringUtil;
 
@@ -138,6 +139,7 @@ public class MaintenanceAction extends Action {
     	e.setContent(request.getParameter("content"));
     	e.setPreTime(DateUtil.parseToDate(request.getParameter("preTime"),DateUtil.yyyyMMdd));
     	e.setNextTime(DateUtil.parseToDate(request.getParameter("nextTime"),DateUtil.yyyyMMdd));
+    	e.setPeriod(request.getParameter("period"));
     	e.setIsDone(new Long(0));
     	if(request.getParameter("id") != ""){
     		Long id = new Long(request.getParameter("id"));
@@ -230,6 +232,7 @@ public class MaintenanceAction extends Action {
     	String startDate = request.getParameter("startDate");
     	String endDate = request.getParameter("endDate");
     	String status = request.getParameter("status");
+    	String seller = ((Users)request.getSession().getAttribute("users")).getUsername();
     	/*if(startDate == "" && endDate == "") {
     		Calendar calendar = new GregorianCalendar(); 
             Calendar cal  = Calendar.getInstance();
@@ -245,6 +248,7 @@ public class MaintenanceAction extends Action {
         owner.put("plateNumber", plateNumber);
         owner.put("startDate", startDate);
         owner.put("endDate", endDate);
+        owner.put("seller", seller);
         owner.put("status", "(" + status + ")");
     	response.setCharacterEncoding("UTF-8");
     	Map<String, Object> hashMap=new HashMap<String, Object>();

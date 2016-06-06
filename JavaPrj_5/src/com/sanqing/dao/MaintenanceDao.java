@@ -147,13 +147,14 @@ public class MaintenanceDao {
     	}
         Session session = HibernateSessionFactory.getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("select e.id, c.name, c.phoneNumber, c.car, c.plateNumber, e.content, e.preTime, e.nextTime, e.isDone " + 
+        Query query = session.createQuery("select e.id, c.name, c.phoneNumber, c.car, c.plateNumber, e.period, e.preTime, e.nextTime, e.isDone " + 
                 "from Maintenance as e, CarOwners as c " + 
                 "where e.ownerId = c.id " +
         		"and c.name like '%" +owner.get("name")+ "%' " +
         		"and c.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
         		"and c.car like '%" +owner.get("car")+ "%'" +
         		"and e.isDone in " +owner.get("status") +
+        		"and c.seller like '%" +owner.get("seller")+ "%'" +
         		"and c.plateNumber like '%" +owner.get("plateNumber")+ "%'" + timeSqlStr );
         //Query query = session.createQuery("select c.id, c.name, c.phoneNumber, c.car, c.plateNumber, e.content, e.preTime, e.nextTime from Maintenance as e left join  CarOwners as c on e.ownerId = c.id");
         List list = query.list();
