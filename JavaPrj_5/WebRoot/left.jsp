@@ -262,7 +262,7 @@ function list(idstr){
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu14" src="images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="clueDist.do" target="mainFrame" class="left-font03" onClick="tupian('14');">来店线索</a></td>
+				  <td width="91%"><a href="clueDist.do" target="mainFrame" class="left-font03" onClick="tupian('14');">线索发展</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu15" src="images/ico06.gif" width="8" height="12" /></td>

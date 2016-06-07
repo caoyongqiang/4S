@@ -56,6 +56,8 @@ public class CarOwnersAction extends Action {
             return carOwnersChart(mapping,form,request,response);
         }else if("searchCarOwners".equals(action)){
             return searchCarOwners(mapping,form,request,response);
+        }else if("carSalePie".equals(action)){
+            return carSalePie(mapping,form,request,response);
         }
         return mapping.findForward("error");
     }
@@ -141,6 +143,7 @@ public class CarOwnersAction extends Action {
         main.setNextTime(c.getTime());
         main.setContent("首保");
         main.setIsDone(new Long(0));
+        main.setPeriod("3个月");
         mainDao.addMaintenance(main);
         return mapping.findForward("success");
     }
@@ -197,6 +200,49 @@ public class CarOwnersAction extends Action {
      * @return
      * @throws HibernateException
      */
+    private ActionForward carSalePie(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
+    	String startDate = request.getParameter("startDate");
+    	String endDate = request.getParameter("endDate");
+    	if(startDate == null && endDate == null) {
+    		Calendar calendar = new GregorianCalendar(); 
+            Calendar cal  = Calendar.getInstance();
+            SimpleDateFormat formatter_shuzi = new SimpleDateFormat("yyyy-MM");
+            endDate = formatter_shuzi.format(cal.getTime());
+            cal.add(Calendar.MONTH, -11);
+            startDate = formatter_shuzi.format(cal.getTime());
+    	}else{
+    	    startDate = startDate.substring(0, 6);
+    	    endDate = endDate.substring(0, 6);
+    	}
+    	response.setCharacterEncoding("UTF-8");
+    	Map<String, Object> hashMap=new HashMap<String, Object>();
+    	List<Object[]> ownersList = dao.carSalePie(startDate, endDate);
+    	int length = ownersList.size();
+    	String[][] ownersArr;
+    	ownersArr = new String[length][];
+    	for(int i=0; i<length; i++) {
+    		ownersArr[i] = new String[2];
+    		ownersArr[i][0] = String.valueOf(ownersList.get(i)[0]);
+    		ownersArr[i][1] = String.valueOf(ownersList.get(i)[1]);
+    	}
+        hashMap.put("owners", ownersArr);
+    	try {
+    		JSONArray result=JSONArray.fromObject(hashMap);
+            response.getWriter().write(result.toString());
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+        return mapping.findForward("chart");
+    }
+    
+    /**
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws HibernateException
+     */
     private ActionForward searchCarOwners(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws HibernateException {
     	try{
     	  request.setCharacterEncoding("UTF-8");
@@ -207,7 +253,7 @@ public class CarOwnersAction extends Action {
     	String ownerName = request.getParameter("ownerName");
     	String phoneNumber = request.getParameter("phoneNumber");
     	String idCard = request.getParameter("idCard");
-    	String house = request.getParameter("house");
+    	String seller = request.getParameter("seller");
     	String car = request.getParameter("car");
     	String plateNumber = request.getParameter("plateNumber");
     	String startDate = request.getParameter("startDate");
@@ -216,7 +262,7 @@ public class CarOwnersAction extends Action {
         owner.put("ownerName", ownerName);
         owner.put("phoneNumber", phoneNumber);
         owner.put("idCard", idCard);
-        owner.put("house", house);
+        owner.put("seller", seller);
         owner.put("car", car);
         owner.put("plateNumber", plateNumber);
         owner.put("startDate", startDate);
@@ -228,21 +274,20 @@ public class CarOwnersAction extends Action {
     	String[][] ownersArr;
     	ownersArr = new String[length][];
     	for(int i=0; i<length; i++) {
-    		ownersArr[i] = new String[13];
+    		ownersArr[i] = new String[12];
     		ownersArr[i][0] = String.valueOf(ownersList.get(i).getId());
     		ownersArr[i][1] = ownersList.get(i).getName();
     		ownersArr[i][2] = ownersList.get(i).getPhoneNumber();
     		ownersArr[i][3] = ownersList.get(i).getIdCard();
-    		ownersArr[i][4] = ownersList.get(i).getHouse();
-    		ownersArr[i][5] = ownersList.get(i).getCar();
-    		ownersArr[i][6] = String.valueOf(ownersList.get(i).getCarPrice());
-    		ownersArr[i][7] = String.valueOf(ownersList.get(i).getOther());
-    		ownersArr[i][8] = String.valueOf(ownersList.get(i).getTotalize());
-    		ownersArr[i][9] = ownersList.get(i).getPlateNumber();
-    		ownersArr[i][10] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPurchaseTime(),DateUtil.yyyyMMdd));
-    		ownersArr[i][11] = ownersList.get(i).getSeller();
+    		ownersArr[i][4] = ownersList.get(i).getCar();
+    		ownersArr[i][5] = String.valueOf(ownersList.get(i).getCarPrice());
+    		ownersArr[i][6] = String.valueOf(ownersList.get(i).getOther());
+    		ownersArr[i][7] = String.valueOf(ownersList.get(i).getTotalize());
+    		ownersArr[i][8] = ownersList.get(i).getPlateNumber();
+    		ownersArr[i][9] = StringUtil.notNull(DateUtil.parseToString(ownersList.get(i).getPurchaseTime(),DateUtil.yyyyMMdd));
+    		ownersArr[i][10] = ownersList.get(i).getSeller();
     		if(u.getRoleType() == 2 || u.getRoleType()==3) {
-    		  ownersArr[i][12] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a>&nbsp;&nbsp;" +
+    		  ownersArr[i][11] = "<a href='updatecarOwners.do?action=detailcarOwners&id=" +ownersArr[i][0]+ "'>修改</a><br/>" +
 				   	             "<a href='modifycarOwners.do?action=deletecarOwners&id=" +ownersArr[i][0]+ "'>删除</a>";
     		}
     	}

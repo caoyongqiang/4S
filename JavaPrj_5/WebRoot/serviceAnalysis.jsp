@@ -191,7 +191,7 @@ body {
                 var xAxisData = getxAxisData();
                 option = {
 				    title : {
-				        text: '来店线索分布',
+				        text: '售后服务分析',
 				        subtext: '按月计数'
 				    },
 				    tooltip : {

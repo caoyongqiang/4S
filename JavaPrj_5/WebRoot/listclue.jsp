@@ -119,7 +119,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>身份证号</th>
 		                <th>家庭住址</th>
 		                <th>预购车型</th>
-		                <th>购买日期</th>
+		                <th>来店日期</th>
 		                <th>执行操作</th>
 		            </tr>
 		        </thead>

@@ -37,7 +37,7 @@ public class CarOwnersDao {
     }
 
     public void addCarOwners(CarOwners e) throws HibernateException{
-    	if(e.getCarPrice() == null && e.getOther() != null) {
+    	if(e.getCarPrice() != null && e.getOther() != null) {
             e=getCountTotalize(e);
     	}
         Session session = HibernateSessionFactory.getSession();
@@ -89,7 +89,7 @@ public class CarOwnersDao {
         		"where e.name like '%" +owner.get("ownerName")+ "%' " +
         		"and e.phoneNumber like '%" +owner.get("phoneNumber")+ "%'" +
         		"and e.idCard like '%" +owner.get("idCard")+ "%'" +
-        		"and e.house like '%" +owner.get("house")+ "%'" +
+        		"and e.seller like '%" +owner.get("seller")+ "%'" +
         		"and e.car like '%" +owner.get("car")+ "%'" +
         		"and e.plateNumber like '%" +owner.get("plateNumber")+ "%'" + timeSqlStr );
         List list = query.list();
@@ -138,6 +138,55 @@ public class CarOwnersDao {
         tx.commit();
         HibernateSessionFactory.closeSession();
         return arr;
+    }
+    
+    public List carSalePie(String startDate, String endDate) throws HibernateException{
+    	startDate += "-01";
+    	endDate += "-31";
+        Session session = HibernateSessionFactory.getSession();
+        Transaction tx = session.beginTransaction();
+        String startArr[] = startDate.split("-");
+        String endArr[] = endDate.split("-");
+        SimpleDateFormat sdf =  new SimpleDateFormat( "yyyy-MM" );
+        int months = 0;
+        Date dateStart = new Date();
+        Date dateEnd = new Date();
+        try{
+        	dateStart = sdf.parse(startDate);
+        	dateEnd = sdf.parse(endDate);
+        	months = calculateMonthIn(dateStart,dateEnd);
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+        Query query = session.createQuery("select e.car,count(*) from CarOwners as e where e.purchaseTime between '"
+                                          +startDate+ "' and '" +endDate+ "'" + "group by e.car" );
+        System.out.println(query.list());
+        List list = query.list();
+        /*int year = Integer.parseInt(startArr[0]);
+        int month = Integer.parseInt(startArr[1]);
+        String str = "";
+        for(int i = 0; i <= months; i++) {
+          if(month >= 13) {
+        	  month = 1;
+        	  year++;
+          }
+          if(month < 10) {
+        	  str = year + "-0" + (month++);
+          } else{
+        	  str = year + "-" + (month++);
+          }
+          Query query = session.createQuery("select count(*) from CarOwners as e where e.purchaseTime like'%" 
+                                           + str + "%'");
+          list.add(query.list().get(0));
+        }
+        int size = list.size();
+        Integer[] arr=new Integer[list.size()];
+        for(int i=0; i<size; i++) {
+        	arr[i] = ((Number)list.get(i)).intValue();
+        }*/
+        tx.commit();
+        HibernateSessionFactory.closeSession();
+        return list;
     }
     
     public static int calculateMonthIn(Date date1, Date date2) {

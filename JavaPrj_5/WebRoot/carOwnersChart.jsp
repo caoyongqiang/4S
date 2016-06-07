@@ -89,16 +89,24 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "carOwnersChart.do?action=carOwnersChart",
+		        url: "carOwnersChart.do?action=carSalePie",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
 		          var ownersArr = $.parseJSON(result)[0].owners;
-		          var xAxisData = getxAxisData();
-		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          var legendData = [];
+		          var seriesData = [];
+		          ownersArr.forEach(function(val){
+		              var temp = {};
+		              legendData.push(val[0]);
+		              temp.value = val[1];
+		              temp.name = val[0];
+		              seriesData.push(temp);
+		          })
+		          option.legend.data = legendData;
+		          option.series[0].data = seriesData;
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -118,16 +126,24 @@ body {
 		  onSelectDate:function(ct,$i){
 		    if( !$('#date_timepicker_start').val() || !$('#date_timepicker_end').val() ) return;
 		    $.ajax({
-		        url: "carOwnersChart.do?action=carOwnersChart",
+		        url: "carOwnersChart.do?action=carSalePie",
 		        data: {
 		          startDate: $('#date_timepicker_start').val(),
 		          endDate: $('#date_timepicker_end').val()
 		        },
 		        success: function(result) {
 		          var ownersArr = $.parseJSON(result)[0].owners;
-		          var xAxisData = getxAxisData();
-		          option.xAxis[0].data = xAxisData;
-		          option.series[0].data = ownersArr;
+		          var legendData = [];
+		          var seriesData = [];
+		          ownersArr.forEach(function(val){
+		              var temp = {};
+		              legendData.push(val[0]);
+		              temp.value = val[1];
+		              temp.name = val[0];
+		              seriesData.push(temp);
+		          })
+		          option.legend.data = legendData;
+		          option.series[0].data = seriesData;
 		          myChart.clear();
 		          myChart.setOption(option);
 		          myChart.setTheme('macarons');
@@ -154,13 +170,15 @@ body {
         require(
             [
                 'echarts',
-                'echarts/chart/line',
-                'echarts/chart/bar'
+                'echarts/chart/funnel',
+                'echarts/chart/pie'
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
                 myChart = ec.init(document.getElementById('main')); 
                 var ownersArr = '';
+                var seriesData = [];
+                var legendData = [];
                 var today = new Date();
                 var year = today.getFullYear();
                 var month = today.getMonth()+2;
@@ -168,7 +186,7 @@ body {
                 today.setMonth( month - 12 );
                 var startDate = today.getFullYear() + '-' + (today.getMonth()+1);
                 $.ajax({
-			        url: "carOwnersChart.do?action=carOwnersChart",
+			        url: "carOwnersChart.do?action=carSalePie",
 			        data: {
 			          startDate: startDate,
 			          endDate: endDate
@@ -176,62 +194,60 @@ body {
 			        async: false,
 			        success: function(result) {
 			          ownersArr = $.parseJSON(result)[0].owners;
+			          ownersArr.forEach(function(val){
+			              console.log(val);
+			              var temp = {};
+			              legendData.push(val[0]);
+			              temp.value = val[1];
+			              temp.name = val[0];
+			              seriesData.push(temp);
+			          })
 			        }
 		        });
                 var xAxisData = getxAxisData();
                 option = {
 				    title : {
-				        text: '车辆销售分布',
-				        subtext: '按月计数'
+				        text: '各车型销量分析',
+				        x:'center'
 				    },
 				    tooltip : {
-				        trigger: 'axis'
+				        trigger: 'item',
+				        formatter: "{a} <br/>{b} : {c} ({d}%)"
 				    },
 				    legend: {
-				        data:['售出车辆数']
+				        orient : 'vertical',
+				        x : 'left',
+				        data: legendData
 				    },
 				    toolbox: {
 				        show : true,
 				        feature : {
 				            mark : {show: true},
 				            dataView : {show: true, readOnly: false},
-				            magicType : {show: true, type: ['line', 'bar']},
+				            magicType : {
+				                show: true, 
+				                type: ['pie', 'funnel'],
+				                option: {
+				                    funnel: {
+				                        x: '25%',
+				                        width: '50%',
+				                        funnelAlign: 'left',
+				                        max: 1548
+				                    }
+				                }
+				            },
 				            restore : {show: true},
 				            saveAsImage : {show: true}
 				        }
 				    },
 				    calculable : true,
-				    xAxis : [
-				        {
-				            type : 'category',
-				            boundaryGap : false,
-				            data : xAxisData
-				        }
-				    ],
-				    yAxis : [
-				        {
-				            type : 'value',
-				            axisLabel : {
-				                formatter: ''
-				            }
-				        }
-				    ],
 				    series : [
 				        {
-				            name:'售出车辆数',
-				            type:'line',
-				            data:ownersArr,
-				            markPoint : {
-				                data : [
-				                    {type : 'max', name: '最大值'},
-				                    {type : 'min', name: '最小值'}
-				                ]
-				            },
-				            markLine : {
-				                data : [
-				                    {type : 'average', name: '平均值'}
-				                ]
-				            }
+				            name:'销售数量（台）',
+				            type:'pie',
+				            radius : '75%',
+				            center: ['50%', '60%'],
+				            data:seriesData
 				        }
 				    ]
 				};

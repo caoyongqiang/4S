@@ -85,8 +85,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 					    <td nowrap align="right" width="">身份证号：</td>
 					    <td><input name="idCard" type="text" class="input" id="idCard">
 					    </td>
-					    <td><div align="right">家庭住址：</div></td>
-					    <td><input name="house" type="text" class="input" id="house"></td>
+					    <td><div align="right">销售人：</div></td>
+					    <td><input name="seller" type="text" class="input" id="seller"></td>
 					  </tr>
 					  <tr>
 					    <td nowrap align="right">车型：</td>
@@ -170,7 +170,6 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 		                <th>车主姓名</th>
 		                <th>手机号</th>
 		                <th>身份证号</th>
-		                <th>家庭住址</th>
 		                <th>购买车型</th>
 		                <th>裸车价</th>
 		                <th>其他费用</th>
@@ -225,7 +224,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	          ownerName: $('#ownerName').val() || '',
 	          phoneNumber: $('#phoneNumber').val() || '',
 	          idCard: $('#idCard').val() || '',
-	          house: $('#house').val() || '',
+	          seller: $('#seller').val() || '',
 	          car: $('#car').val() || '',
 	          plateNumber: $('#plateNumber').val() || '',
 	          startDate: $('#date_timepicker_start').val() || '',
@@ -271,7 +270,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 	          ownerName: $('#ownerName').val() || '',
 	          phoneNumber: $('#phoneNumber').val() || '',
 	          idCard: $('#idCard').val() || '',
-	          house: $('#house').val() || '',
+	          seller: $('#seller').val() || '',
 	          car: $('#car').val() || '',
 	          plateNumber: $('#plateNumber').val() || '',
 	          startDate: $('#date_timepicker_start').val() || '',
